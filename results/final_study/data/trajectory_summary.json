@@ -1,0 +1,1192 @@
+[
+  {
+    "source": "PINN + ForceNet",
+    "case": "baseline",
+    "seed_eta": -0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0026706958511039233
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "baseline",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.002638947431704382
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "baseline",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.002787349959949826
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "baseline",
+    "seed_eta": 0.0,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.003272258754456728
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "baseline",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0031721079979748473
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "baseline",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.002033125181040859
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "baseline",
+    "seed_eta": 0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.003484916436725319
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0105",
+    "seed_eta": -0.65,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0001411376774261432
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0105",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.00023257602905023457
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0105",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0002764830483512038
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0105",
+    "seed_eta": 0.0,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.000293132377575527
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0105",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0002973987180383228
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0105",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0002412762933905123
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0105",
+    "seed_eta": 0.65,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.00011606804450647624
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0255",
+    "seed_eta": -0.65,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.002835915658301945
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0255",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0028104352523398266
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0255",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.002948179870351958
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0255",
+    "seed_eta": 0.0,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0034531428606210876
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0255",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.003313981357831158
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0255",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.00203370168537077
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.0255",
+    "seed_eta": 0.65,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0035373502208675953
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.045",
+    "seed_eta": -0.65,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.012204435413970113
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.045",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.011786820853202217
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.045",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.010861678205763116
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.045",
+    "seed_eta": 0.0,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.010318419770261886
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.045",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.009906669276432327
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.045",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.010090963359729664
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "diameter_0.045",
+    "seed_eta": 0.65,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.010165482337615755
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_200",
+    "seed_eta": -0.65,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.000384134940676211
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_200",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0006149470886301417
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_200",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0007271775290847238
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_200",
+    "seed_eta": 0.0,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0007837375069755267
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_200",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0007960606185212223
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_200",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0006465682749809055
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_200",
+    "seed_eta": 0.65,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.00030874696859600135
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_1000",
+    "seed_eta": -0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0026706958511039233
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_1000",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.002638947431704382
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_1000",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.002787349959949826
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_1000",
+    "seed_eta": 0.0,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.003272258754456728
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_1000",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0031721079979748473
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_1000",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.002033125181040859
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_1000",
+    "seed_eta": 0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.003484916436725319
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_3000",
+    "seed_eta": -0.65,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.006474465918512826
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_3000",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.006268917881641612
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_3000",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.005745432469036776
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_3000",
+    "seed_eta": 0.0,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.005258661167231633
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_3000",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.004492712112409538
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_3000",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0033418800460250824
+  },
+  {
+    "source": "PINN + ForceNet",
+    "case": "density_3000",
+    "seed_eta": 0.65,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0031333545645456616
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "baseline",
+    "seed_eta": -0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0026348117733790907
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "baseline",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0026424399480268162
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "baseline",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0028696699410547186
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "baseline",
+    "seed_eta": 0.0,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0033754517121062735
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "baseline",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0035119653543391575
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "baseline",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0032002693353911497
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "baseline",
+    "seed_eta": 0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0023261711292724536
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0105",
+    "seed_eta": -0.65,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0001333273517019479
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0105",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.00022670149344285588
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0105",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0002824992860227831
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0105",
+    "seed_eta": 0.0,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.00031817758096259433
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0105",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.00032726886517131835
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0105",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.00027079149955856275
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0105",
+    "seed_eta": 0.65,
+    "diameter": 0.0105,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.00016581368383949323
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0255",
+    "seed_eta": -0.65,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0028031778952266415
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0255",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.002792991470614886
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0255",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0030246101252609883
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0255",
+    "seed_eta": 0.0,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0035544221426455458
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0255",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0036963960739989986
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0255",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.003371929283958967
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.0255",
+    "seed_eta": 0.65,
+    "diameter": 0.025500000000000002,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.002460607025947818
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.045",
+    "seed_eta": -0.65,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0122053525986495
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.045",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.011778177467036747
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.045",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.01109641890482718
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.045",
+    "seed_eta": 0.0,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.010185073725500007
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.045",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.009994565142225235
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.045",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.00998586887863939
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "diameter_0.045",
+    "seed_eta": 0.65,
+    "diameter": 0.045,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.010062499421294401
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_200",
+    "seed_eta": -0.65,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.00037459614234560686
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_200",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0006022437466988994
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_200",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0007473498101611387
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_200",
+    "seed_eta": 0.0,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0008524858539293234
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_200",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0008765777051917581
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_200",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0007335806279399793
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_200",
+    "seed_eta": 0.65,
+    "diameter": 0.025,
+    "density_ratio": 200.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0004485132523220751
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_1000",
+    "seed_eta": -0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0026348117733790907
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_1000",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0026424399480268162
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_1000",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0028696699410547186
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_1000",
+    "seed_eta": 0.0,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0033754517121062735
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_1000",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0035119653543391575
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_1000",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0032002693353911497
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_1000",
+    "seed_eta": 0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0023261711292724536
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_3000",
+    "seed_eta": -0.65,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0064652434609003525
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_3000",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.006246727582458311
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_3000",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.005849092529962334
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_3000",
+    "seed_eta": 0.0,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.005353249934740245
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_3000",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.004581372123860046
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_3000",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.003446198625014299
+  },
+  {
+    "source": "FEM + Stokes",
+    "case": "density_3000",
+    "seed_eta": 0.65,
+    "diameter": 0.025,
+    "density_ratio": 3000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.003126584670136133
+  },
+  {
+    "source": "PINN + Stokes",
+    "case": "baseline",
+    "seed_eta": -0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0026577996221746345
+  },
+  {
+    "source": "PINN + Stokes",
+    "case": "baseline",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0026455868284811566
+  },
+  {
+    "source": "PINN + Stokes",
+    "case": "baseline",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0027924968441422164
+  },
+  {
+    "source": "PINN + Stokes",
+    "case": "baseline",
+    "seed_eta": 0.0,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0032843731256899864
+  },
+  {
+    "source": "PINN + Stokes",
+    "case": "baseline",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0031953810323513015
+  },
+  {
+    "source": "PINN + Stokes",
+    "case": "baseline",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.002060337539396924
+  },
+  {
+    "source": "PINN + Stokes",
+    "case": "baseline",
+    "seed_eta": 0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "stuck",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0034872726599438097
+  },
+  {
+    "source": "PINN tracer",
+    "case": "tracer",
+    "seed_eta": -0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  },
+  {
+    "source": "PINN tracer",
+    "case": "tracer",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  },
+  {
+    "source": "PINN tracer",
+    "case": "tracer",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  },
+  {
+    "source": "PINN tracer",
+    "case": "tracer",
+    "seed_eta": 0.0,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  },
+  {
+    "source": "PINN tracer",
+    "case": "tracer",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  },
+  {
+    "source": "PINN tracer",
+    "case": "tracer",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  },
+  {
+    "source": "PINN tracer",
+    "case": "tracer",
+    "seed_eta": 0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  },
+  {
+    "source": "FEM tracer",
+    "case": "tracer",
+    "seed_eta": -0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  },
+  {
+    "source": "FEM tracer",
+    "case": "tracer",
+    "seed_eta": -0.43333333333333335,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  },
+  {
+    "source": "FEM tracer",
+    "case": "tracer",
+    "seed_eta": -0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  },
+  {
+    "source": "FEM tracer",
+    "case": "tracer",
+    "seed_eta": 0.0,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  },
+  {
+    "source": "FEM tracer",
+    "case": "tracer",
+    "seed_eta": 0.21666666666666667,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  },
+  {
+    "source": "FEM tracer",
+    "case": "tracer",
+    "seed_eta": 0.43333333333333346,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  },
+  {
+    "source": "FEM tracer",
+    "case": "tracer",
+    "seed_eta": 0.65,
+    "diameter": 0.025,
+    "density_ratio": 1000.0,
+    "outcome": "exited",
+    "message": "A termination event occurred.",
+    "max_particle_re": 0.0
+  }
+]

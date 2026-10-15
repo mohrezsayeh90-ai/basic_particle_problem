@@ -1,0 +1,513 @@
+{
+  "geometry": {
+    "kind": "serpentine",
+    "length": 2.1991048091962173,
+    "width": 0.3,
+    "rin": 0.2,
+    "rout": 0.5
+  },
+  "poiseuille": {
+    "fem_velocity_relative_l2": 8.192371368289349e-10,
+    "pinn_velocity_relative_l2": 0.0021705328336898335,
+    "fem_pressure_relative_l2": 8.191842870464941e-10,
+    "pinn_pressure_relative_l2": 0.0017966055844855723,
+    "fem_solver_ok": true
+  },
+  "reference": {
+    "ns": 90,
+    "nn": 18,
+    "triangles": 3026,
+    "velocity_dofs": 12530,
+    "pressure_dofs": 1620,
+    "iterations": 13,
+    "relative_update": 4.076761697282389e-09,
+    "nonlinear_residual": 1.599867808494302e-10,
+    "divergence_l2": 0.04128351598649171,
+    "solver_ok": true,
+    "penultimate_velocity_difference": 0.0017323061876575098,
+    "trajectory_interpolator_velocity_error": 0.0017652159466120783
+  },
+  "seeds": [
+    {
+      "seed": 42,
+      "velocity_relative_l2": 0.015096144982268116,
+      "pressure_relative_l2": 0.008625689602803936,
+      "velocity_max_absolute": 0.05400762501134132,
+      "training": "restored_for_independent_evaluation",
+      "restored_from": "results/validated_run/models/flow_seed_42.pt",
+      "checkpoint_sha256": "dc75f2a36e1aa89cdfab5fb3161a3d88ea7607193b70d96772241abd9fd4e813",
+      "original_config": {
+        "preset": "standard",
+        "geometry": "serpentine",
+        "centerline": null,
+        "rin": 0.2,
+        "rout": 0.5,
+        "re": 1.0,
+        "density_ratio": 1000.0,
+        "diameter": 0.025,
+        "seed": 42,
+        "device": "cpu",
+        "threads": 2,
+        "out": "results/validated_run",
+        "skip_animation": false,
+        "skip_3d": false,
+        "epochs": 1000,
+        "force_epochs": 1000,
+        "samples": 512,
+        "ns": 60,
+        "nn": 12,
+        "seeds": 2,
+        "benchmark_epochs": 800,
+        "lbfgs_steps": 250,
+        "refine_epochs": 1800,
+        "refine_lbfgs_steps": 700
+      }
+    },
+    {
+      "seed": 43,
+      "velocity_relative_l2": 0.014292900261373068,
+      "pressure_relative_l2": 0.0088599220373039,
+      "velocity_max_absolute": 0.031398088629606274,
+      "training": "restored_for_independent_evaluation",
+      "restored_from": "results/validated_run/models/flow_seed_43.pt",
+      "checkpoint_sha256": "701980cdce58039131772d3d955cb312b17cfd05ac9f7f7435fcd618efbd7aa7",
+      "original_config": {
+        "preset": "standard",
+        "geometry": "serpentine",
+        "centerline": null,
+        "rin": 0.2,
+        "rout": 0.5,
+        "re": 1.0,
+        "density_ratio": 1000.0,
+        "diameter": 0.025,
+        "seed": 42,
+        "device": "cpu",
+        "threads": 2,
+        "out": "results/validated_run",
+        "skip_animation": false,
+        "skip_3d": false,
+        "epochs": 1000,
+        "force_epochs": 1000,
+        "samples": 512,
+        "ns": 60,
+        "nn": 12,
+        "seeds": 2,
+        "benchmark_epochs": 800,
+        "lbfgs_steps": 250,
+        "refine_epochs": 1800,
+        "refine_lbfgs_steps": 700
+      }
+    }
+  ],
+  "flow": {
+    "velocity_relative_l2": 0.015096144982268116,
+    "pressure_relative_l2": 0.008625689602803936,
+    "velocity_max_absolute": 0.05400762501134132,
+    "training": "restored_for_independent_evaluation",
+    "restored_from": "results/validated_run/models/flow_seed_42.pt",
+    "checkpoint_sha256": "dc75f2a36e1aa89cdfab5fb3161a3d88ea7607193b70d96772241abd9fd4e813",
+    "original_config": {
+      "preset": "standard",
+      "geometry": "serpentine",
+      "centerline": null,
+      "rin": 0.2,
+      "rout": 0.5,
+      "re": 1.0,
+      "density_ratio": 1000.0,
+      "diameter": 0.025,
+      "seed": 42,
+      "device": "cpu",
+      "threads": 2,
+      "out": "results/validated_run",
+      "skip_animation": false,
+      "skip_3d": false,
+      "epochs": 1000,
+      "force_epochs": 1000,
+      "samples": 512,
+      "ns": 60,
+      "nn": 12,
+      "seeds": 2,
+      "benchmark_epochs": 800,
+      "lbfgs_steps": 250,
+      "refine_epochs": 1800,
+      "refine_lbfgs_steps": 700
+    },
+    "continuity_rms": 0.1780688315629959,
+    "momentum_rms": 1.8295940160751343,
+    "boundary_rms": 0.004201731574358346,
+    "flux_relative_deviation": 0.022656831094608254,
+    "flux": [
+      0.20006284833487745,
+      0.20042093971227723,
+      0.1972501151631042,
+      0.1974037289821743,
+      0.1986976050936187,
+      0.20032306463153965,
+      0.20146644734591243,
+      0.20183276871155098,
+      0.20077316388189734,
+      0.1981443709623181,
+      0.19546863378107834,
+      0.19578380186751132,
+      0.20032584935623565,
+      0.2006431472584879,
+      0.2003262052318229,
+      0.1995946744601393,
+      0.20139657509449832,
+      0.2013935754912564,
+      0.19978796993941064,
+      0.2003175475093196,
+      0.1987962287147459,
+      0.19724784093934922,
+      0.19891287703193752,
+      0.20002483637175789,
+      0.2000341818771551
+    ]
+  },
+  "force": {
+    "heldout_relative_l2": 0.007172185152757193,
+    "physics": "Stokes_drag",
+    "training": "restored_for_independent_evaluation",
+    "restored_from": "results/validated_run/models/force.pt",
+    "checkpoint_sha256": "30ad82e3ac957012b7c524ebf5334000220758cd691ab97321d8c39f0bb3ac4e"
+  },
+  "seed_statistics": {
+    "velocity_relative_l2": {
+      "mean": 0.014694522621820593,
+      "std": 0.0005679797890971844,
+      "count": 2
+    },
+    "pressure_relative_l2": {
+      "mean": 0.008742805820053918,
+      "std": 0.00016562734280875884,
+      "count": 2
+    }
+  },
+  "relaxation": {
+    "max_absolute_error": 1.535075400127539e-10,
+    "tau": 0.03472222222222223,
+    "solver_ok": true
+  },
+  "force_trajectory_isolation": [
+    {
+      "seed_eta": -0.65,
+      "rms_position_error": 0.0001356782029430824,
+      "common_time": 2.6219199538529003,
+      "common_fraction": 0.9997369154906538,
+      "outcome_agreement": true
+    },
+    {
+      "seed_eta": -0.43333333333333335,
+      "rms_position_error": 0.00018538983207564173,
+      "common_time": 2.2808004928394885,
+      "common_fraction": 0.9996904656029278,
+      "outcome_agreement": true
+    },
+    {
+      "seed_eta": -0.21666666666666667,
+      "rms_position_error": 0.00027061293790159427,
+      "common_time": 2.307461905028632,
+      "common_fraction": 0.9999354148398228,
+      "outcome_agreement": true
+    },
+    {
+      "seed_eta": 0.0,
+      "rms_position_error": 0.0005007813767752529,
+      "common_time": 2.5722878908268747,
+      "common_fraction": 0.9997592869969533,
+      "outcome_agreement": true
+    },
+    {
+      "seed_eta": 0.21666666666666667,
+      "rms_position_error": 0.0006903120547807779,
+      "common_time": 3.160499204910935,
+      "common_fraction": 0.9994614512706418,
+      "outcome_agreement": true
+    },
+    {
+      "seed_eta": 0.43333333333333346,
+      "rms_position_error": 0.0012836815617870063,
+      "common_time": 4.586831238260691,
+      "common_fraction": 0.9986193122133898,
+      "outcome_agreement": true
+    },
+    {
+      "seed_eta": 0.65,
+      "rms_position_error": 0.0003194156880538616,
+      "common_time": 4.593257153974937,
+      "common_fraction": 0.9994236526299272,
+      "outcome_agreement": true
+    }
+  ],
+  "trajectory": {
+    "total": 119,
+    "failures": 0,
+    "max_particle_re": 0.0122053525986495,
+    "baseline_comparison": [
+      {
+        "seed_eta": -0.65,
+        "rms_position_error": 0.008003011736350627,
+        "common_time": 2.5921425883938904,
+        "common_fraction": 0.9886429158848834,
+        "outcome_agreement": true
+      },
+      {
+        "seed_eta": -0.43333333333333335,
+        "rms_position_error": 0.006898404255853003,
+        "common_time": 2.2654477649014257,
+        "common_fraction": 0.9932687107064988,
+        "outcome_agreement": true
+      },
+      {
+        "seed_eta": -0.21666666666666667,
+        "rms_position_error": 0.012895066775746401,
+        "common_time": 2.290678204107999,
+        "common_fraction": 0.9927263367234552,
+        "outcome_agreement": true
+      },
+      {
+        "seed_eta": 0.0,
+        "rms_position_error": 0.023501651914230336,
+        "common_time": 2.536715516865495,
+        "common_fraction": 0.985933536249829,
+        "outcome_agreement": true
+      },
+      {
+        "seed_eta": 0.21666666666666667,
+        "rms_position_error": 0.04825756992378432,
+        "common_time": 3.041734212390562,
+        "common_fraction": 0.9619037668389813,
+        "outcome_agreement": true
+      },
+      {
+        "seed_eta": 0.43333333333333346,
+        "rms_position_error": 0.10491910226477183,
+        "common_time": 4.014054398162223,
+        "common_fraction": 0.8739175334909213,
+        "outcome_agreement": true
+      },
+      {
+        "seed_eta": 0.65,
+        "rms_position_error": 0.009884288864254123,
+        "common_time": 4.595905992306705,
+        "common_fraction": 0.735530822788827,
+        "outcome_agreement": false
+      }
+    ]
+  },
+  "benchmark3d": {
+    "velocity_relative_l2": 0.02427629764367054,
+    "pressure_relative_l2": 0.135012197484622,
+    "domain": "periodic_cube",
+    "physics": "forced_ABC_flow",
+    "training": "PDE_and_boundary_only",
+    "stop_reason": "training_budget",
+    "lbfgs_evaluations": 0,
+    "geometry_scope": "separate_3D_benchmark_not_finite_depth_channel",
+    "restored_from": "results/validated_run/models/abc3d.pt",
+    "checkpoint_sha256": "950ca81e05bbdf95b0c97f37b6c2dbc0759942a7d2e8e557787723895738e4b7"
+  },
+  "quality_gate": {
+    "analytical_fem": true,
+    "analytical_pinn_velocity": true,
+    "analytical_pinn_pressure": true,
+    "reference_solver": true,
+    "mesh_sensitivity": true,
+    "trajectory_interpolation": true,
+    "velocity_error": true,
+    "pressure_error": true,
+    "boundary_error": true,
+    "mass_flux": true,
+    "drag_error": true,
+    "trajectory_solver": true,
+    "baseline_outcomes": false,
+    "baseline_position": false,
+    "baseline_time_coverage": false,
+    "abc3d_velocity": true,
+    "abc3d_pressure": false,
+    "pipeline_stages": true
+  },
+  "elapsed_seconds": 88.95807123184204,
+  "execution_stages": [
+    {
+      "stage": "geometry",
+      "status": "completed",
+      "seconds": 0.020800113677978516
+    },
+    {
+      "stage": "architecture figure",
+      "status": "completed",
+      "seconds": 0.7039785385131836
+    },
+    {
+      "stage": "geometry figure",
+      "status": "completed",
+      "seconds": 0.4194180965423584
+    },
+    {
+      "stage": "Poiseuille verification",
+      "status": "completed",
+      "seconds": 0.876915693283081
+    },
+    {
+      "stage": "FEM mesh 30 x 6",
+      "status": "completed",
+      "seconds": 0.12897419929504395
+    },
+    {
+      "stage": "FEM mesh 60 x 12",
+      "status": "completed",
+      "seconds": 0.6952733993530273
+    },
+    {
+      "stage": "FEM mesh 90 x 18",
+      "status": "completed",
+      "seconds": 2.3340904712677
+    },
+    {
+      "stage": "reference sampling",
+      "status": "completed",
+      "seconds": 0.12769865989685059
+    },
+    {
+      "stage": "reference interpolator",
+      "status": "completed",
+      "seconds": 0.0502924919128418
+    },
+    {
+      "stage": "mesh comparison 30",
+      "status": "completed",
+      "seconds": 0.011532306671142578
+    },
+    {
+      "stage": "mesh comparison 60",
+      "status": "completed",
+      "seconds": 0.03798556327819824
+    },
+    {
+      "stage": "mesh comparison 90",
+      "status": "completed",
+      "seconds": 0.09382009506225586
+    },
+    {
+      "stage": "mesh figures",
+      "status": "completed",
+      "seconds": 0.6910200119018555
+    },
+    {
+      "stage": "flow PINN seed 42",
+      "status": "completed",
+      "seconds": 0.004328489303588867
+    },
+    {
+      "stage": "PINN physical diagnostics",
+      "status": "completed",
+      "seconds": 0.01702260971069336
+    },
+    {
+      "stage": "flow PINN seed 43",
+      "status": "completed",
+      "seconds": 0.0041196346282958984
+    },
+    {
+      "stage": "force PINN",
+      "status": "completed",
+      "seconds": 0.005868434906005859
+    },
+    {
+      "stage": "field figures",
+      "status": "completed",
+      "seconds": 1.5717418193817139
+    },
+    {
+      "stage": "parity figures",
+      "status": "completed",
+      "seconds": 0.4728817939758301
+    },
+    {
+      "stage": "profile figures",
+      "status": "completed",
+      "seconds": 0.46004509925842285
+    },
+    {
+      "stage": "flux figures",
+      "status": "completed",
+      "seconds": 0.3790724277496338
+    },
+    {
+      "stage": "seed figures",
+      "status": "completed",
+      "seconds": 0.4896106719970703
+    },
+    {
+      "stage": "loss figures",
+      "status": "completed",
+      "seconds": 0.712960958480835
+    },
+    {
+      "stage": "drag verification",
+      "status": "completed",
+      "seconds": 0.5226116180419922
+    },
+    {
+      "stage": "particle studies",
+      "status": "completed",
+      "seconds": 54.615683794021606
+    },
+    {
+      "stage": "particle dynamics exports",
+      "status": "completed",
+      "seconds": 1.6192057132720947
+    },
+    {
+      "stage": "baseline paths figure",
+      "status": "completed",
+      "seconds": 0.5726735591888428
+    },
+    {
+      "stage": "tracer figure",
+      "status": "completed",
+      "seconds": 0.5158708095550537
+    },
+    {
+      "stage": "diameter figures",
+      "status": "completed",
+      "seconds": 0.9465157985687256
+    },
+    {
+      "stage": "density figures",
+      "status": "completed",
+      "seconds": 0.810657262802124
+    },
+    {
+      "stage": "outcome figure",
+      "status": "completed",
+      "seconds": 0.3346748352050781
+    },
+    {
+      "stage": "extrusion figure",
+      "status": "completed",
+      "seconds": 0.30115246772766113
+    },
+    {
+      "stage": "particle animation",
+      "status": "completed",
+      "seconds": 16.68227767944336
+    },
+    {
+      "stage": "3D ABC benchmark",
+      "status": "completed",
+      "seconds": 0.1508941650390625
+    },
+    {
+      "stage": "3D benchmark figures",
+      "status": "completed",
+      "seconds": 0.8633995056152344
+    }
+  ],
+  "assessment": {
+    "method": "explicit_field_trajectory_and_3D_pressure_screening",
+    "source_sha256": "b9163bcf2c3dae72acfb5fc5968da35962d36d075f0b7bb58bc7234056b19e00",
+    "numerical_results": "unchanged"
+  }
+}

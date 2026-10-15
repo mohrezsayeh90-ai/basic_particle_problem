@@ -1,0 +1,177 @@
+[
+  {
+    "stage": "geometry",
+    "status": "completed",
+    "seconds": 0.020800113677978516
+  },
+  {
+    "stage": "architecture figure",
+    "status": "completed",
+    "seconds": 0.7039785385131836
+  },
+  {
+    "stage": "geometry figure",
+    "status": "completed",
+    "seconds": 0.4194180965423584
+  },
+  {
+    "stage": "Poiseuille verification",
+    "status": "completed",
+    "seconds": 0.876915693283081
+  },
+  {
+    "stage": "FEM mesh 30 x 6",
+    "status": "completed",
+    "seconds": 0.12897419929504395
+  },
+  {
+    "stage": "FEM mesh 60 x 12",
+    "status": "completed",
+    "seconds": 0.6952733993530273
+  },
+  {
+    "stage": "FEM mesh 90 x 18",
+    "status": "completed",
+    "seconds": 2.3340904712677
+  },
+  {
+    "stage": "reference sampling",
+    "status": "completed",
+    "seconds": 0.12769865989685059
+  },
+  {
+    "stage": "reference interpolator",
+    "status": "completed",
+    "seconds": 0.0502924919128418
+  },
+  {
+    "stage": "mesh comparison 30",
+    "status": "completed",
+    "seconds": 0.011532306671142578
+  },
+  {
+    "stage": "mesh comparison 60",
+    "status": "completed",
+    "seconds": 0.03798556327819824
+  },
+  {
+    "stage": "mesh comparison 90",
+    "status": "completed",
+    "seconds": 0.09382009506225586
+  },
+  {
+    "stage": "mesh figures",
+    "status": "completed",
+    "seconds": 0.6910200119018555
+  },
+  {
+    "stage": "flow PINN seed 42",
+    "status": "completed",
+    "seconds": 0.004328489303588867
+  },
+  {
+    "stage": "PINN physical diagnostics",
+    "status": "completed",
+    "seconds": 0.01702260971069336
+  },
+  {
+    "stage": "flow PINN seed 43",
+    "status": "completed",
+    "seconds": 0.0041196346282958984
+  },
+  {
+    "stage": "force PINN",
+    "status": "completed",
+    "seconds": 0.005868434906005859
+  },
+  {
+    "stage": "field figures",
+    "status": "completed",
+    "seconds": 1.5717418193817139
+  },
+  {
+    "stage": "parity figures",
+    "status": "completed",
+    "seconds": 0.4728817939758301
+  },
+  {
+    "stage": "profile figures",
+    "status": "completed",
+    "seconds": 0.46004509925842285
+  },
+  {
+    "stage": "flux figures",
+    "status": "completed",
+    "seconds": 0.3790724277496338
+  },
+  {
+    "stage": "seed figures",
+    "status": "completed",
+    "seconds": 0.4896106719970703
+  },
+  {
+    "stage": "loss figures",
+    "status": "completed",
+    "seconds": 0.712960958480835
+  },
+  {
+    "stage": "drag verification",
+    "status": "completed",
+    "seconds": 0.5226116180419922
+  },
+  {
+    "stage": "particle studies",
+    "status": "completed",
+    "seconds": 54.615683794021606
+  },
+  {
+    "stage": "particle dynamics exports",
+    "status": "completed",
+    "seconds": 1.6192057132720947
+  },
+  {
+    "stage": "baseline paths figure",
+    "status": "completed",
+    "seconds": 0.5726735591888428
+  },
+  {
+    "stage": "tracer figure",
+    "status": "completed",
+    "seconds": 0.5158708095550537
+  },
+  {
+    "stage": "diameter figures",
+    "status": "completed",
+    "seconds": 0.9465157985687256
+  },
+  {
+    "stage": "density figures",
+    "status": "completed",
+    "seconds": 0.810657262802124
+  },
+  {
+    "stage": "outcome figure",
+    "status": "completed",
+    "seconds": 0.3346748352050781
+  },
+  {
+    "stage": "extrusion figure",
+    "status": "completed",
+    "seconds": 0.30115246772766113
+  },
+  {
+    "stage": "particle animation",
+    "status": "completed",
+    "seconds": 16.68227767944336
+  },
+  {
+    "stage": "3D ABC benchmark",
+    "status": "completed",
+    "seconds": 0.1508941650390625
+  },
+  {
+    "stage": "3D benchmark figures",
+    "status": "completed",
+    "seconds": 0.8633995056152344
+  }
+]
