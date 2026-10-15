@@ -1,0 +1,1153 @@
+% ======================================================================
+% COMPLETE ENGLISH THESIS TEMPLATE AND SECTION-BY-SECTION WRITING GUIDE
+% Single-file source. No external images, .bib file, or data are required.
+% Compile: pdflatex Complete_English_Thesis_Template.tex (run THREE times).
+% Overleaf: upload this file, select pdfLaTeX, then Recompile.
+% Common packages from a standard TeX Live / MiKTeX installation are used.
+%
+% START HERE:
+% 1. Read "How to Use This Template" in the compiled document.
+% 2. Edit the metadata below.
+% 3. Replace every \Draft{...} and all illustrative examples.
+% 4. Adapt the chapter structure to your actual study and university rules.
+% 5. Switch \showguidancefalse ONLY after you have read the guide.
+% 6. Before submission, search the SOURCE for Draft, TODO, and template.
+%
+% IMPORTANT: This is a general research-thesis framework, not an approved
+% university class. Institutional formatting and declaration rules prevail.
+% Everything between \Guide{...} braces is instructional, not thesis prose.
+% ======================================================================
+\documentclass[12pt,a4paper,oneside]{report}
+
+% --------------------- DOCUMENT SETTINGS -------------------------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage[left=32mm,right=25mm,top=27mm,bottom=27mm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs,tabularx,longtable,array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{bookmark}
+
+% --------------------- EDIT YOUR DETAILS -------------------------------
+\newcommand{\ThesisTitle}{Your Full Thesis Title}
+\newcommand{\ShortTitle}{Short Thesis Title}
+\newcommand{\AuthorName}{Your Full Name}
+\newcommand{\StudentID}{Your Student Number}
+\newcommand{\DegreeName}{Master of Science in Your Discipline}
+\newcommand{\DepartmentName}{Your Department}
+\newcommand{\UniversityName}{Your University}
+\newcommand{\SupervisorName}{Professor Firstname Lastname}
+\newcommand{\CoSupervisorName}{Dr. Firstname Lastname}
+\newcommand{\SubmissionDate}{Month Year}
+\newcommand{\UniversityCity}{City, Country}
+
+% --------------------- OPTIONAL COMPONENTS -----------------------------
+% true = include; false = omit. Confirm local front-matter requirements.
+\newif\ifshowguidance
+\showguidancetrue       % Change to \showguidancefalse to hide guide boxes.
+\newif\ifincludeapproval
+\includeapprovalfalse   % Use the university's exact approval form if needed.
+\newif\ifincludedeclaration
+\includedeclarationtrue
+\newif\ifincludededication
+\includededicationfalse
+\newif\ifincludepublications
+\includepublicationsfalse
+\newif\ifincludeglossary
+\includeglossaryfalse
+
+% --------------------- VISUAL STYLE ------------------------------------
+\definecolor{ThesisBlue}{HTML}{173F5F}
+\definecolor{GuideBlue}{HTML}{EDF4F9}
+\definecolor{GuideBorder}{HTML}{9BB7CD}
+\hypersetup{
+  colorlinks=true,linkcolor=ThesisBlue,citecolor=ThesisBlue,urlcolor=ThesisBlue,
+  pdftitle={\ThesisTitle},pdfauthor={\AuthorName},
+  pdfsubject={Research thesis template and writing guide}
+}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\fancypagestyle{plain}{%
+  \fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+\renewcommand{\chaptermark}[1]{\markboth{\thechapter.\ #1}{}}
+\setlist[itemize]{topsep=4pt,itemsep=2pt,parsep=0pt}
+\setlist[enumerate]{topsep=4pt,itemsep=2pt,parsep=0pt}
+\captionsetup{font=small,labelfont=bf}
+\renewcommand{\arraystretch}{1.18}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,
+  frame=single,columns=fullflexible,keepspaces=true,showstringspaces=false}
+
+% Guide boxes disappear in clean mode. Draft markers NEVER disappear:
+% turning guidance off must not conceal missing thesis content.
+\newcommand{\Guide}[1]{%
+  \ifshowguidance
+  \begin{tcolorbox}[enhanced,breakable,colback=GuideBlue,
+    colframe=GuideBorder,boxrule=0.5pt,arc=1mm,
+    title={Writing guide --- replace with your research},
+    colbacktitle=ThesisBlue,coltitle=white,fonttitle=\small\bfseries,
+    before skip=10pt,after skip=10pt]
+    \small #1
+  \end{tcolorbox}
+  \fi}
+\newcommand{\Draft}[1]{\par\noindent\textit{[TO WRITE: #1]}\par}
+\newcommand{\FrontChapter}[1]{%
+  \chapter*{#1}\phantomsection\addcontentsline{toc}{chapter}{#1}%
+  \markboth{#1}{#1}}
+\newcommand{\ChecklistItem}{\item[$\square$]}
+
+\begin{document}
+\hypersetup{pageanchor=false}
+
+% ======================================================================
+% TITLE PAGE
+% ======================================================================
+\begin{titlepage}
+\centering
+\vspace*{10mm}
+{\Large\UniversityName\par}
+\vspace{4mm}
+{\large\DepartmentName\par}
+\vspace{22mm}
+{\Huge\bfseries\color{ThesisBlue}\ThesisTitle\par}
+\vspace{15mm}
+{\Large\AuthorName\par}
+\vspace{3mm}
+{\normalsize Student ID: \StudentID\par}
+\vspace{14mm}
+{\large A thesis submitted in partial fulfillment of the requirements\par
+for the degree of\par}
+\vspace{4mm}
+{\large\bfseries\DegreeName\par}
+\vspace{12mm}
+{\normalsize Supervisor: \SupervisorName\par}
+{\normalsize Co-supervisor: \CoSupervisorName\par}
+% Delete the co-supervisor line if it does not apply.
+\vfill
+{\normalsize\UniversityCity\par\SubmissionDate\par}
+\end{titlepage}
+
+\pagenumbering{roman}
+\hypersetup{pageanchor=true}
+
+% ======================================================================
+% TEMPLATE MANUAL (AUTOMATICALLY HIDDEN WHEN GUIDANCE IS OFF)
+% ======================================================================
+\ifshowguidance
+\FrontChapter{How to Use This Template}
+This document is a complete, editable framework for an English-language
+research thesis, with particular support for engineering, computational,
+experimental, and data-driven research. It is a writing scaffold: the blue
+boxes describe what to write; italic bracketed markers identify content you
+must supply. Neither is a research finding.
+
+\section*{First decisions}
+\begin{enumerate}
+\item Obtain your institution's thesis handbook, approved title-page wording,
+declaration, citation style, and submission requirements. These take priority
+over this template. The margins, font, spacing, and chapter order here are
+editable defaults, not universal standards.
+\item Set the degree, title, author, university, supervisors, and date near
+the top of the source. Delete the co-supervisor line if irrelevant.
+\item Decide which chapters you need. A compact thesis may merge Chapters~2
+and~3, incorporate Chapter~5 into methodology/results, or combine results
+and discussion. A theoretical thesis may replace experiments with proofs.
+A qualitative thesis may replace numerical metrics with an analytical and
+coding framework. Do not add irrelevant experiments to fit the headings.
+\item Use the research questions as the organizing thread: each question
+needs an appropriate method, evidence, interpretation, and final answer.
+\end{enumerate}
+
+\section*{Build instructions}
+Upload this single \texttt{.tex} file to Overleaf and select pdfLaTeX, or run
+the following command locally three times to resolve the contents, lists,
+citations, and cross-references:
+\begin{quote}\ttfamily\small
+pdflatex Complete\_English\_Thesis\_Template.tex
+\end{quote}
+No external figure or bibliography file is necessary for the initial build.
+The reference at the end is an explicitly marked formatting placeholder.
+Replace it with verified sources before writing a real literature review.
+
+\section*{Guide mode and clean mode}
+The source contains \texttt{\string\showguidancetrue}. Change it to
+\texttt{\string\showguidancefalse} to hide this manual, all blue guide
+boxes, and the writing-handbook appendix. The thesis chapter structure,
+draft markers, illustrative table, equation, figure placeholder, and example
+reference remain visible. You must replace or delete these manually. Clean
+mode is a layout preview, not a submission-readiness check.
+
+\section*{Suggested writing sequence}
+Write methods and the record of your actual work first; then prepare results,
+discussion, literature synthesis, and introduction. Write the conclusion and
+abstract after your findings are stable. Revise the entire document so that
+objectives, methods, results, and conclusions agree. There is no universal
+required page count or reference count: use the scope agreed with your
+supervisor and the evidence your argument needs.
+
+\section*{Choosing a structure}
+\noindent\begin{tabularx}{\textwidth}{@{}p{0.29\textwidth}Y@{}}
+\toprule
+Study type & Adaptation to this framework\\
+\midrule
+Computational / engineering & Retain theory, implementation, verification,
+validation, numerical results, and uncertainty where relevant.\\
+Experimental & Emphasize apparatus, calibration, sampling, measurement error,
+controls, and reproducibility.\\
+Quantitative empirical & Emphasize constructs, sampling, measurement,
+statistical assumptions, effect sizes, and uncertainty.\\
+Qualitative & Emphasize positionality, recruitment, data collection,
+analytical approach, reflexivity, and supported interpretations.\\
+Theoretical & Emphasize definitions, assumptions, propositions, proofs,
+counterexamples, and implications.\\
+\bottomrule
+\end{tabularx}
+
+\section*{Scope control}
+This is a monograph-style framework. An article-based thesis may instead
+require an integrative introduction, included papers, contribution statements,
+and a synthesis chapter. Confirm the permitted format before reorganizing.
+Keep only sections that help explain the research you actually completed.
+\clearpage
+\fi
+
+% ======================================================================
+% FRONT MATTER
+% ======================================================================
+\ifincludeapproval
+\FrontChapter{Approval Page}
+\Guide{Use the exact institutional approval/certification form. List the
+committee, degree, defense date, and signatures only if required. Do not
+insert simulated signatures or imply approval that has not occurred.}
+\Draft{Insert the official approval page or approved wording.}
+\fi
+
+\ifincludedeclaration
+\FrontChapter{Declaration of Originality and Contributions}
+\Guide{Replace this page with the declaration required by your university.
+State authorship, acknowledge collaborative contributions, identify any
+previously published material, and disclose external assistance as required.
+If translating an existing thesis, describe the relationship to the original
+accurately; translation does not make it a new degree submission.}
+\Draft{Insert the institution-approved declaration; do not treat this
+instructional text as an official declaration.}
+\vspace{12mm}
+\noindent Name: \AuthorName\par
+\vspace{6mm}
+\noindent Signature: \rule{55mm}{0.4pt}\hfill Date: \rule{35mm}{0.4pt}
+\fi
+
+\ifincludededication
+\FrontChapter{Dedication}
+\Guide{Optional. Keep this brief and personal; omit it if not desired.}
+\Draft{Write your dedication.}
+\fi
+
+\FrontChapter{Acknowledgements}
+\Guide{Acknowledge supervisors, collaborators, technical support, funding
+and grant identifiers, data providers, and personal support where appropriate.
+Describe contributions accurately. Obtain consent before naming individuals
+where needed. Keep scientific claims and results out of this section.}
+\Draft{Write the acknowledgements.}
+
+\FrontChapter{Abstract}
+\Guide{Write a self-contained summary after completing the thesis. A useful
+starting range is approximately 150--350 words, but follow your institution's
+limit. Include: (1) context and problem; (2) the specific gap or question;
+(3) approach, data, and scope; (4) the main actual results, quantified where
+appropriate; and (5) the contribution and its limits. Avoid promises about
+future work in place of findings. Usually omit citations, unexplained
+abbreviations, equations, and information absent from the thesis.
+
+\textbf{Sentence scaffold:} ``[Context] remains limited by [specific problem].
+This thesis investigates [question]. Using [method] on [data/domain], the
+study evaluates [comparison]. The results show [actual finding and
+uncertainty]. These findings support [bounded implication].'' This is a
+structural aid, not text to submit unchanged.}
+\Draft{Write the final abstract, including actual findings.}
+\vspace{4mm}
+\noindent\textbf{Keywords:} \Draft{Provide roughly 4--6 searchable keywords,
+or the number required by your institution.}
+
+\ifincludepublications
+\FrontChapter{Publications and Author Contributions}
+\Guide{List related publications with accurate status (published, accepted,
+submitted, or in preparation). Identify which thesis material overlaps and
+your role in joint work. Check reuse permissions. Omit if irrelevant.}
+\Draft{List relevant outputs and your contributions.}
+\fi
+
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{Contents}
+\tableofcontents
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+\clearpage
+\phantomsection
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+
+\FrontChapter{List of Abbreviations}
+\Guide{List only abbreviations actually used, normally alphabetically.
+Define each at its first substantive occurrence as well. Remove the sample
+entries if they are irrelevant; this list does not replace in-text definitions.}
+\noindent\begin{tabularx}{\textwidth}{@{}lY@{}}
+\toprule Abbreviation & Meaning\\\midrule
+CFD & Computational fluid dynamics (illustrative entry)\\
+ML & Machine learning (illustrative entry)\\
+PDE & Partial differential equation (illustrative entry)\\
+\bottomrule
+\end{tabularx}
+\Draft{Replace the sample abbreviations with those used in your thesis.}
+
+\FrontChapter{Nomenclature}
+\Guide{Include this list when mathematical symbols are used extensively.
+Provide symbol, meaning, and unit; distinguish Latin/Greek symbols,
+subscripts, and superscripts if the list is long. Use consistent notation.
+The following entries are illustrative only.}
+\noindent\begin{tabularx}{\textwidth}{@{}lYl@{}}
+\toprule Symbol & Meaning & SI unit\\\midrule
+$t$ & Time & s\\
+$\mathbf{x}$ & Spatial position & m\\
+$u$ & Generic dependent variable & Problem-dependent\\
+$\theta$ & Model parameter vector & Problem-dependent\\
+$\Omega$ & Spatial domain & Problem-dependent\\
+\bottomrule
+\end{tabularx}
+\Draft{Replace the sample symbols, specify units, and add indices if needed.}
+
+\ifincludeglossary
+\FrontChapter{Glossary}
+\Guide{Optional. Define specialized terms used repeatedly or differently
+across disciplines. Avoid duplicating the abbreviation and symbol lists.}
+\Draft{Add concise definitions and supporting sources where needed.}
+\fi
+
+\clearpage
+\pagenumbering{arabic}
+
+% ======================================================================
+\chapter{Introduction}
+\label{ch:introduction}
+\Guide{Lead the reader from the research context to a precise problem, then
+to the questions, approach, contribution, and scope. An introduction explains
+why the study is needed; the literature review provides the detailed evidence.
+End with a clear account of what this thesis will demonstrate.}
+
+\section{Background and Context}
+\Guide{Introduce the field, application, system, or phenomenon. Explain the
+technical or scientific importance with verified evidence. Define essential
+terms for a reader in your discipline who is unfamiliar with the exact topic.
+Move from broad context to the particular setting; avoid an unrelated history.}
+\Draft{Describe the context and why the problem matters.}
+
+\section{Problem Statement}
+\Guide{State what is currently unknown, inaccurate, inefficient, or poorly
+understood. Identify the affected system or population and the consequences.
+Separate the practical problem from the researchable knowledge gap. Make the
+statement precise enough that the reader can judge whether you resolved it.}
+\Draft{State the specific problem and its consequences.}
+
+\section{Research Gap and Motivation}
+\Guide{Summarize what existing approaches accomplish and what they leave
+unresolved. Support the gap with sources analyzed in Chapter~2. Explain why
+the limitation matters and how your study addresses it. Do not claim that
+``no studies exist'' without a sufficiently documented search.}
+\Draft{Identify the evidenced gap and motivation.}
+
+\section{Research Aim and Objectives}
+\Guide{Give one overarching aim, followed by specific, assessable objectives.
+Use verbs such as develop, characterize, compare, estimate, validate, or
+explain. Each objective should correspond to work you performed and evidence
+you can present; avoid vague objectives such as ``understand everything.''}
+\Draft{State the overall aim in one sentence.}
+\begin{enumerate}[label=O\arabic*.]
+\item \Draft{Define the first assessable objective.}
+\item \Draft{Define the second assessable objective.}
+\item \Draft{Define the third objective, or change the number to fit the study.}
+\end{enumerate}
+
+\section{Research Questions and, Where Appropriate, Hypotheses}
+\Guide{Write questions answerable by your design. For hypothesis-driven work,
+state the variables, expected relationship, and rationale; statistical null
+and alternative hypotheses belong where they aid the analysis. Exploratory,
+design, or qualitative research need not invent hypotheses.}
+\begin{enumerate}[label=RQ\arabic*.]
+\item \Draft{Write the first research question.}
+\item \Draft{Write the second research question.}
+\end{enumerate}
+
+\section{Scope, Delimitations, and Assumptions}
+\Guide{Specify the studied domain, population, geometry, operating range,
+time period, datasets, and analysis boundaries as relevant. Delimitations
+are deliberate scope choices; limitations are constraints on inference.
+State assumptions and justify their intended range of validity.}
+\Draft{Define what the study covers and the assumptions it relies on.}
+
+\section{Contributions of the Thesis}
+\Guide{List the actual contributions: new evidence, a method, a model,
+dataset, implementation, theory, or evaluation. Distinguish a contribution
+from a task completed. Describe novelty conservatively relative to prior
+work, and identify what you personally contributed in collaborative work.}
+\Draft{State the contributions and how the thesis supports each one.}
+
+\section{Overview of the Approach}
+\Guide{Give a short, high-level explanation of the study design and evidence.
+Save implementation details and full equations for later chapters.}
+\Draft{Summarize the research workflow in one or two paragraphs.}
+
+\section{Organization of the Thesis}
+\Guide{Describe the purpose of each retained chapter in one sentence.
+Update this paragraph after changing the structure. Cross-references below
+illustrate automatic numbering.}
+\Draft{Introduce the literature review in \cref{ch:literature}, the framework
+in \cref{ch:theory}, methods in \cref{ch:methods}, credibility checks in
+\cref{ch:validation}, results in \cref{ch:results}, interpretation in
+\cref{ch:discussion}, and conclusions in \cref{ch:conclusion}.}
+
+% ======================================================================
+\chapter{Literature Review}
+\label{ch:literature}
+\Guide{Build an argument for the study rather than listing paper summaries.
+Organize by concepts, competing explanations, methods, or findings. Compare
+what studies establish, their evidence, and their limitations. A narrative
+review is not a systematic review unless systematic procedures were used.}
+
+\section{Review Scope and Search Approach}
+\Guide{State the themes, disciplines, period, databases, key search terms,
+and inclusion/exclusion logic in proportion to the review's purpose. For a
+systematic review, document the protocol, screening, eligibility, search
+dates, appraisal, and synthesis procedures in sufficient detail. For a
+narrative review, describe the selection approach honestly without implying
+exhaustiveness. Include foundational and relevant recent work.}
+\Draft{Explain how the literature was located and selected.}
+
+\section{Key Concepts and Definitions}
+\Guide{Define concepts and constructs consistently. Compare definitions
+where disagreement affects your research. Identify the definition adopted
+in this thesis and why it is appropriate.}
+\Draft{Explain the essential concepts with appropriate sources.}
+
+\section{Established Approaches and Baseline Methods}
+\subsection{Foundational Approaches}
+\Guide{Explain the central ideas, assumptions, evidence, and appropriate use
+cases of established approaches. Discuss strengths as well as limitations.}
+\Draft{Synthesize the foundational literature.}
+\subsection{Recent Developments}
+\Guide{Explain how later approaches address earlier limitations and what new
+tradeoffs they introduce. Compare evaluation conditions before comparing
+performance claims.}
+\Draft{Synthesize relevant recent developments.}
+\subsection{Alternative and Competing Approaches}
+\Guide{Discuss credible alternatives, including simpler solutions. Explain
+their relevance to your design and the rationale for your selected baselines.}
+\Draft{Compare competing approaches and tradeoffs.}
+
+\section{Critical Comparison of the Literature}
+\Guide{Compare assumptions, data, evaluation settings, strengths, limitations,
+and unresolved issues. A comparison table can help, but it needs an analytical
+paragraph explaining the pattern. Do not copy authors' claims uncritically.}
+\begin{table}[htbp]
+\centering\small
+\caption[Illustrative literature comparison]{Illustrative literature-review
+table. Replace every cell with verified information and citations.}
+\label{tab:literature}
+\begin{tabularx}{\textwidth}{@{}p{0.15\textwidth}YYYY@{}}
+\toprule Study & Approach & Evidence & Strength & Limitation\\\midrule
+Study A & [Method] & [Data/test] & [Supported merit] & [Specific limit]\\
+Study B & [Method] & [Data/test] & [Supported merit] & [Specific limit]\\
+Your study & [Approach] & [Planned/actual evidence] & [Contribution] & [Scope]\\
+\bottomrule
+\end{tabularx}
+\end{table}
+\Draft{Explain the patterns and disagreements revealed by the comparison.}
+
+\section{Synthesis and Refined Research Gap}
+\Guide{Connect the literature directly to your questions. State what is
+established, what remains uncertain, and what evidence your study adds.
+Identify why the proposed methodology is appropriate for this gap.}
+\Draft{Develop the literature-based rationale for the study.}
+
+\section{Chapter Summary}
+\Draft{Summarize the argument and transition to the theoretical framework.}
+
+% ======================================================================
+\chapter{Theoretical and Conceptual Framework}
+\label{ch:theory}
+\Guide{Explain the concepts, mechanisms, governing relations, or analytical
+lenses needed to understand your methods. Merge this chapter with the
+literature review or methodology if a separate chapter would repeat material.}
+
+\section{System Description and Conceptual Model}
+\Guide{Identify the system boundary, components, inputs, outputs, mechanisms,
+and interactions. For empirical research, define constructs and proposed
+relationships. For computational work, define the physical or mathematical
+domain. Use a conceptual diagram only when it clarifies the relationships.}
+\Draft{Describe the system or conceptual model.}
+
+\section{Assumptions and Simplifications}
+\Guide{List assumptions explicitly and explain their rationale and expected
+effects. Distinguish assumptions imposed by theory from choices made for
+tractability. Identify assumptions later tested by sensitivity analysis.}
+\Draft{State and justify the main assumptions.}
+
+\section{Governing Relations or Analytical Propositions}
+\Guide{Present the equations, propositions, theoretical arguments, or
+conceptual relationships on which the method depends. Define every symbol
+and unit at first use, cite borrowed formulations, and state applicable
+conditions. Put lengthy routine derivations in an appendix.}
+\Draft{Present the governing relations or conceptual propositions.}
+
+\subsection{Illustrative Equation Format}
+\Guide{The following equation demonstrates formatting only. Replace it with
+an equation relevant to your thesis, or delete this subsection. Define the
+domain, operators, unknowns, and assumptions for any retained equation.}
+\begin{equation}
+  \mathcal{F}[u(\mathbf{x},t);\boldsymbol{\theta}]=0,
+  \qquad (\mathbf{x},t)\in\Omega\times(0,T].
+  \label{eq:governing}
+\end{equation}
+\noindent Here, $\mathcal{F}$ is a generic governing operator, $u$ an unknown
+field, $\mathbf{x}$ position, $t$ time, $\boldsymbol{\theta}$ a parameter vector,
+$\Omega$ a spatial domain, and $T$ a final time. These are illustrative
+definitions and make no claim about your study.
+
+\section{Boundary, Initial, and Admissibility Conditions}
+\Guide{For mathematical/physical models, specify initial and boundary
+conditions and their physical justification. For other designs, replace
+this section with eligibility conditions or domain constraints. Remove it
+when it does not apply.}
+\Draft{Specify the conditions defining a well-posed or eligible problem.}
+
+\section{Expected Mechanisms and Testable Implications}
+\Guide{Explain how the framework motivates the questions, measurable
+quantities, predictions, or interpretation. Avoid presenting expectations
+as observations.}
+\Draft{Connect the framework to the study design.}
+
+\section{Chapter Summary}
+\Draft{Summarize the framework used in the next chapter.}
+
+% ======================================================================
+\chapter{Research Methodology}
+\label{ch:methods}
+\Guide{Describe what you actually did and why it answers the research
+questions. Provide enough detail for a knowledgeable reader to evaluate or
+repeat the work. Distinguish preplanned procedures from exploratory changes.
+Retain and rename the subsections appropriate to your study.}
+
+\section{Research Design and Rationale}
+\Guide{Identify whether the study is experimental, observational,
+computational, theoretical, qualitative, mixed-methods, or design-oriented.
+Explain why this design fits the question and which alternatives were
+considered. Specify units of analysis and the conditions of comparison.}
+\Draft{Describe and justify the research design.}
+
+\section{Research Workflow}
+\Guide{Describe the ordered stages from input collection to final analysis.
+Identify decisions, dependencies, outputs, and quality checks. Include a
+diagram when it adds clarity. The figure below requires no external file;
+replace its framed placeholder with your own graphic.}
+\begin{figure}[htbp]
+\centering
+\fbox{\parbox[c][35mm][c]{0.85\textwidth}{\centering
+Replace with a research-workflow figure.\\[3mm]
+Show inputs, processing or analysis, checks, and outputs.}}
+% Example replacement:
+% \includegraphics[width=0.9\textwidth]{figures/workflow.pdf}
+\caption[Research workflow placeholder]{Research workflow placeholder.
+Replace the figure and write a self-contained caption.}
+\label{fig:workflow}
+\end{figure}
+\Draft{Explain the workflow and refer to \cref{fig:workflow} in the text.}
+
+\section{Data, Materials, or Study Domain}
+\subsection{Sources, Provenance, and Access}
+\Guide{Describe datasets, specimens, documents, geometries, participants,
+equipment, or simulation inputs. Give provenance, collection dates,
+versions, permissions, licensing, and access conditions as applicable.
+Distinguish observed, synthetic, simulated, and externally supplied data.}
+\Draft{Identify the materials and their provenance.}
+\subsection{Selection, Sampling, and Inclusion Criteria}
+\Guide{Define the target population or parameter space, sampling method,
+sample size rationale, exclusions, and actual retained sample. Explain
+representativeness and potential selection bias. For simulations, define
+case selection and parameter coverage.}
+\Draft{Explain selection and the sample or case design.}
+\subsection{Preprocessing and Quality Control}
+\Guide{Document cleaning, normalization, missing-data handling, outlier
+rules, filtering, transformations, and quality checks. Explain their order
+and rationale. If learning from data, fit preprocessing only on training
+data when required to prevent information leakage.}
+\Draft{Describe preprocessing and quality-control decisions.}
+
+\section{Variables, Constructs, and Operational Definitions}
+\Guide{Define inputs, outcomes, predictors, controls, confounders, units,
+scales, and measurement procedures as relevant. For qualitative research,
+explain analytical concepts and how they guide attention without forcing
+the data into unsupported categories.}
+\Draft{Define the quantities and constructs used in the study.}
+
+\section{Proposed Method, Model, or Analytical Procedure}
+\subsection{Method Overview and Design Choices}
+\Guide{Describe the method precisely and explain what is adopted, modified,
+or original. Provide citations for existing methods. Justify important
+choices by the question, constraints, and evidence.}
+\Draft{Describe the core method and its rationale.}
+\subsection{Detailed Formulation or Analysis Steps}
+\Guide{Supply equations, algorithms, procedures, interview/coding protocols,
+or proof strategy as applicable. Define objective functions, parameters,
+constraints, update rules, and stopping criteria where relevant. Clarify
+the relationship between components in coupled or multistage methods.}
+\Draft{Provide sufficient detail to reconstruct the procedure.}
+\subsection{Implementation or Execution}
+\Guide{Record software and version numbers, libraries, hardware,
+instrument settings, precision, seeds, solver tolerances, training settings,
+and execution time as relevant. For qualitative work, record collection
+procedures, researcher roles, coding process, and changes to the codebook.
+Separate essential methodology from incidental code listings.}
+\Draft{Describe the implementation or execution details.}
+
+\section{Experimental, Simulation, or Evaluation Design}
+\subsection{Cases, Conditions, and Comparisons}
+\Guide{List the experimental conditions, simulation cases, or comparison
+groups. Explain controls, randomization, blinding, repeated measures, or
+parameter sweeps where relevant. State what is held constant.}
+\Draft{Define the evaluation cases and conditions.}
+\subsection{Baseline and Reference Methods}
+\Guide{Select credible baselines, including a simple baseline if useful.
+Describe their implementation and tuning. Use comparable inputs, data,
+budgets, and evaluation rules, or explain unavoidable differences.}
+\Draft{Specify baselines and the comparison protocol.}
+\subsection{Data Partitioning and Independence}
+\Guide{For predictive work, describe train/validation/test splits and
+whether separation is by participant, time, location, or system. Prevent
+related observations from leaking across partitions. If no data partition
+is needed, explain independence or repeated-use considerations and rename
+this subsection accordingly.}
+\Draft{Describe data separation or independence assumptions.}
+\subsection{Robustness, Sensitivity, and Ablation Plan}
+\Guide{State how you vary uncertain inputs or important design choices.
+For a multicomponent method, ablations isolate a component's contribution.
+Use justified ranges and repeated runs where needed; do not add ablations
+when there are no separable components.}
+\Draft{Define the additional analyses and their purpose.}
+
+\section{Evaluation Criteria and Analysis Plan}
+\subsection{Metrics and Success Criteria}
+\Guide{Define every metric, units, aggregation, direction of improvement,
+and limitations. Explain why it answers the question. State pre-specified
+success criteria if there were any; label criteria chosen after inspecting
+results as retrospective.}
+\Draft{Define the evaluation criteria and justify their use.}
+\subsection{Statistical or Interpretive Analysis}
+\Guide{For quantitative analysis, describe estimands, models/tests,
+assumptions, uncertainty intervals, effect sizes, repeated observations,
+and multiplicity handling as appropriate. Distinguish exploratory analyses.
+For qualitative work, describe interpretation, coding, reflexivity, evidence
+selection, and disagreement resolution; use reliability statistics only
+when consistent with the chosen methodology.}
+\Draft{Specify and justify the analysis procedure.}
+
+\section{Ethics, Permissions, and Data Management}
+\Guide{Report approvals, consent, confidentiality, security, licensing,
+conflicts of interest, and data retention when relevant. Include approval
+identifiers only if obtained. If formal review is not applicable, give a
+brief accurate explanation under your institution's rules. Describe access
+restrictions instead of promising to share data you cannot release.}
+\Draft{Describe applicable ethics and data-management arrangements.}
+
+\section{Reproducibility and Research Records}
+\Guide{Identify the code version, environment, configurations, data versions,
+seeds, run records, and instructions needed to repeat the study. State which
+materials are available, where, and under what restrictions. Include stable
+repository or archive identifiers only when real.}
+\Draft{Explain how the work can be inspected and reproduced.}
+
+\section{Methodological Limitations}
+\Guide{Identify design constraints, possible biases, measurement weaknesses,
+and assumptions that affect inference. Explain mitigations and residual
+effects. Save the implications of observed limitations for the discussion.}
+\Draft{State the main limitations of the design.}
+
+\section{Chapter Summary}
+\Draft{Summarize the design and its connection to the research questions.}
+
+% ======================================================================
+\chapter{Verification, Validation, and Credibility Checks}
+\label{ch:validation}
+\Guide{Retain a separate chapter when these checks are a substantial part
+of the research; otherwise integrate them into methods/results. For numerical
+models, verification examines whether the implementation solves the stated
+model correctly; validation assesses agreement with suitable evidence for
+the intended use. Neither establishes universal correctness. In empirical
+or qualitative work, use the measurement-validity or trustworthiness checks
+appropriate to the design instead of irrelevant numerical tests.}
+
+\section{Purpose and Acceptance Criteria}
+\Guide{State which aspect of credibility each check evaluates and why the
+reference is suitable. Identify acceptance thresholds, their rationale,
+and whether they were specified before observing the results.}
+\Draft{Define the credibility questions and checks.}
+
+\section{Verification or Internal Quality Checks}
+\subsection{Analytical, Synthetic, or Controlled Tests}
+\Guide{For code/models, compare against analytical solutions, manufactured
+solutions, conservation laws, controlled inputs, or independently checked
+calculations where applicable. For other studies, describe instrument,
+coding, transcription, or data-integrity checks. State what each check
+can and cannot establish.}
+\Draft{Report the relevant internal checks and their outcomes.}
+\subsection{Resolution, Convergence, or Stability}
+\Guide{When applicable, test spatial/time resolution, sampling resolution,
+optimizer convergence, tolerance sensitivity, or stability across repeated
+runs. State the tested range, criterion, observed change, and chosen setting.
+Low training loss alone does not demonstrate predictive accuracy.}
+\Draft{Report applicable convergence or stability evidence.}
+
+\section{Validation or External Credibility}
+\Guide{Compare with independent measurements, trusted references,
+out-of-sample observations, established benchmarks, or other appropriate
+evidence. Do not use the same evidence both to tune a model and to claim
+independent validation without explaining the dependence. For qualitative
+work, describe contextually suitable credibility practices.}
+\Draft{Present the external comparison or credibility evidence.}
+
+\section{Uncertainty and Error Sources}
+\Guide{Distinguish measurement, sampling, numerical, parameter, and model
+uncertainty as relevant. Explain estimation and propagation methods and
+the uncertainty not captured by your analysis. Separate random variation
+from systematic bias where evidence allows.}
+\Draft{Describe the uncertainty and its effect on confidence in the results.}
+
+\section{Chapter Summary and Suitability for the Main Study}
+\Draft{State what the checks support, any failures, and the justified
+operating range of the subsequent analysis.}
+
+% ======================================================================
+\chapter{Results}
+\label{ch:results}
+\Guide{Present the evidence in the order needed to answer the questions.
+Clearly separate main findings, secondary analyses, and exploratory findings.
+Describe observations here; develop the broader explanation in Chapter~7,
+unless a combined results-and-discussion structure suits your discipline.
+Report negative and inconclusive results when relevant.}
+
+\section{Overview of the Completed Study}
+\Guide{Report the actual analyzed sample, cases, successful/failed runs,
+exclusions, and deviations from the planned procedure. Summarize relevant
+data or case characteristics without repeating the full methodology.}
+\Draft{Describe what was actually analyzed.}
+
+\section{Findings for Research Question 1}
+\subsection{Primary Evidence}
+\Guide{State the question, present the relevant figure/table/theme/proof,
+and describe the main finding. Give units, denominators, number of cases
+or runs, and uncertainty as applicable. Evidence must support the precision
+and scope of the claim.}
+\Draft{Present the main evidence addressing RQ1.}
+\subsection{Supporting Comparisons}
+\Guide{Present the comparisons that help assess the primary finding.
+Report magnitude and uncertainty, not only significance labels. For
+qualitative analysis, link interpretations to appropriately contextualized
+extracts and anonymized identifiers.}
+\Draft{Present the supporting evidence for RQ1.}
+
+\section{Findings for Research Question 2}
+\Guide{Use a parallel structure where it improves comparison. Add, remove,
+or rename question-specific sections to match the actual research questions.}
+\Draft{Present the evidence addressing RQ2.}
+
+\section{Comparison with Baseline or Reference Approaches}
+\Guide{Use the protocol defined in methods. Report comparable measures,
+uncertainty, and relevant costs, such as runtime, data, or resources. If a
+comparison is not directly fair, state the difference beside the result.}
+\Draft{Present baseline/reference comparisons.}
+
+\section{Sensitivity, Robustness, and Component Analyses}
+\Guide{Present effects of changing assumptions, settings, inputs, or model
+components. Distinguish stable findings from condition-dependent ones.
+Show variability across repeated runs when relevant.}
+\Draft{Report the planned additional analyses and any exploratory extensions.}
+
+\section{Failure Cases and Unexpected Findings}
+\Guide{Document cases where the method fails, findings conflict with
+expectations, or evidence is inconclusive. Identify the conditions and
+frequency when possible. Do not quietly remove difficult cases.}
+\Draft{Report relevant failure cases and unexpected findings.}
+
+\section{Summary of Key Findings}
+\Guide{Summarize only findings established in this chapter. Organize them
+by question or objective so that the discussion can interpret them directly.}
+\Draft{Summarize the central findings without introducing new evidence.}
+
+% ======================================================================
+\chapter{Discussion}
+\label{ch:discussion}
+\Guide{Explain what the findings mean, why they may have occurred, how they
+relate to prior work, and how far the conclusions extend. Make the chain
+from evidence to interpretation explicit. Avoid repeating results verbatim.}
+
+\section{Answers to the Research Questions}
+\Guide{For each question, state the supported answer and cite the relevant
+result sections. Distinguish supported, partially supported, unresolved,
+and contradicted expectations. Explain uncertainty and alternative readings.}
+\Draft{Interpret the findings as answers to each research question.}
+
+\section{Interpretation of Mechanisms and Patterns}
+\Guide{Connect observed patterns to theory or plausible mechanisms. Separate
+demonstrated mechanisms from hypotheses. Consider competing explanations,
+confounding, and measurement effects; correlation alone does not establish
+causation.}
+\Draft{Explain the findings and assess alternative explanations.}
+
+\section{Comparison with Previous Research}
+\Guide{Identify agreement and disagreement with specific studies. Explain
+differences in data, context, assumptions, or methods that may account for
+them. Use fair comparisons and avoid treating every difference as superiority.}
+\Draft{Position the findings within the literature.}
+
+\section{Scientific, Methodological, and Practical Implications}
+\subsection{Scientific or Theoretical Implications}
+\Guide{Explain which understanding, model, or theoretical expectation is
+refined and what evidence supports that refinement.}
+\Draft{State the scientific or theoretical implications.}
+\subsection{Methodological Implications}
+\Guide{Explain what other researchers can learn about study design,
+measurement, modeling, analysis, or evaluation from this work.}
+\Draft{State the methodological implications.}
+\subsection{Practical Implications and Tradeoffs}
+\Guide{Explain who could use the findings, under which conditions, and at
+what cost or risk. State operational requirements and tradeoffs relevant
+to real use. Do not claim deployment readiness based only on limited tests.}
+\Draft{Explain the practical implications within the evidence-supported scope.}
+
+\section{Limitations and Threats to Validity}
+\Guide{Discuss limitations revealed by the completed study: selection,
+measurement, implementation, analysis, confounding, model assumptions,
+researcher interpretation, and limited coverage as applicable. Explain the
+direction or likely consequence of each limitation rather than merely
+listing generic weaknesses. Avoid equating transparency with elimination
+of bias.}
+\Draft{Assess the limitations and their consequences for interpretation.}
+
+\section{Generalizability and Transferability}
+\Guide{Define the populations, geometries, operating regimes, contexts,
+or settings to which the findings may reasonably apply. State where
+additional evidence is needed. For qualitative research, discuss the
+contextual detail that supports a reader's assessment of transferability.}
+\Draft{Define the supported reach of the findings.}
+
+\section{Chapter Summary}
+\Draft{Summarize the interpretation and transition to the final conclusions.}
+
+% ======================================================================
+\chapter{Conclusions and Future Work}
+\label{ch:conclusion}
+\Guide{Close the argument clearly. Answer the stated problem and questions,
+identify the contribution, and acknowledge the most consequential limits.
+Do not introduce new experiments, datasets, or results in this chapter.}
+
+\section{Research Summary}
+\Draft{Briefly restate the problem, aim, scope, and approach.}
+
+\section{Principal Conclusions}
+\Guide{Write concise conclusions supported by results. Map them to the
+objectives and research questions. Where useful, include the actual result
+magnitude and conditions; avoid copying the abstract or making wider claims.}
+\Draft{State the main conclusions in question/objective order.}
+
+\section{Contributions and Significance}
+\Draft{Explain the final contributions and why they matter, within scope.}
+
+\section{Recommendations}
+\Guide{Include evidence-based recommendations for researchers, practitioners,
+or decision-makers only when justified. State the conditions needed for
+their use. Omit this section if the thesis does not support recommendations.}
+\Draft{Provide justified recommendations, or remove this section.}
+
+\section{Future Research}
+\Guide{Prioritize a small set of specific next studies. Link each to a
+limitation or open question and explain the method or evidence needed.
+Avoid generic suggestions such as ``use more data'' without a rationale.}
+\Draft{Describe feasible, prioritized directions for future work.}
+
+\section{Closing Statement}
+\Draft{End with a brief, evidence-supported statement of the thesis's value.}
+
+% ======================================================================
+% REFERENCES: self-contained starter bibliography, not real research.
+% Replace the placeholder entry and cite verified sources using \cite{key}.
+% For a large thesis, consider BibTeX or biblatex with an external .bib file.
+% If adopting an external manager, REMOVE the thebibliography environment.
+% Follow the university's required reference style instead of assuming
+% this numeric example is mandatory. Do not mix bibliography systems.
+% ======================================================================
+\clearpage
+\renewcommand{\bibname}{References}
+\phantomsection
+\addcontentsline{toc}{chapter}{References}
+\begin{thebibliography}{99}
+\bibitem{replace-this-reference}
+\textbf{FORMATTING PLACEHOLDER --- NOT A REAL SOURCE.}
+Replace with verified author(s), full title, journal/publisher, year,
+volume/issue/pages as relevant, and DOI or stable URL where available.
+\end{thebibliography}
+
+% ======================================================================
+\appendix
+\chapter{Supplementary Derivations and Technical Details}
+\label{app:derivations}
+\Guide{Include supporting material that would interrupt the main argument:
+lengthy derivations, additional proofs, parameter details, supplementary
+checks, or expanded technical documentation. Cite the appendix where it
+becomes relevant in the main text. Necessary reasoning must remain in the
+main thesis; appendices should not hide essential evidence.}
+\section{Additional Derivations or Proofs}
+\Draft{Provide supplementary derivations or remove this section.}
+\section{Additional Model or Instrument Specifications}
+\Draft{Add the technical specifications needed for inspection or replication.}
+
+\chapter{Supplementary Results and Study Materials}
+\label{app:supplement}
+\Guide{Include additional tables, figures, questionnaires, interview guides,
+coding frameworks, protocols, or case descriptions as relevant. Respect
+permissions and confidentiality. Give each item a useful title and context;
+reference it from the main text.}
+\section{Supplementary Results}
+\Draft{Add supporting results that do not need to appear in the main chapter.}
+\section{Study Instruments or Coding Materials}
+\Draft{Add relevant instruments or protocols, or remove this section.}
+
+\chapter{Reproducibility and Availability Record}
+\label{app:reproducibility}
+\Guide{Use this appendix as a practical replication record. Include only
+items relevant to the study. Do not publish passwords, private keys,
+restricted personal data, or confidential material in configurations.}
+\section{Software, Hardware, and Version Record}
+\Draft{Record exact software/library versions, operating system, hardware,
+repository version/commit, and instrument identifiers as applicable.}
+\section{Data and Configuration Record}
+\Draft{Record data identifiers/versions, directory structure, configurations,
+parameter values, seeds, preprocessing outputs, and access restrictions.}
+\section{Execution or Analysis Instructions}
+\Draft{Provide ordered commands or procedural steps to reproduce the main
+outputs, with expected inputs and outputs and approximate resource needs.}
+\section{Availability Statement}
+\Draft{State where materials are accessible, their license or conditions,
+and any justified restrictions. Do not insert non-existent repository links.}
+
+% ======================================================================
+% WRITING HANDBOOK: guidance mode only; not part of a submitted thesis.
+% ======================================================================
+\ifshowguidance
+\chapter{Writing, Formatting, and Submission Handbook}
+\label{app:handbook}
+This appendix belongs to the template, not the finished thesis. It disappears
+when \texttt{\string\showguidancefalse} is selected. The other appendices
+remain, so remove irrelevant ones manually.
+
+\section{Chapter Planning and Traceability}
+Before drafting at length, build a question-to-evidence map. Replace the
+following planning prompts in your own notes; the map need not appear in
+the thesis unless it helps the reader.
+
+\noindent\begin{tabularx}{\textwidth}{@{}p{0.13\textwidth}YYY@{}}
+\toprule Question & Method & Evidence & Final answer\\\midrule
+RQ1 & What procedure addresses it? & Which result supports it? & What can
+you conclude, and within what scope?\\
+RQ2 & What comparison or analysis? & Which table, figure, theme, or proof?
+& What remains uncertain?\\
+\bottomrule
+\end{tabularx}
+
+Choose chapter length by argumentative need. The literature review should
+justify the gap, methods should enable evaluation, results should establish
+the evidence, and discussion should explain its meaning. Avoid adding pages
+or references simply to reach an arbitrary number.
+
+\section{Writing Clear Academic English}
+\begin{itemize}
+\item Give each paragraph one purpose: state its point, support it with
+evidence or reasoning, and connect it to the argument.
+\item Use precise terms consistently. Prefer concrete statements such as
+``the error decreased under these conditions'' to unsupported adjectives
+such as ``excellent'' or ``revolutionary.''
+\item Use present tense for established relationships and what a figure
+shows; past tense is often suitable for completed procedures and observed
+results. Follow your discipline's conventions consistently.
+\item Distinguish observation, inference, and speculation. Match verbs to
+the evidence: ``suggests'' or ``is consistent with'' may be more appropriate
+than ``proves.''
+\item Use active voice when it clarifies who did what. Use first person only
+as accepted in your discipline and institution.
+\item Define abbreviations on first use. Keep spelling conventions,
+capitalization, decimal notation, symbols, and terminology consistent.
+\item Explain why an equation, figure, or table matters; do not make the
+reader infer its role from its presence alone.
+\end{itemize}
+
+\section{Results Versus Discussion}
+\noindent\begin{tabularx}{\textwidth}{@{}YY@{}}
+\toprule Results & Discussion\\\midrule
+What was observed, estimated, established, or found? & What does the
+finding mean, and why might it occur?\\
+What is the magnitude, variability, context, or supporting evidence? & How
+does it relate to theory, prior work, and alternative explanations?\\
+Which planned and exploratory analyses were completed? & What conclusions
+and implications are justified, and what limits them?\\
+\bottomrule
+\end{tabularx}
+
+If your field favors a combined chapter, alternate evidence and interpretation
+in clearly organized subsections. Preserve the distinction in the prose.
+
+\section{Figures and Tables}
+\begin{itemize}
+\item Refer to every figure/table in the text, explain its purpose, and place
+it near its first substantive discussion when practical.
+\item Use informative captions. Define abbreviations, sample counts,
+uncertainty bars, colors, and conditions needed to interpret the display.
+State source/adaptation and permissions when applicable.
+\item Use legible labels and units. Use vector graphics for line plots and
+diagrams where practical; inspect raster figures at final print size.
+\item Make visual comparisons fair: comparable axes, clearly stated scales,
+and transparent normalization. Do not let truncated axes mislead.
+\item Tables should report comparable precision and units. Avoid presenting
+the same information repeatedly as a table, figure, and long paragraph.
+\item In this template, table captions are above tables and figure captions
+are below figures. Change this if your institution specifies otherwise.
+\end{itemize}
+
+\section{Equations, Units, and Notation}
+Define symbols before or immediately after first use. Number equations
+that you refer to later; use automatic references, as in
+\cref{eq:governing}. Distinguish scalars, vectors, matrices, operators,
+and indices consistently. State units and check dimensional consistency
+where appropriate. Punctuate displayed equations as parts of sentences.
+Use a single notation for a quantity unless a change is explicitly explained.
+
+\section{Citations, References, and Evidence}
+\begin{itemize}
+\item Cite claims, methods, equations, datasets, software, and borrowed
+ideas where attribution is needed. Prefer reading the original source.
+\item Check that a citation supports the exact claim and scope stated.
+Do not infer a paper's conclusion from its title or an automated summary.
+\item Keep a source log: claim, source, relevant location, and notes on
+limitations. Distinguish your paraphrase from copied wording in notes.
+\item Paraphrase by expressing the idea accurately in your own structure;
+changing a few words is insufficient. Mark direct quotations and provide
+locations in the style required by your institution.
+\item Verify author names, titles, publication status, year, venue, and
+identifiers. Never invent references. Cite software/data versions when
+relevant to reproducibility.
+\item Include all cited sources and remove uncited bibliography entries
+unless your institution permits a separate wider bibliography. There is
+no universal minimum number of references for a thesis.
+\end{itemize}
+The starter uses \texttt{natbib} with a manually maintained numeric
+bibliography. After adding a real entry with a unique key, cite it using
+\texttt{\string\cite\{your-key\}}. For author--year or an external reference
+manager, select the appropriate institutional style and adapt the citation
+setup consistently. Do not retain the example placeholder reference.
+
+\section{Translation, Editing, and AI Assistance}
+If writing from a thesis originally drafted in another language, preserve
+the meaning of technical statements, assumptions, units, figure labels,
+and findings. Create a terminology list before translating. Check the
+English against the original chapter by chapter, especially equations and
+numerical values. Keep publication and submission history accurate.
+
+Follow your institution's rules on language editing, translation, and AI
+assistance. Describe assistance truthfully when a disclosure is required,
+and check all generated wording, calculations, and citations yourself.
+Do not allow a translation or editing tool to invent results, sources, or
+stronger conclusions. If disclosure belongs in a specific institutional
+form, use that form rather than improvising a declaration here.
+
+\section{Practical LaTeX Editing}
+\begin{itemize}
+\item Put a descriptive \texttt{\string\label\{...\}} after each chapter,
+section, equation, and caption you will reference. Use
+\texttt{\string\cref\{...\}} rather than typing a number manually.
+\item Escape special characters in ordinary prose: use
+\texttt{\string\%}, \texttt{\string\&}, \texttt{\string\_},
+\texttt{\string\#}, and \texttt{\string\$}.
+\item Add external images with \texttt{\string\includegraphics} only after
+uploading the corresponding files. Use relative paths for portability.
+\item Write mathematics in math mode. Avoid inserting screenshots of
+equations when editable equations are feasible.
+\item For a larger project, split chapters into files using
+\texttt{\string\input\{chapters/intro\}}. Keep one main document
+and a consistent folder structure.
+\item Recompile after changes to headings, labels, or citations. Resolve
+undefined references, missing files, and overflowing lines before delivery.
+\end{itemize}
+
+\section{Revision Workflow}
+\begin{enumerate}
+\item \textbf{Argument pass:} Check that the problem, gap, questions,
+methods, evidence, and conclusions form one coherent argument.
+\item \textbf{Evidence pass:} Verify every numerical value, claim, citation,
+table entry, unit, and figure against its source or analysis record.
+\item \textbf{Structure pass:} Remove repetition, irrelevant headings,
+unsupported assertions, and background that does not serve the study.
+\item \textbf{Language pass:} Improve clarity, paragraph flow, terminology,
+tense, grammar, and consistency without changing scientific meaning.
+\item \textbf{Presentation pass:} Review the compiled PDF page by page,
+including title page, contents, lists, equations, page breaks, and appendices.
+\item \textbf{Supervisor pass:} Obtain feedback on scope, contribution,
+interpretation, and compliance; keep a record of revisions.
+\end{enumerate}
+
+\section{Final Submission Checklist}
+\begin{itemize}[leftmargin=1.6em]
+\ChecklistItem The university's required template, title wording, margins,
+font, spacing, page numbering, declarations, and file rules are satisfied.
+\ChecklistItem All author, supervisor, institution, degree, date, and title
+metadata are final; optional pages have been approved or removed.
+\ChecklistItem Every research question has an evidence-supported answer,
+and objectives, abstract, results, and conclusions agree.
+\ChecklistItem All template instructions, sample entries, illustrative
+objects, draft markers, and irrelevant chapters/appendices are replaced
+or removed. Turning guide mode off is insufficient by itself.
+\ChecklistItem Figures/tables are readable, numbered, cited in text, and
+properly attributed. Equations, units, symbols, and notation are consistent.
+\ChecklistItem Citations resolve, references are verified, and permissions,
+authorship, ethics, and assistance disclosures are accurate where applicable.
+\ChecklistItem Data, code, instrument, configuration, and availability
+statements match what actually exists and can be accessed.
+\ChecklistItem The compiled PDF has no undefined references, clipped
+material, unintended blank pages, or misleading visual comparisons.
+\ChecklistItem The final abstract describes completed findings; the
+conclusion introduces no new results and states the important limits.
+\ChecklistItem The source, required assets, final PDF, and research records
+are backed up and labeled with a clear version/date.
+\end{itemize}
+\fi
+
+\end{document}

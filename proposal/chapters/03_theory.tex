@@ -1,0 +1,91 @@
+\chapter{Physical and Mathematical Framework}
+\label{ch:theory}
+\section{Geometry and Nondimensionalization}
+The default S-channel joins two semicircular segments with a continuous
+tangent and piecewise curvature. Its nominal radii are
+$R_{\rm in}=\InnerRadius$ and $R_{\rm out}=\OuterRadius$; the centerline
+radius is their average. The width is $W=R_{\rm out}-R_{\rm in}=\ChannelWidth$
+and the centerline length is approximately $L=\ChannelLength$.
+A general supported channel is represented by
+\begin{equation}
+ \vect{x}(s,\eta)=\vect{c}(s)+h\eta\vect{n}(s),\qquad
+ 0\le s\le L,\quad -1\le\eta\le1,\quad h=W/2,
+ \label{eq:geometry}
+\end{equation}
+where $\vect{c}$ is a planar centerline and $\vect{n}$ its unit normal.
+Curvature and overlap checks exclude invalid offset tubes. A custom CSV
+changes the centerline, not the physical topology supported by the solver.
+
+Dimensional variables are scaled using $L_0$, $U_0$ and $\mu U_0/L_0$ for
+length, speed and pressure. Time is scaled by $T_0=L_0/U_0$. Throughout the
+following equations, variables without a dimensional subscript are
+dimensionless. The reference Reynolds number is
+$\Rey=\rho_f U_0 L_0/\mu$; $L_0$ is not implicitly a hydraulic diameter.
+The current principal case uses $\Rey=\ReynoldsNumber$.
+
+\ResultFigure{01_geometry}{Channel and sampling}{Default channel and sampled
+interior and boundary points from the repository. Coordinates are
+nondimensional; the displayed point set illustrates the sampling procedure.}{fig:geometry}
+
+\section{Fluid Equations and Boundary Conditions}
+For a steady incompressible Newtonian fluid,
+\begin{align}
+ \nabla\cdot\vect{u}&=0,\label{eq:continuity}\\
+ \Rey(\vect{u}\cdot\nabla)\vect{u}&=-\nabla p+\nabla^2\vect{u}.
+ \label{eq:momentum}
+\end{align}
+The walls satisfy no slip. Both end sections have the prescribed tangential
+velocity $\vect{u}=(1-\eta^2)\vect{t}$ with unit center speed. Pressure has
+one gauge condition. In particular, the outlet is a prescribed-velocity
+boundary, rather than an assumed zero-pressure outlet. The FEM and PINN use
+these same physical boundary conditions, with their pressure constants
+aligned during comparison. The prescribed section flux is $Q_0=4h/3$.
+
+\section{Particle and Fluid-Marker Dynamics}
+Let $d_p$ be particle diameter and $\rho_r=\rho_p/\rho_f$ the density ratio.
+The adopted drag-only heavy-particle equations are
+\begin{align}
+ \frac{d\vect{x}_p}{dt}&=\vect{v}_p,\label{eq:particle-position}\\
+ \frac{d\vect{v}_p}{dt}&=\frac{18}{\rho_r\Rey d_p^2}
+ [\vect{u}(\vect{x}_p)-\vect{v}_p]
+ =\frac{\vect{u}(\vect{x}_p)-\vect{v}_p}{\St},
+ \qquad \St=\frac{\rho_r\Rey d_p^2}{18}.
+ \label{eq:particle-velocity}
+\end{align}
+The particle Reynolds number is
+$\Rey_p=\Rey d_p\lVert\vect{u}-\vect{v}_p\rVert$.
+Stokes drag requires $\Rey_p\ll1$ and a particle small relative to flow
+length scales. The force formulation is a simplification of small-sphere
+dynamics, not the full Maxey--Riley equation \cite{maxey1983}.
+
+A fluid marker follows $d\vect{x}/dt=\vect{u}(\vect{x})$. A finite-size
+particle sticks when its center reaches a distance $d_p/2$ from the wall;
+its velocity is then set to zero. This contact rule is irreversible and
+does not represent rebound or adhesion-force calibration. Initial particle
+velocity equals the local fluid velocity unless the user supplies a
+different admissible value.
+
+\section{Force-Network Interpretation}
+The normalized drag force $\vect{F}^{*}$ is scaled by displaced-fluid mass
+times $U_0^2/L_0$. With input
+$z=(u,v,p,d_p,x_p,y_p,u_p,v_p)$ and normalized input map $N$, the implemented
+surrogate is
+\begin{equation}
+ \widehat{\vect{F}}^{*}(z)=\frac{18}{\Rey d_p^2}
+ \{g_\phi(Nz)-g_\phi(Nz_0)\},
+ \label{eq:force-network}
+\end{equation}
+where $z_0$ replaces the particle velocity by the fluid velocity. Subtraction
+enforces zero force at zero slip. The network is trained against the
+algebraic Stokes residual, so it approximates an already specified law.
+Pressure and particle position are input slots; they do not establish
+additional force mechanisms. Exact Stokes drag remains the reference.
+
+\section{Physical Limits}
+The model omits gravity, lift, Brownian motion, added mass, history effects,
+fluid feedback, particle collisions, and near-wall lubrication corrections.
+The largest tested diameter is 15\% of the channel width, so that case is a
+sensitivity study rather than proof of the unbounded point-particle model's
+physical accuracy. The computed maximum $\Rey_p$ is
+\MaximumParticleRe; this supports a low-slip-inertia regime but does not
+remove confinement or dilute-loading assumptions.

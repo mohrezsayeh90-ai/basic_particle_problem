@@ -1,0 +1,113 @@
+\chapter{Proposed Work, Deliverables, and Feasibility}
+\label{ch:plan}
+\section{Work Packages}
+\subsection{Reference and Evaluation Control}
+First, preserve the present data as the developmental baseline and create
+new fixed evaluation points and starting-position sets. Check FEM mesh and
+geometric refinement beyond the present pair where feasible. Repeat selected
+particle paths with tighter ODE tolerances, smaller maximum steps, and
+refined wall-event localization. This separates trajectory-integrator
+sensitivity from flow-surrogate error before retraining is evaluated.
+
+\subsection{Transport-Directed PINN Improvement}
+Compare the current physics-and-flux loss with controlled alternatives:
+increased boundary sampling, targeted collocation near turning regions,
+and residual-informed sample redistribution. Use equal documented training
+budgets where possible and record any extra compute. Develop each change
+on the development set, then freeze the procedure before evaluating held-out
+locations. The primary endpoints will be path error, time coverage and
+endpoint agreement, in addition to velocity and pressure norms.
+
+The main force ablation will retain exact Stokes drag on the learned flow.
+It prevents a flow improvement from being confused with a change in the
+force surrogate. If a force network provides no measurable benefit for
+this known algebraic law, exact drag may remain the preferred computational
+baseline. A future empirical force model would need external force data and
+a separate identification/validation protocol.
+
+\subsection{Geometry and Parameter Coverage}
+Use straight, single-bend, S-shaped and smooth custom-centerline channels
+at a modest set of Reynolds numbers, initially $0.5$, $1$ and $3$. These
+are proposed cases, not completed new results. Retrain each case first to
+establish a reliable per-case baseline. Only a later model trained across
+multiple parameter cases could support an unseen-parameter test. Held-out
+centerline shapes and Reynolds numbers must be specified before any
+parametric-generalization claim is made.
+
+Retain the existing particle-size and density sensitivities, add starting
+points near observed event transitions, and distinguish low-confinement
+quantitative cases from larger-particle exploratory cases. Review
+$\Rey_p$, diameter-to-width ratio and loading assumptions in each case.
+Changes to force physics require new references, not simply more network
+training.
+
+\subsection{Three-Dimensional and Physical Extensions}
+Improve pressure recovery on the ABC verification problem before extending
+to a finite-depth channel. A 3D channel study will require a mesh with
+sidewalls, a three-component velocity network, physically specified 3D
+inlet/outlet conditions and an independently refined 3D CFD reference.
+The planar extrusion will continue to be identified as a visual aid.
+
+Physical validation is conditional on an accessible, documented measurement
+or benchmark dataset with compatible geometry, operating conditions,
+particle properties and contact behavior. If such data remain unavailable,
+the final claim will be numerical verification and model-to-model agreement,
+with experimental validation explicitly outstanding.
+
+\section{Schedule and Milestones}
+The following relative schedule begins after project approval; it does not
+imply an institutional deadline or an approved research start date.
+\begin{table}[!htbp]
+\centering\small
+\caption{Proposed six-month research schedule.}
+\label{tab:schedule}
+\begin{tabularx}{\textwidth}{@{}lYY@{}}
+\toprule Period & Main activity & Reviewable milestone\\\midrule
+Month 1 & Freeze development/evaluation separation; refine references and ODE events & Reference and temporal sensitivity record\\
+Month 2 & Boundary and turning-region training ablations & Controlled field and trajectory comparison\\
+Month 3 & Expand starting positions, particle cases and force isolation & Transport-error and endpoint-transition maps\\
+Month 4 & Separately trained geometry/Reynolds-number study & Case matrix with explicit supported scope\\
+Month 5 & Improve ABC pressure; define a bounded 3D channel extension & 3D verification assessment and feasibility decision\\
+Month 6 & Consolidate uncertainty, reproducibility and available physical evidence & Final analysis, thesis/proposal updates and research manuscript outline\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Resources, Risks, and Decision Rules}
+The current workflow runs on CPU with bounded training and integration
+budgets. GPU use may reduce training time, but exact speedups and total
+future compute requirements have not been benchmarked. Separate costs will
+be recorded for training, reference assembly/solve, trajectory evaluation
+and reporting; reloading weights is not a new training-time measurement.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Principal research risks and responses.}
+\label{tab:risks}
+\begin{tabularx}{\textwidth}{@{}YY@{}}
+\toprule Risk & Response and decision rule\\\midrule
+Low global error but wrong particle event & Add local and event-based diagnostics; withhold a transport-accuracy claim until path criteria are met.\\
+Reference or event error dominates & Refine the reference and time/event resolution before attributing the discrepancy to the PINN.\\
+Unstable or costly training & Compare fixed budgets and multiple seeds; retain failed cases and report supported operating ranges.\\
+Particle-model assumptions fail & Restrict quantitative claims or introduce and independently validate additional physics.\\
+Experimental evidence is unavailable & Limit the final validation statement to numerical comparisons.\\
+3D pressure remains inaccurate & Treat the benchmark as unresolved and defer broad 3D channel claims.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Expected Contributions and Deliverables}
+The proposed deliverables are a validated numerical reference hierarchy,
+documented relationships between field and transport error, a controlled
+geometry/parameter evaluation, and a reproducible release containing
+configuration, trained weights, raw data, figures and a data-driven LaTeX
+report. These are research targets whose success will be judged using the
+frozen evaluation design. The present proposal already demonstrates the
+reporting mechanism and identifies where the preliminary model needs
+improvement; it does not assume that every proposed target will succeed.
+
+No human or animal data are used in the present numerical work. Any later
+experimental collaboration, data reuse, institutional submission or required
+authorship/assistance disclosure will follow the applicable institutional
+and dataset terms. The current repository does not establish a separate
+third-party data license or an experimental approval.

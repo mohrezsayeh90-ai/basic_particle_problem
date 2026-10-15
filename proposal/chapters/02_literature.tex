@@ -1,0 +1,66 @@
+\chapter{Literature and Research Rationale}
+\label{ch:literature}
+\section{Physics-Informed Flow Approximation}
+Raissi et al.\ formulate PINNs by penalizing differential-equation residuals
+alongside observed or prescribed information \cite{raissi2019}. The broader
+physics-informed learning framework includes several ways to combine
+physical constraints and learned approximations \cite{karniadakis2021}.
+For this project, the relevant distinction is between a network trained on
+PDE and boundary information and a regression model trained directly on
+interior CFD labels. The current flow model uses the former design, and its
+FEM interior samples are reserved for numerical comparison.
+
+Optimization behavior limits this approach. Gradient imbalance among loss
+terms and unequal learning rates of solution components have been studied
+in PINNs \cite{wang2021,wang2022}. These results motivate scaling the
+momentum and continuity residuals, retaining fixed monitoring samples, and
+reporting boundary and flux errors separately. They do not establish that
+any particular optimizer or architecture will be accurate in the proposed
+curved-channel problem.
+
+\section{Independent Flow and Particle References}
+Mixed finite elements provide a classical route to incompressible flow.
+The Taylor--Hood construction uses a higher-order velocity space than
+pressure space \cite{taylor1973}; the present independent reference uses
+P2 velocity and P1 pressure with scikit-fem \cite{gustafsson2020}.
+Independence here means that this solver is assembled without PINN
+predictions. Its own nonlinear, mesh, and continuity checks remain necessary.
+It is a project-specific CFD reference, not a claim that commercial CFD or
+an experimental benchmark was used.
+
+The full small-sphere equation of motion includes terms beyond instantaneous
+Stokes drag \cite{maxey1983}. The present model deliberately uses a
+heavy-particle simplification. This is appropriate only within a qualified
+regime and cannot represent every particle--fluid interaction. In particular,
+geometric wall contact does not supply the hydrodynamic wall corrections
+that may become important at small clearances.
+
+\section{Verification, Validation, and the Specific Gap}
+Numerical verification addresses consistency with the stated equations;
+physical validation concerns agreement with suitable external physical
+evidence \cite{roache1998}. Analytical Poiseuille flow and a manufactured
+three-dimensional solution are strong implementation checks. Agreement with
+a refined FEM solution tests numerical consistency for the same model.
+Neither substitutes for experiment when making device-level predictions.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Roles of the main methodological foundations.}
+\label{tab:literature}
+\begin{tabularx}{\textwidth}{@{}p{.23\textwidth}YY@{}}
+\toprule Foundation & Role in this proposal & Limit of inference\\\midrule
+PINNs \cite{raissi2019,karniadakis2021} & Differentiable flow approximation constrained by physics & Training loss does not certify trajectory accuracy.\\
+Training analysis \cite{wang2021,wang2022} & Motivation for loss scaling and separate diagnostics & Remedies must be evaluated on this channel family.\\
+Taylor--Hood FEM \cite{taylor1973} & Independent velocity/pressure reference & Discretization and geometry errors remain.\\
+Small-sphere dynamics \cite{maxey1983} & Basis for the drag-only heavy-particle model & Other force terms and confinement are omitted.\\
+Numerical verification \cite{roache1998} & Reference hierarchy and error reporting & Numerical agreement is not experimental validation.\\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The proposed gap is local to the current workflow: its global field metrics
+and particle-outcome metrics do not yet support the same level of confidence.
+The study will investigate that discrepancy and determine a defensible
+operating envelope. This is a focused narrative rationale based on the cited
+foundational work and repository evidence; it is not presented as an
+exhaustive or systematic survey of all particle-transport PINNs.

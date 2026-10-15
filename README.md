@@ -13,6 +13,21 @@
 
 نتایج اجرای نهایی برای بازبینی در مخزن نگهداری شده‌اند. خروجی اجراهای تازه زیر `results/` به‌طور پیش‌فرض وارد Git نمی‌شود. محدودیت دقت مسیر ذرات و فشار آزمون سه‌بعدی در گزارش‌ها ثبت شده است.
 
+## پروپوزال لاتک و PDF
+
+- [PDF پروپوزال انگلیسی](proposal/Particle_PINN_Proposal.pdf)
+- [سورس کامل و قابل انتقال به Overleaf](downloads/particle_pinn_proposal_source.zip)
+- [فایل اصلی لاتک](proposal/proposal.tex)
+- [راهنمای ساخت و اتصال به نتایج](proposal/README.md)
+
+پروپوزال بر پایهٔ تمپلیت ارسالی و با مشخصات Mohammad Reza Sayah، دانشگاه Sharif University of Technology، مقطع Master of Science و استاد راهنما Mohammad Ali Bijarchi تهیه شده است. جدول‌ها و مقادیر کلیدی از JSON و CSVهای نتایج ساخته می‌شوند و همهٔ ۲۱ شکل از خروجی‌های موجود خوانده می‌شوند. نتایج مقدماتی و برنامهٔ پیشنهادی پژوهش در فصل‌های جدا آمده‌اند.
+
+برای بازسازی PDF از ریشهٔ مخزن، با نصب Python و LaTeX دستور زیر را اجرا کنید؛ آموزش مجدد شبکه‌ها لازم نیست:
+
+```bash
+python proposal/build_proposal.py --bundle
+```
+
 ## اجرا
 
 پروژه با Python 3.12 آزمایش شده است. روی این محیط، مفسر آماده در `/workspace/.venvs/particle/bin/python` قرار دارد.

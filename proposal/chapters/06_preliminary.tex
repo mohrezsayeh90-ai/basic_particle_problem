@@ -1,0 +1,164 @@
+\chapter{Preliminary Results and Interpretation}
+\label{ch:preliminary}
+\section{Completed Evidence}
+The following observations are completed repository results, not outcomes
+promised for the proposed study. The archived evaluation completed
+\CompletedStages\ stages with \FailedStages\ stage failures and
+\FailedIntegrations\ failed integrations. Numerical execution success is
+separate from satisfying the accuracy criteria in \cref{tab:criteria}.
+\Cref{tab:summary} summarizes the main measurements.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Automatically extracted preliminary numerical evidence.}
+\label{tab:summary}
+\begin{tabularx}{\textwidth}{@{}p{.29\textwidth}Yr@{}}
+\toprule Comparison & Metric & Value\\\midrule
+\TableRows{summary}
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{Analytical and Reference Checks}
+\Cref{fig:poiseuille} compares analytical, FEM, and PINN straight-channel
+velocity profiles. The PINN velocity error is
+\PoiseuilleVelocityPercent\%, while its longitudinally sampled pressure
+error is \PoiseuillePressurePercent\%. The FEM velocity error is near
+floating-point/iteration accuracy for this polynomial solution. This
+verifies the controlled case, not the accuracy of every curved geometry.
+
+\ResultFigure{16_poiseuille_validation}{Poiseuille verification}{Analytical
+plane Poiseuille profile with independent FEM and separately trained PINN
+profiles. The second panel shows absolute velocity error. Relative pressure
+errors are evaluated on longitudinally distributed points, not this section.}{fig:poiseuille}
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Three reference meshes and their measured sensitivity.}
+\label{tab:mesh}
+\begin{tabularx}{\textwidth}{@{}lrrY@{}}
+\toprule Grid & Triangles & Velocity difference (\%) & $\lVert\nabla\cdot\vect u\rVert_{L^2}$\\\midrule
+\TableRows{mesh}
+\bottomrule
+\end{tabularx}
+\end{table}
+The penultimate-to-finest velocity difference is
+\MeshDifferencePercent\%, and the trajectory interpolator differs from
+direct FEM velocity evaluation by \InterpolationPercent\%.
+The zero difference in the finest row is a self-comparison; it is not an
+estimate of zero discretization error. The declining divergence norm in
+\cref{tab:mesh} and the sensitivity plot in \cref{fig:mesh} support reference
+refinement, while leaving systematic modeling error unmeasured.
+
+\ResultFigure{08_mesh_sensitivity}{Reference mesh sensitivity}{Velocity
+differences to the finest available mesh and the integrated FEM divergence
+norm. The plotted floor for the finest self-comparison is a display choice,
+not a formal uncertainty estimate.}{fig:mesh}
+
+\section{Curved-Channel Flow}
+The principal seed gives sampled velocity and pressure errors of
+\FlowVelocityPercent\% and \FlowPressurePercent\%, respectively.
+\Cref{fig:fields} compares the spatial fields and errors;
+\cref{fig:parity} shows pointwise held-out agreement. Plotting-grid reference
+values use the measured fast interpolation; numerical validation metrics
+use direct FEM evaluation. Maximum section-flux deviation is
+\FluxPercent\%, which is below the present 5\% screen but remains a
+nonzero transport inconsistency.
+
+\WideResultFigure{04_flow_fields}{Channel fields and errors}{PINN and FEM
+speed and gauge-aligned pressure with local error maps. Both methods solve
+the same stated boundary-value problem. Smooth appearance does not imply
+uniformly small boundary or trajectory error.}{fig:fields}
+\WideResultFigure{05_validation_parity}{Field parity}{Direct FEM/PINN parity
+on independent interior sample points. Pressure samples are mean-centered
+before comparison.}{fig:parity}
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Flow error across the two recorded training seeds.}
+\label{tab:seeds}
+\begin{tabularx}{\textwidth}{@{}lYY@{}}
+\toprule Seed & Velocity error (\%) & Pressure error (\%)\\\midrule
+\TableRows{seeds}
+\bottomrule
+\end{tabularx}
+\end{table}
+The velocity error has mean \VelocityMeanPercent\% and sample standard
+deviation \VelocitySDPercent\ percentage points across these two seeds.
+The low observed spread does not establish a general training-success
+probability; the sample is too small for that conclusion.
+
+\section{Particle Paths and Endpoint Decisions}
+\Cref{fig:particles} compares the baseline particle paths. Endpoint classes
+agree for \BaselineAgreement\ of \BaselineCount\ inlet seeds. The
+reference predicts exit for all seven; the surrogate predicts sticking for
+one. In addition, the largest common-time RMS path discrepancy is
+\MaxPathWidthPercent\% of the channel width. Thus, a field error near
+1.5\% does not make the baseline particle prediction uniformly accurate.
+
+\ResultFigure[1.0]{10_particle_paths}{Baseline particle paths}{Baseline
+particle trajectories for PINN plus ForceNet and FEM plus exact Stokes drag.
+Crosses mark sticking; other endpoint types are recorded in the data. The
+outer-seed endpoint discrepancy is retained.}{fig:particles}
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Baseline particle comparisons on the common physical time interval.}
+\label{tab:paths}
+\begin{tabularx}{\textwidth}{@{}rYYY@{}}
+\toprule Inlet $\eta$ & RMS / width (\%) & Time coverage (\%) & Same endpoint\\\midrule
+\TableRows{trajectories}
+\bottomrule
+\end{tabularx}
+\end{table}
+The lowest coverage is \MinimumTimeCoveragePercent\%, so the matched-time
+error alone would conceal an appreciable difference in termination time.
+\Cref{tab:paths} motivates retaining all three trajectory criteria.
+Comparing ForceNet with exact drag on the same PINN flow preserves all seven
+baseline endpoint classes. That isolation result suggests the flow
+approximation is a more consequential contributor to the observed class
+discrepancy in this case, although it does not prove a single local cause.
+
+\section{Diameter and Density Sensitivity}
+The path comparisons in \cref{fig:diameter,fig:density} show the effect of the
+selected inertia and size changes. \Cref{tab:outcomes} gives the actual
+counts. The largest diameter sticks for every seed in both approaches;
+the higher-density case retains a disagreement in the number exiting.
+These observations are conditional on the drag-only model and selected
+seven starting positions. They are not estimates of a device's population
+deposition efficiency.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Endpoint counts in the completed parameter cases; seven seeds per row.}
+\label{tab:outcomes}
+\begin{tabularx}{\textwidth}{@{}lYrrr@{}}
+\toprule Case & Method & Exit & Stick & Other\\\midrule
+\TableRows{outcomes}
+\bottomrule
+\end{tabularx}
+\end{table}
+\WideResultFigure{11_diameter_study}{Diameter sensitivity}{Particle paths
+for the three recorded diameters. The largest diameter is 15\% of the width,
+so physical confinement effects need further consideration.}{fig:diameter}
+\WideResultFigure{12_density_study}{Density sensitivity}{Particle paths
+for the three recorded density ratios under the same stated flow and
+contact model.}{fig:density}
+
+\section{Three-Dimensional Evidence}
+The separate ABC model has velocity error \ABCVelocityPercent\% and
+pressure error \ABCPressurePercent\%. The latter exceeds the current
+5\% criterion. \Cref{fig:abc,fig:abcvalidation} demonstrates nonplanar
+trajectory integration and records the associated approximation quality;
+it does not provide a validated 3D curved-channel solution.
+
+The unresolved path accuracy, endpoint agreement and 3D pressure motivate
+the next experiments in \cref{ch:plan}. Additional diagnostics, including
+the planar extrusion labeled as such, appear in \cref{app:figures}.
+
+\ResultFigure[1.0]{19_3d_benchmark}{Three-dimensional tracer paths}{Tracer
+paths from the 3D PINN and exact forced ABC velocity fields. These are
+genuine three-coordinate paths in a separate benchmark.}{fig:abc}
+\ResultFigure{20_3d_validation}{Three-dimensional benchmark checks}{Speed
+parity and physics loss for the ABC benchmark. The pressure error is reported
+numerically and remains above the current screening criterion.}{fig:abcvalidation}

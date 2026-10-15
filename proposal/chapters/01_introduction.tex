@@ -1,0 +1,71 @@
+\chapter{Introduction}
+\label{ch:introduction}
+\section{Background and Problem}
+Curved channels couple fluid turning with particle inertia. A fluid marker
+follows the local velocity, whereas a finite-inertia particle can lag behind
+a change in flow direction and approach a wall. Predicting the resulting
+trajectory is relevant to transport, separation, and deposition studies.
+The mathematical difficulty is broader than approximating a smooth velocity
+field: small, spatially localized errors can change a discrete outcome such
+as whether a particle exits or sticks.
+
+Physics-informed neural networks incorporate governing-equation and boundary
+residuals into a learning objective \cite{raissi2019,karniadakis2021}. They
+offer a differentiable approximation that can be evaluated during trajectory
+integration. Their optimization, scaling, and accuracy nevertheless require
+verification; a small loss or an attractive plot is insufficient evidence
+of a reliable solution \cite{wang2021,wang2022}. Classical CFD remains a
+necessary independent comparator in the present study.
+
+The current project already includes a two-network implementation, analytical
+tests, an independent FEM reference, and particle tracking. Its preliminary
+results reveal a useful research problem: the principal flow approximation
+has a relatively small mean error, yet some particle paths and endpoint
+classes differ from the reference. This proposal therefore studies the
+connection between field accuracy and transport accuracy, rather than
+assuming one implies the other.
+
+\section{Aim and Objectives}
+The aim is to develop and assess a reproducible physics-informed workflow
+for predicting dilute-particle transport in smooth curved channels within
+an explicitly defined physical and geometric scope.
+\begin{enumerate}[label=O\arabic*.]
+\item Quantify flow and pressure accuracy against analytical and independently
+assembled numerical references, including mesh and interpolation sensitivity.
+\item Determine how local field errors, inertia, particle size, and wall
+clearance affect trajectory errors and endpoint classification.
+\item Evaluate targeted changes to training and sampling using separate
+development and final evaluation cases.
+\item Establish the supported scope of geometry variation and a distinct
+three-dimensional verification pathway, without inferring universal
+generalization from the network input dimensions.
+\end{enumerate}
+
+\section{Research Questions}
+\begin{enumerate}[label=RQ\arabic*.]
+\item Under which training and reference-resolution conditions does the
+flow PINN satisfy both field-error and mass-conservation criteria?
+\item How does flow-approximation error propagate into particle position,
+residence time, and sticking or exit decisions?
+\item Does a learned force surrogate materially change trajectories compared
+with exact Stokes drag evaluated on the same learned flow?
+\item Which conclusions persist across separately trained channel shapes and
+Reynolds numbers, and what further evidence is needed for a 3D channel model?
+\end{enumerate}
+The working expectation is that near-wall and turning-region accuracy will
+be more informative for deposition than a global sampled velocity norm.
+This is a testable hypothesis for the proposed study, not a mechanism
+already established by the preliminary figures.
+
+\section{Scope and Intended Contribution}
+The initial physical model is steady, incompressible, Newtonian flow with
+one-way coupling to dilute, heavy, spherical particles. Stokes drag and
+irreversible wall sticking are retained. The supported channel family has
+a smooth, nonintersecting planar centerline and constant width. Sharp
+corners, junctions, variable-width networks, particle--particle forces,
+and feedback on the fluid are outside the present implementation.
+
+The intended contribution is a reproducible evaluation linking field errors
+to transport errors. Its scope excludes a universal drag law and arbitrary
+3D geometry. The remaining chapters develop the foundations, methods,
+evaluation, preliminary evidence and proposed work.

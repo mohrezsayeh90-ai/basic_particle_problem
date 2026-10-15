@@ -1,0 +1,12 @@
+{
+  "compiler_exit_code": 0,
+  "required_figures": 21,
+  "figure_labels": 21,
+  "unresolved_references": [],
+  "overfull_boxes": [],
+  "data_revision": "97d71480fc012b04a2265368c1e13f54512b694b",
+  "numerical_inputs_modified": false,
+  "pdf_text_checks": "passed",
+  "pages": 47,
+  "pdf_sha256": "7b2afd7898cce42560da2e724889593ce723f9ab16e04c65114f4c89a784f2b0"
+}

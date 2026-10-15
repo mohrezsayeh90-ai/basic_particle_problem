@@ -1,0 +1,47 @@
+\chapter{Supplementary Numerical Figures}
+\label{app:figures}
+All panels in this appendix are existing repository exports. They supplement
+the principal evidence without changing the physical interpretation. Loss
+and seed plots support optimization diagnosis; flux and profiles test the
+flow; force and trajectory plots help separate modeling components.
+\Cref{fig:extrusion} is explicitly a planar extrusion, not the separate
+3D benchmark in \cref{fig:abc}.
+
+\newcommand{\GalleryPair}[8]{%
+  \begin{figure}[!htbp]\centering
+  \includegraphics[width=.95\textwidth,height=.26\textheight,keepaspectratio]{#1.pdf}
+  \caption[#2]{#3}\label{#4}\vspace{6mm}
+  \includegraphics[width=.95\textwidth,height=.26\textheight,keepaspectratio]{#5.pdf}
+  \caption[#6]{#7}\label{#8}\end{figure}\clearpage}
+
+\GalleryPair{03_losses}{Training diagnostics}{Flow and force loss histories.
+Training-step labels include the recorded optimizer phases; a low objective
+alone is not a transport-accuracy certificate.}{fig:losses}
+{07_mass_flux}{Section flux}{Computed section flux normalized by prescribed
+flux. The departure from unity is measured separately from field error.}{fig:flux}
+
+\GalleryPair{09_fluid_paths}{Fluid-marker paths}{Fluid markers integrated in
+the separately labeled learned and reference velocity fields.}{fig:tracers}
+{13_particle_outcomes}{Particle outcome fractions}{Endpoint-class fractions
+for each recorded case. Numerical failures, if present, would remain a
+separate class. Exact case counts are in \cref{tab:outcomes}.}{fig:outcomechart}
+
+\GalleryPair{14_extruded_paths}{Planar extrusion}{Extruded visualization of
+planar particle paths. The displayed depth offsets are illustrative and
+do not come from a three-dimensional channel solution.}{fig:extrusion}
+{18_seed_sensitivity}{Seed diagnostics}{Monitor-loss histories and held-out
+velocity-error distributions for the two recorded seeds.}{fig:seedplot}
+
+\GalleryPair{15_drag_validation}{Drag and relaxation checks}{Normalized
+ForceNet/Stokes parity and a numerical ODE comparison with exact Stokes
+velocity relaxation.}{fig:drag}
+{22_deposition_map}{Particle outcome map}{Endpoint classes versus inlet
+position and diameter-to-width ratio. The map uses the stated sticking
+model and the available finite set of seeds.}{fig:deposition}
+
+\WideResultFigure{06_velocity_profiles}{Section velocity profiles}{Tangential
+velocity profiles at three channel locations, comparing PINN and the
+reference field.}{fig:profiles}
+\WideResultFigure{21_particle_dynamics}{Particle speed and drag}{Central-seed
+baseline particle speed and drag components. The displayed forces are
+hydrodynamic drag; wall-contact constraint forces are outside this model.}{fig:dynamics}

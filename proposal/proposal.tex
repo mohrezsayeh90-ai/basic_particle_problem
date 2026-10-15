@@ -1,0 +1,190 @@
+% Adapted from the user-supplied Complete_English_Thesis_Template.tex.
+% The original file is preserved, unchanged, under template/.
+% Run: python build_proposal.py (or latexmk after generate_results.py).
+\documentclass[12pt,a4paper,oneside]{report}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{lmodern}
+\usepackage[left=32mm,right=25mm,top=27mm,bottom=27mm]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs,tabularx,longtable,array}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{listings}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{xurl}
+\usepackage{hyperref}
+\usepackage[nameinlink,noabbrev]{cleveref}
+\usepackage{bookmark}
+\usepackage{etoolbox}
+\usepackage{placeins}
+\usepackage{pdflscape}
+\input{metadata}
+\input{generated/metrics}
+\input{generated/paths}
+\input{generated/tables}
+\newcommand{\TableRows}[1]{\csname EvidenceTable#1\endcsname}
+\definecolor{ThesisBlue}{HTML}{173F5F}
+\hypersetup{colorlinks=true,linkcolor=ThesisBlue,citecolor=ThesisBlue,urlcolor=ThesisBlue,
+  pdftitle={\ThesisTitle},pdfauthor={\AuthorName},
+  pdfsubject={Master of Science research proposal with preliminary numerical evidence}}
+\setcounter{secnumdepth}{2}
+\setcounter{tocdepth}{1}
+\setlength{\headheight}{15pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\ShortTitle}
+\fancyhead[R]{\small Research Proposal}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.3pt}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\thepage}\renewcommand{\headrulewidth}{0pt}}
+\setlist[itemize]{topsep=4pt,itemsep=2pt,parsep=0pt}
+\setlist[enumerate]{topsep=4pt,itemsep=3pt,parsep=0pt}
+\captionsetup{font=small,labelfont=bf}
+\renewcommand{\arraystretch}{1.15}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\lstset{basicstyle=\ttfamily\footnotesize,breaklines=true,frame=single,
+  columns=fullflexible,keepspaces=true,showstringspaces=false}
+\newcommand{\FrontChapter}[1]{\chapter*{#1}\phantomsection
+  \addcontentsline{toc}{chapter}{#1}\markboth{#1}{#1}}
+\newcommand{\ResultFigure}[5][0.94]{%
+  \begin{figure}[!htbp]\centering
+  \includegraphics[width=#1\textwidth,height=0.60\textheight,keepaspectratio]{#2.pdf}
+  \caption[#3]{#4}\label{#5}\end{figure}}
+\newcommand{\WideResultFigure}[4]{%
+  \begin{landscape}\begin{figure}[p]\centering
+  \includegraphics[width=.98\linewidth,height=.72\textheight,keepaspectratio]{#1.pdf}
+  \caption[#2]{#3}\label{#4}\end{figure}\end{landscape}}
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\newcommand{\MSE}{\operatorname{MSE}}
+\newcommand{\Rey}{\mathrm{Re}}
+\newcommand{\St}{\mathrm{St}}
+\setlength{\emergencystretch}{1.5em}
+\begin{document}
+\hypersetup{pageanchor=false}
+\begin{titlepage}
+\centering
+\vspace*{7mm}
+{\Large\UniversityName\par}
+\ifdefempty{\DepartmentName}{}{\vspace{3mm}{\large\DepartmentName\par}}
+\vspace{17mm}
+{\Huge\bfseries\color{ThesisBlue}\ThesisTitle\par}
+\vspace{12mm}
+{\Large Research Proposal\par}
+\vspace{4mm}
+{\large\DegreeName\par}
+\vspace{13mm}
+{\Large\AuthorName\par}
+\ifdefempty{\StudentID}{}{\vspace{3mm}Student ID: \StudentID\par}
+\vspace{9mm}
+{\large Supervisor: \SupervisorName\par}
+\ifdefempty{\CoSupervisorName}{}{Co-supervisor: \CoSupervisorName\par}
+\vfill
+{\small Preliminary computational evidence and proposed research plan\par}
+\vspace{5mm}
+{\normalsize\SubmissionDate\par}
+\end{titlepage}
+\pagenumbering{roman}
+\hypersetup{pageanchor=true}
+\FrontChapter{Abstract}
+Reliable prediction of particle transport in curved channels requires both
+an accurate fluid field and a faithful treatment of particle inertia and
+wall contact. This proposal develops a physics-informed neural-network
+workflow for steady incompressible flow and dilute spherical-particle
+transport, with independent numerical references and explicit accuracy
+criteria. A flow network with five hidden layers of 70 neurons predicts
+velocity and pressure; a force network with five hidden layers of 90 neurons
+approximates the specified Stokes-drag relation. Existing repository results
+provide preliminary evidence: the principal curved-channel case has velocity
+and pressure errors of \FlowVelocityPercent\% and \FlowPressurePercent\%
+relative to an independently assembled finite-element reference. Across two
+training seeds, the mean velocity error is \VelocityMeanPercent\%. However,
+only \BaselineAgreement\ of \BaselineCount\ baseline particle endpoint
+classes agree with the reference, and some trajectory errors exceed the
+current screening limits. A separate three-dimensional manufactured
+benchmark gives velocity and pressure errors of \ABCVelocityPercent\% and
+\ABCPressurePercent\%, respectively. These findings motivate a research
+program focused on near-wall accuracy, trajectory-based evaluation,
+controlled geometry studies, and pressure recovery. The proposed study will
+separate numerical verification from physical validation and will evaluate
+generalization only on explicitly held-out cases. The expected contribution
+is a reproducible, bounded assessment of when physics-informed flow
+approximations support reliable particle-transport predictions.
+
+\vspace{4mm}
+\noindent\textbf{Keywords:} physics-informed neural networks; particle
+transport; curved channels; Stokes drag; numerical verification.
+
+\FrontChapter{Document and Evidence Record}
+This is a research proposal supported by existing preliminary computations.
+Completed numerical results appear in \cref{ch:preliminary}; the experiments
+and improvements in \cref{ch:plan} are proposed work. No experimental
+measurements or completed three-dimensional channel study are claimed.
+
+The document adapts the layout, typography, margins, front matter, and
+chapter-based structure of the supplied English thesis template. The original
+template is retained with the source. Thesis approval, originality-signature,
+and completion pages are omitted because they do not describe this proposal.
+The author and supervisor details were supplied for the title page.
+
+Numerical tables and highlighted values are generated from
+\path{results/final_study/metrics.json} and associated CSV/JSON files.
+All 21 research figures are read from the repository's existing PDF exports.
+The evidence data revision is \texttt{\EvidenceRevision}. A machine-readable
+input hash record accompanies the source. The document build does not
+retrain models or alter numerical results.
+
+\noindent\textbf{Repository:}\par
+\url{https://github.com/mohrezsayeh90-ai/basic_particle_problem}
+
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{Contents}\tableofcontents
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{List of Figures}\listoffigures
+\clearpage\phantomsection\addcontentsline{toc}{chapter}{List of Tables}\listoftables
+\FrontChapter{Abbreviations and Nomenclature}
+\begin{tabularx}{\textwidth}{@{}lY@{}}
+\toprule Abbreviation & Meaning\\\midrule
+ABC & Arnold--Beltrami--Childress manufactured flow\\
+CFD & Computational fluid dynamics\\
+FEM & Finite-element method\\
+MLP & Multilayer perceptron\\
+ODE / PDE & Ordinary / partial differential equation\\
+PINN & Physics-informed neural network\\
+RMS & Root-mean-square\\
+\bottomrule
+\end{tabularx}
+\vspace{7mm}
+\begin{tabularx}{\textwidth}{@{}lY@{}}
+\toprule Symbol & Meaning\\\midrule
+$L_0,U_0,T_0$ & Reference length, speed, and time; $T_0=L_0/U_0$\\
+$\vect{u},p$ & Dimensionless fluid velocity and pressure\\
+$\vect{x}_p,\vect{v}_p$ & Dimensionless particle position and velocity\\
+$R_{\rm in},R_{\rm out}$ & Nominal inner and outer radii of the arc channel\\
+$h,W,L$ & Channel half-width, width $W=2h$, and centerline length\\
+$s,\eta$ & Centerline coordinate and normalized transverse coordinate\\
+$d_p,\rho_r$ & Dimensionless particle diameter and density ratio $\rho_p/\rho_f$\\
+$\Rey,\Rey_p,\St$ & Reference Reynolds number, particle Reynolds number, Stokes number\\
+$\vect{F}^{*}$ & Drag force scaled by displaced-fluid mass times $U_0^2/L_0$\\
+$\theta,\phi$ & Parameters of the flow and force networks\\
+$Q,Q_0$ & Section flux and prescribed reference flux\\
+\bottomrule
+\end{tabularx}
+\clearpage\pagenumbering{arabic}
+\input{chapters/01_introduction}
+\input{chapters/02_literature}
+\input{chapters/03_theory}
+\input{chapters/04_methodology}
+\input{chapters/05_verification}
+\input{chapters/06_preliminary}
+\input{chapters/07_plan}
+\input{references}
+\appendix
+\input{chapters/appendix_reproducibility}
+\input{chapters/appendix_figures}
+\end{document}

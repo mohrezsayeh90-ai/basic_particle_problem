@@ -1,0 +1,104 @@
+\chapter{Verification and Evaluation Design}
+\label{ch:verification}
+\section{Reference Hierarchy}
+The evaluation proceeds from exact checks to independently discretized
+comparisons. This hierarchy separates equation implementation, numerical
+approximation, and physical applicability \cite{roache1998}.
+
+For plane Poiseuille flow in a straight channel of half-width $h$,
+\begin{equation}
+ u=1-(y/h)^2,\qquad v=0,\qquad p=-2x/h^2+C.
+ \label{eq:poiseuille}
+\end{equation}
+This profile checks both FEM and a separately trained straight-channel PINN.
+Velocity profiles are compared on a transverse section; relative pressure
+errors use points spanning the channel length, because exact pressure has
+no transverse variation on a single section.
+
+In a uniform flow, the Stokes relaxation solution provides an independent
+particle-ODE check,
+\begin{equation}
+ \vect v_p(t)=\vect u+
+ [\vect v_p(0)-\vect u]\exp(-t/\St).
+ \label{eq:relaxation}
+\end{equation}
+Algebraic drag tests quantify whether ForceNet reproduces its specified law;
+they do not validate that law against real particles near a wall.
+
+\section{Field and Trajectory Metrics}
+The reported relative field error is a discrete sample norm,
+\begin{equation}
+ E_u=\frac{\sqrt{\sum_i\lVert\widehat{\vect u}_i-\vect u_i^{\rm ref}\rVert^2}}
+ {\sqrt{\sum_i\lVert\vect u_i^{\rm ref}\rVert^2}}.
+ \label{eq:relative-error}
+\end{equation}
+Pressure uses the same construction after each pressure sample set is
+mean-centered to remove gauge differences. Interior sampling is in channel
+coordinates; the resulting norm is not an exact area-weighted integral.
+Maximum velocity error, boundary RMS error, PDE residuals and section flux
+provide complementary information. FEM's integrated divergence norm and
+PINN's sampled continuity RMS have different definitions and should not be
+compared as if they were identical measures.
+
+For a pair of paths, the position RMS is calculated at 150 common-time
+samples up to $T_c=\min(T_{\rm PINN},T_{\rm ref})$. Its ratio to width $W$
+is reported alongside $T_c/\max(T_{\rm PINN},T_{\rm ref})$ and endpoint-class
+agreement. Restricting the time interval can hide disagreement after one
+path ends; the coverage and class measures prevent that truncation from
+being interpreted as full-path agreement.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Numerical screening criteria used to organize the proposal.}
+\label{tab:criteria}
+\begin{tabularx}{\textwidth}{@{}p{.43\textwidth}Y@{}}
+\toprule Quantity & Screening requirement\\\midrule
+Channel velocity and pressure & Relative sampled error below 5\% each\\
+Straight-channel PINN & Velocity and pressure error below 5\% each\\
+Boundary velocity & Dimensionless RMS below 0.02\\
+Section mass flux & Maximum relative deviation below 5\%\\
+Reference mesh difference & Penultimate-to-finest velocity difference below 2\%\\
+Reference trajectory interpolator & Velocity discrepancy below 2\%\\
+Force surrogate & Held-out normalized relative error below 5\%\\
+Baseline trajectory position & RMS below 5\% of width for every compared seed\\
+Baseline endpoint classes & Agreement for every compared seed\\
+Common trajectory time & More than 95\% for every compared seed\\
+Separate ABC benchmark & Velocity and pressure errors below 5\% each\\
+\bottomrule
+\end{tabularx}
+\end{table}
+These are numerical screening choices, not universal engineering tolerances.
+The current records are a developmental baseline; this proposal does not
+claim that the listed thresholds were preregistered before all preliminary
+inspection. Final acceptance criteria and held-out cases will be frozen
+before the proposed comparison experiments begin.
+
+\section{Separate Three-Dimensional Benchmark}
+The exact ABC field, with unit amplitudes, is
+\begin{align}
+ \vect u&=(\sin z+\cos y,\ \sin x+\cos z,\ \sin y+\cos x),\nonumber\\
+ p&=-\Rey\lVert\vect u\rVert^2/2,\qquad \vect f=\vect u,
+ \label{eq:abc}
+\end{align}
+on $[0,2\pi]^3$. It satisfies the forced steady momentum equation
+$\Rey(\vect u\cdot\nabla)\vect u=-\nabla p+\nabla^2\vect u+\vect f$.
+Indeed, $\nabla\cdot\vect u=0$, $\nabla\times\vect u=\vect u$, and
+$\nabla^2\vect u=-\vect u$. The convective term is the gradient of
+$\lVert\vect u\rVert^2/2$, which is canceled by the pressure gradient.
+
+A separate 3D network predicts all three velocity components and pressure;
+known velocity is prescribed on the cube faces, and one pressure value fixes
+the gauge. The exact interior field is reserved for evaluation. Particle-free
+tracer paths use the periodically extended exact or learned velocity. This
+tests genuine 3D derivatives and trajectories, but not a finite-depth curved
+channel with sidewalls. The extruded planar channel illustration has an
+entirely different role and is identified as visualization only.
+
+\section{Uncertainty and Physical Validation}
+The current error budget includes reference mesh and geometry error,
+interpolator error, PINN approximation, optimizer variability and ODE error.
+Two seeds and a three-mesh comparison do not constitute a formal uncertainty
+analysis or a grid-convergence index. Temporal and event-location refinement
+are required in the proposed work. At present, no measurement dataset has
+been supplied; physical validation and uncertain particle properties remain
+open requirements before a device-level claim is justified.

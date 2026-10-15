@@ -1,0 +1,75 @@
+\expandafter\def\csname EvidenceTablesummary\endcsname{
+Curved channel & Velocity relative error & 1.510\% \\
+Curved channel & Pressure relative error & 0.863\% \\
+Drag network & Held-out normalized force error & 0.717\% \\
+Poiseuille PINN & Velocity relative error & 0.217\% \\
+Poiseuille PINN & Pressure relative error & 0.180\% \\
+Poiseuille FEM & Velocity relative error & $8.192\times 10^{-10}$ \\
+Finest FEM pair & Velocity difference & 0.173\% \\
+Reference interpolation & Velocity difference & 0.177\% \\
+Baseline particle outcomes & Matched endpoint classes & 6/7 \\
+ABC benchmark & Velocity relative error & 2.428\% \\
+ABC benchmark & Pressure relative error & 13.501\% \\
+}
+\expandafter\def\csname EvidenceTablemesh\endcsname{
+30 $\times$ 6 & 290 & 1.141 & $2.448\times 10^{-1}$ \\
+60 $\times$ 12 & 1298 & 0.173 & $7.819\times 10^{-2}$ \\
+90 $\times$ 18 & 3026 & 0.000 & $4.128\times 10^{-2}$ \\
+}
+\expandafter\def\csname EvidenceTableseeds\endcsname{
+42 & 1.510 & 0.863 \\
+43 & 1.429 & 0.886 \\
+}
+\expandafter\def\csname EvidenceTabletrajectories\endcsname{
+-0.650 & 2.668 & 98.86 & Yes \\
+-0.433 & 2.299 & 99.33 & Yes \\
+-0.217 & 4.298 & 99.27 & Yes \\
+0.000 & 7.834 & 98.59 & Yes \\
+0.217 & 16.086 & 96.19 & Yes \\
+0.433 & 34.973 & 87.39 & Yes \\
+0.650 & 3.295 & 73.55 & No \\
+}
+\expandafter\def\csname EvidenceTableoutcomes\endcsname{
+Baseline & PINN + ForceNet & 6 & 1 & 0 \\
+Baseline & FEM + Stokes & 7 & 0 & 0 \\
+$d_p=0.0105$ & PINN + ForceNet & 7 & 0 & 0 \\
+$d_p=0.0105$ & FEM + Stokes & 7 & 0 & 0 \\
+$d_p=0.0255$ & PINN + ForceNet & 6 & 1 & 0 \\
+$d_p=0.0255$ & FEM + Stokes & 7 & 0 & 0 \\
+$d_p=0.045$ & PINN + ForceNet & 0 & 7 & 0 \\
+$d_p=0.045$ & FEM + Stokes & 0 & 7 & 0 \\
+$\rho_r=200$ & PINN + ForceNet & 7 & 0 & 0 \\
+$\rho_r=200$ & FEM + Stokes & 7 & 0 & 0 \\
+$\rho_r=1000$ & PINN + ForceNet & 6 & 1 & 0 \\
+$\rho_r=1000$ & FEM + Stokes & 7 & 0 & 0 \\
+$\rho_r=3000$ & PINN + ForceNet & 0 & 7 & 0 \\
+$\rho_r=3000$ & FEM + Stokes & 1 & 6 & 0 \\
+}
+\expandafter\def\csname EvidenceTablesoftware\endcsname{
+numpy & 2.3.5 \\
+scipy & 1.17.0 \\
+torch & 2.14.1+cpu \\
+matplotlib & 3.10.8 \\
+scikit-fem & 12.0.2 \\
+Pillow & 12.3.0 \\
+}
+\expandafter\def\csname EvidenceTablequality\endcsname{
+Analytical FEM & Met \\
+Poiseuille PINN velocity & Met \\
+Poiseuille PINN pressure & Met \\
+FEM nonlinear solve & Met \\
+Reference mesh sensitivity & Met \\
+Reference interpolator & Met \\
+Channel velocity & Met \\
+Channel pressure & Met \\
+Velocity boundary & Met \\
+Channel mass flux & Met \\
+Drag surrogate & Met \\
+Trajectory integration & Met \\
+Particle endpoint agreement & Not met \\
+Particle position error & Not met \\
+Trajectory time coverage & Not met \\
+ABC velocity & Met \\
+ABC pressure & Not met \\
+Execution stages & Met \\
+}

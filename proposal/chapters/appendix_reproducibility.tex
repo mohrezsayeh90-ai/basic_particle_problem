@@ -1,0 +1,94 @@
+\chapter{Reproducibility and Evidence Record}
+\label{app:reproducibility}
+\section{Source and Software}
+The numerical inputs are from repository data revision
+\texttt{\EvidenceRevision}. Figure/data SHA-256 hashes are written to
+\path{generated/evidence_manifest.json} when the document is built. The
+archived numerical run retains its own source hashes, configuration, model
+checksums and stage records. A later report revision does not change those
+underlying predictions.
+
+\begin{table}[!htbp]
+\centering\small
+\caption{Software versions recorded with the numerical evidence.}
+\label{tab:software}
+\begin{tabularx}{\textwidth}{@{}YY@{}}
+\toprule Package & Recorded version\\\midrule
+\TableRows{software}
+\bottomrule
+\end{tabularx}
+\end{table}
+The scientific code was exercised under Python 3.12. These are numerical-run
+versions, not a claim that a PDF build retrained the models. The proposal
+builder itself uses the Python standard library and a standard LaTeX
+installation; PyTorch is not needed simply to compile this document.
+
+\section{Building the Proposal}
+From a checkout of the repository, run:
+\begin{lstlisting}
+python proposal/build_proposal.py --bundle
+\end{lstlisting}
+The builder regenerates tables and highlighted values, checks required
+inputs, runs latexmk/pdfLaTeX to resolve references, and writes
+\path{proposal/Particle_PINN_Proposal.pdf}. The optional portable source ZIP
+includes the numerical inputs and all required figure PDFs. The original
+user-supplied template is preserved under \path{proposal/template/}.
+For a new numerical run, use:
+\begin{lstlisting}
+python proposal/build_proposal.py --results results/NEW_RUN
+\end{lstlisting}
+The schema and required benchmarks must match; missing data trigger an
+explicit error rather than numerical substitutions. Generated tables follow
+the selected data. The interpretive prose is a reviewed narrative and must
+also be checked when the scientific case or findings change.
+
+\section{Inspecting and Reproducing the Numerical Study}
+The following commands inspect the existing tests and re-evaluate saved
+weights using the repository workflow. Install the scientific dependencies
+as described in the project README before running them.
+\begin{lstlisting}
+python -m unittest discover -s tests -v
+python run_particle_pinn.py --preset standard --seeds 2 \
+  --ns 60 --nn 12 --weights-from results/final_study \
+  --out results/proposal_replay
+python assess_results.py results/proposal_replay
+\end{lstlisting}
+The replay writes a fresh output directory. It evaluates existing weights;
+it does not reproduce the original training time. Model provenance paths
+inside the old metadata are historical records; the required weights are
+present under \path{results/final_study/models/}. New training is performed
+with the documented training options rather than the replay command.
+
+For an interior fluid marker with an arbitrary admissible start,
+\begin{lstlisting}
+python trace_path.py --run results/final_study \
+  --start 0.35 0.35 --tracer --out results/interior_tracer
+\end{lstlisting}
+The equivalent particle command omits \texttt{--tracer}; an initial velocity
+can be supplied explicitly. A new geometry or Reynolds number requires
+retraining under the present per-case design.
+
+\section{Complete Numerical Screening Record}
+\Cref{tab:quality} is generated from the stored criterion flags. These flags
+retain distinctions between execution, field accuracy and transport accuracy.
+They are numerical screens, not an institutional approval or experimental
+validation statement.
+\begin{longtable}{@{}p{.70\textwidth}p{.23\textwidth}@{}}
+\caption{Recorded numerical screening outcomes.}\label{tab:quality}\\
+\toprule Check & Outcome\\\midrule
+\endfirsthead
+\toprule Check & Outcome\\\midrule
+\endhead
+\TableRows{quality}
+\bottomrule
+\end{longtable}
+
+\section{Availability and Review}
+The repository contains code, weights, raw numerical outputs, vector figures,
+PNG images, a GIF and result reports. The animation is available as
+\href{https://github.com/mohrezsayeh90-ai/basic_particle_problem/blob/main/results/final_study/figures/17_particle_motion.gif}{the particle-motion GIF}.
+A PDF figure cannot encode that animation, so the underlying paths are also
+shown as static figures and retained in CSV form. Access follows the
+repository's current GitHub permissions. The supplied thesis template is
+retained as a user-provided formatting source; no broader reuse license or
+institutional approval is inferred from it.
