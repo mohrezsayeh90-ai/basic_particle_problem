@@ -1,0 +1,260 @@
+{
+  "low": {
+    "parameters": {
+      "rin": 0.020000000000000004,
+      "rout": 0.05,
+      "re": 0.1,
+      "diameter": 0.0025000000000000005,
+      "density_ratio": 100.0
+    },
+    "particles": [
+      {
+        "particle": 0,
+        "outcome": "exited",
+        "max_particle_re": 3.123422015804427e-08,
+        "message": "A termination event occurred."
+      },
+      {
+        "particle": 1,
+        "outcome": "exited",
+        "max_particle_re": 3.3206065601453814e-08,
+        "message": "A termination event occurred."
+      },
+      {
+        "particle": 2,
+        "outcome": "exited",
+        "max_particle_re": 3.142781609313125e-08,
+        "message": "A termination event occurred."
+      },
+      {
+        "particle": 3,
+        "outcome": "exited",
+        "max_particle_re": 2.7313434420440524e-08,
+        "message": "A termination event occurred."
+      },
+      {
+        "particle": 4,
+        "outcome": "exited",
+        "max_particle_re": 2.3550276767220415e-08,
+        "message": "A termination event occurred."
+      }
+    ],
+    "reference_solver_ok": true,
+    "velocity_relative_l2": 0.11141307328643688,
+    "pressure_relative_l2": 0.0634421832892102,
+    "trajectory_comparison": [
+      {
+        "available": true,
+        "common_time_coverage": 0.8702970729197457,
+        "rms_position_over_width": 0.35062822181648695,
+        "outcome_agreement": true,
+        "pinn_outcome": "exited",
+        "reference_outcome": "exited"
+      },
+      {
+        "available": true,
+        "common_time_coverage": 0.8887297136612017,
+        "rms_position_over_width": 0.2998089767228209,
+        "outcome_agreement": true,
+        "pinn_outcome": "exited",
+        "reference_outcome": "exited"
+      },
+      {
+        "available": true,
+        "common_time_coverage": 0.988013909180731,
+        "rms_position_over_width": 0.2829698381369856,
+        "outcome_agreement": true,
+        "pinn_outcome": "exited",
+        "reference_outcome": "exited"
+      },
+      {
+        "available": true,
+        "common_time_coverage": 0.840650315850827,
+        "rms_position_over_width": 0.9046625924402821,
+        "outcome_agreement": true,
+        "pinn_outcome": "exited",
+        "reference_outcome": "exited"
+      },
+      {
+        "available": true,
+        "common_time_coverage": 0.7643661415997977,
+        "rms_position_over_width": 1.1680570054887405,
+        "outcome_agreement": true,
+        "pinn_outcome": "exited",
+        "reference_outcome": "exited"
+      }
+    ]
+  },
+  "base": {
+    "parameters": {
+      "rin": 0.2,
+      "rout": 0.5,
+      "re": 1.0,
+      "diameter": 0.025,
+      "density_ratio": 1000.0
+    },
+    "particles": [
+      {
+        "particle": 0,
+        "outcome": "exited",
+        "max_particle_re": 0.002848064164862147,
+        "message": "A termination event occurred."
+      },
+      {
+        "particle": 1,
+        "outcome": "exited",
+        "max_particle_re": 0.002937178890788186,
+        "message": "A termination event occurred."
+      },
+      {
+        "particle": 2,
+        "outcome": "exited",
+        "max_particle_re": 0.0028303108716473636,
+        "message": "A termination event occurred."
+      },
+      {
+        "particle": 3,
+        "outcome": "exited",
+        "max_particle_re": 0.001963913775390866,
+        "message": "A termination event occurred."
+      },
+      {
+        "particle": 4,
+        "outcome": "exited",
+        "max_particle_re": 0.001667698189881536,
+        "message": "A termination event occurred."
+      }
+    ],
+    "reference_solver_ok": true,
+    "velocity_relative_l2": 0.1368375569821341,
+    "pressure_relative_l2": 0.07387017460578783,
+    "trajectory_comparison": [
+      {
+        "available": true,
+        "common_time_coverage": 0.9663097622532526,
+        "rms_position_over_width": 0.4671593104630731,
+        "outcome_agreement": true,
+        "pinn_outcome": "exited",
+        "reference_outcome": "exited"
+      },
+      {
+        "available": true,
+        "common_time_coverage": 0.9272356865506529,
+        "rms_position_over_width": 0.6084799229724422,
+        "outcome_agreement": true,
+        "pinn_outcome": "exited",
+        "reference_outcome": "exited"
+      },
+      {
+        "available": true,
+        "common_time_coverage": 0.7747920994485081,
+        "rms_position_over_width": 1.1036237242028182,
+        "outcome_agreement": true,
+        "pinn_outcome": "exited",
+        "reference_outcome": "exited"
+      },
+      {
+        "available": true,
+        "common_time_coverage": 0.571079601266736,
+        "rms_position_over_width": 1.5557818029346757,
+        "outcome_agreement": true,
+        "pinn_outcome": "exited",
+        "reference_outcome": "exited"
+      },
+      {
+        "available": true,
+        "common_time_coverage": 0.47080985683142296,
+        "rms_position_over_width": 1.7583418344549415,
+        "outcome_agreement": true,
+        "pinn_outcome": "exited",
+        "reference_outcome": "exited"
+      }
+    ]
+  },
+  "high": {
+    "parameters": {
+      "rin": 2.0,
+      "rout": 5.0,
+      "re": 10.0,
+      "diameter": 0.25,
+      "density_ratio": 10000.0
+    },
+    "particles": [
+      {
+        "particle": 0,
+        "outcome": "stuck",
+        "max_particle_re": 1.6388732868216949,
+        "message": "A termination event occurred."
+      },
+      {
+        "particle": 1,
+        "outcome": "stuck",
+        "max_particle_re": 1.7694071591931169,
+        "message": "A termination event occurred."
+      },
+      {
+        "particle": 2,
+        "outcome": "stuck",
+        "max_particle_re": 2.1189793421950696,
+        "message": "A termination event occurred."
+      },
+      {
+        "particle": 3,
+        "outcome": "stuck",
+        "max_particle_re": 2.2152677123408977,
+        "message": "A termination event occurred."
+      },
+      {
+        "particle": 4,
+        "outcome": "stuck",
+        "max_particle_re": 2.1806731025279147,
+        "message": "A termination event occurred."
+      }
+    ],
+    "reference_solver_ok": true,
+    "velocity_relative_l2": 0.16965811701254832,
+    "pressure_relative_l2": 0.1949069293643264,
+    "trajectory_comparison": [
+      {
+        "available": true,
+        "common_time_coverage": 0.9972491702074433,
+        "rms_position_over_width": 0.0016369029621400141,
+        "outcome_agreement": true,
+        "pinn_outcome": "stuck",
+        "reference_outcome": "stuck"
+      },
+      {
+        "available": true,
+        "common_time_coverage": 0.998127444125094,
+        "rms_position_over_width": 0.0010768572779067869,
+        "outcome_agreement": true,
+        "pinn_outcome": "stuck",
+        "reference_outcome": "stuck"
+      },
+      {
+        "available": true,
+        "common_time_coverage": 0.9986170138109663,
+        "rms_position_over_width": 0.0006702554090462831,
+        "outcome_agreement": true,
+        "pinn_outcome": "stuck",
+        "reference_outcome": "stuck"
+      },
+      {
+        "available": true,
+        "common_time_coverage": 0.9982659722724058,
+        "rms_position_over_width": 0.0007428258611945649,
+        "outcome_agreement": true,
+        "pinn_outcome": "stuck",
+        "reference_outcome": "stuck"
+      },
+      {
+        "available": true,
+        "common_time_coverage": 0.9979797370246376,
+        "rms_position_over_width": 0.0008674597275657621,
+        "outcome_agreement": true,
+        "pinn_outcome": "stuck",
+        "reference_outcome": "stuck"
+      }
+    ]
+  }
+}
