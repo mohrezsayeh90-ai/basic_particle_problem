@@ -1,4 +1,23 @@
 {
-  "status": "idle",
-  "note": "No advanced run has been started. Add the repository Actions secret KAGGLE_API_TOKEN, then dispatch the workflow with start_new=true."
+  "status": "running",
+  "run_id": "parametric-20261016-183934",
+  "kernel": "mohrezsayeh/particle-parametric-20261016-183934",
+  "settings": {
+    "total_steps": 60000,
+    "chunk_steps": 1000,
+    "snapshot_every": 1000,
+    "samples": 1024,
+    "width": 128,
+    "depth": 6,
+    "curriculum_steps": 10000,
+    "particles": 5,
+    "reference_ns": 64,
+    "reference_nn": 14,
+    "seed": 42
+  },
+  "completed_steps": 0,
+  "source_fingerprint": "516fdfed766381d98def24a8bc11425850bcef62d3c623d551e3eb9c474a3f0c",
+  "kaggle_version": 1,
+  "submitted_utc": "2026-10-16T18:39:35.444095+00:00",
+  "url": "https://www.kaggle.com/code/mohrezsayeh/particle-parametric-20261016-183934"
 }
