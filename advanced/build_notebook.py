@@ -64,16 +64,21 @@ if checkpoint_url:
     run=f'''RUN=pathlib.Path('/kaggle/working/advanced_output')
 command=[sys.executable,'-u','run_parametric_pinn.py','--device','cuda','--out',str(RUN)]+{args!r}
 if RESUME: command+=['--resume',str(RESUME)]
+print('Preflight: numerical physics tests; main training follows.',flush=True)
 for pattern in ['test_parametric.py']:
     subprocess.run([sys.executable,'-m','unittest','discover','-s','tests','-p',pattern,'-v'],cwd=ROOT,check=True)
 log=pathlib.Path('/kaggle/working/advanced_training.log')
+print('MAIN TRAINING:', ' '.join(command),flush=True)
 with log.open('w') as stream:
-    completed=subprocess.run(command,cwd=ROOT,stdout=stream,stderr=subprocess.STDOUT)
+    with subprocess.Popen(command,cwd=ROOT,stdout=subprocess.PIPE,stderr=subprocess.STDOUT,text=True,bufsize=1) as process:
+        for line in process.stdout:
+            stream.write(line);stream.flush()
+            print(line,end='',flush=True)
+        returncode=process.wait()
 if RUN.exists():
     (RUN/'source_manifest.json').write_text(json.dumps({{'fingerprint':{fingerprint!r},'files':{hashes!r}}},indent=2))
-print(log.read_text()[-12000:])
 if (RUN/'chunk_complete.json').exists(): print((RUN/'chunk_complete.json').read_text())
-if completed.returncode: raise RuntimeError('Pipeline failed; inspect output files and log. Exit '+str(completed.returncode))
+if returncode: raise RuntimeError('Pipeline failed; inspect output files and log. Exit '+str(returncode))
 '''
     nb=dict(nbformat=4,nbformat_minor=5,metadata={'kernelspec':{'name':'python3','language':'python','display_name':'Python 3'}},
         cells=[cell('markdown','# Global parametric particle PINN\nOne continuous optimizer state, exported every 1,000 steps. All valid parameter combinations are sampled; three anchors are shown. No GitHub token is present in Kaggle.\n',0),cell('code',setup,1),cell('code',run,2)])
