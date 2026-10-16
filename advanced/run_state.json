@@ -1,5 +1,5 @@
 {
-  "status": "running",
+  "status": "ready",
   "run_id": "parametric-20261016-183934",
   "kernel": "mohrezsayeh/particle-parametric-20261016-183934",
   "settings": {
@@ -15,12 +15,12 @@
     "reference_nn": 14,
     "seed": 42
   },
-  "completed_steps": 3000,
+  "completed_steps": 4000,
   "source_fingerprint": "0df186e9539f4240e00481d32c176097550caef0d0678dc5b02160ea1d274cdd",
   "kaggle_version": 4,
   "submitted_utc": "2026-10-16T19:01:27.917968+00:00",
   "url": "https://www.kaggle.com/code/mohrezsayeh/particle-parametric-20261016-183934",
   "gpu": "Tesla T4",
-  "updated_utc": "2026-10-16T19:00:53.271473+00:00",
+  "updated_utc": "2026-10-16T19:05:08.985017+00:00",
   "legacy_source_fingerprint": "516fdfed766381d98def24a8bc11425850bcef62d3c623d551e3eb9c474a3f0c"
 }

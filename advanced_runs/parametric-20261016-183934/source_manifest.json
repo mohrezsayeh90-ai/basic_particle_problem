@@ -1,7 +1,7 @@
 {
   "fingerprint": "0df186e9539f4240e00481d32c176097550caef0d0678dc5b02160ea1d274cdd",
   "files": {
-    "advanced/build_notebook.py": "11c28e5ed937e911d47a9802be2f846543e65a468874a22b37c533531882a0e1",
+    "advanced/build_notebook.py": "8236506845570a331b9dcc3955d3aedcfc37869c1e988e0beed349341fac50cf",
     "advanced/controller.py": "5043ace630884889a3858092dd695dabe1db572ebb54f7315b7cd6bec5b5b6c4",
     "assess_results.py": "3ac42973c004800629acc9306b13aeb98cd9d46be23a3d28fe84d4740a104770",
     "compare_trajectories.py": "4a36f134af26bdbdf4500763b381573097c4a9607df212872442a66281836f0a",

@@ -1,12 +1,12 @@
 {
-  "start_step": 2000,
-  "step": 3000,
+  "start_step": 3000,
+  "step": 4000,
   "target_steps": 60000,
   "reached_chunk_target": true,
   "training_complete": false,
   "execution_failures": 0,
-  "elapsed_seconds": 189.19919323921204,
+  "elapsed_seconds": 183.836407661438,
   "device": "cuda",
   "gpu": "Tesla T4",
-  "timestamp_utc": "2026-10-16T19:00:53.271473+00:00"
+  "timestamp_utc": "2026-10-16T19:05:08.985017+00:00"
 }
