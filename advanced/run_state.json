@@ -1,5 +1,5 @@
 {
-  "status": "running",
+  "status": "paused",
   "run_id": "parametric-20261016-183934",
   "kernel": "mohrezsayeh/particle-parametric-20261016-183934",
   "settings": {
@@ -26,5 +26,7 @@
   "mode": "continuous",
   "live_dataset": "mohrezsayeh/particle-live-20261016-183934",
   "dataset_version": 11,
-  "previous_source_fingerprint": "0df186e9539f4240e00481d32c176097550caef0d0678dc5b02160ea1d274cdd"
+  "previous_source_fingerprint": "0df186e9539f4240e00481d32c176097550caef0d0678dc5b02160ea1d274cdd",
+  "reason": "Replaced by fresh six-hour final-only study",
+  "replacement": "mohrezsayeh/particle-six-hour-20261016-194911"
 }

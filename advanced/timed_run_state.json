@@ -1,0 +1,23 @@
+{
+  "status": "running",
+  "kernel": "mohrezsayeh/particle-six-hour-20261016-194911",
+  "url": "https://www.kaggle.com/code/mohrezsayeh/particle-six-hour-20261016-194911",
+  "hours": 6,
+  "start_step": 0,
+  "resume": null,
+  "parameter_factors": [
+    0.1,
+    10
+  ],
+  "domain": "Full valid log-uniform domain from start",
+  "samples": 2048,
+  "width": 128,
+  "depth": 6,
+  "continuity_weight": 20,
+  "exports": "Final only",
+  "source_fingerprint": "af067c1e6eb44a235e7c570c6e28bf3588f9ebe0f32ceba556f6637856a3a007",
+  "submission_folder": "/workspace/kaggle_particle/particle-six-hour-20261016-194911",
+  "gpu_timeout_seconds": 25200,
+  "version": 1,
+  "submitted_utc": "2026-10-16T19:49:14.088207+00:00"
+}
