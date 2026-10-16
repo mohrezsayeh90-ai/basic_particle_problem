@@ -1,0 +1,32 @@
+{
+  "out": "/kaggle/working/advanced_output",
+  "resume": null,
+  "total_steps": 60000,
+  "chunk_steps": 1000,
+  "snapshot_every": 1000,
+  "samples": 1024,
+  "width": 128,
+  "depth": 6,
+  "curriculum_steps": 10000,
+  "particles": 5,
+  "reference_ns": 64,
+  "reference_nn": 14,
+  "seed": 42,
+  "device": "cuda",
+  "no_animation": false,
+  "parameters": {
+    "rin": 0.2,
+    "rout": 0.5,
+    "re": 1.0,
+    "diameter": 0.025,
+    "density_ratio": 1000.0
+  },
+  "parameter_factors": [
+    0.1,
+    10
+  ],
+  "sampling": "log-uniform conditional on rin<rout, h/R<=0.85, diameter<width",
+  "architecture": "5 inputs; 6x128 tanh default; outputs u,v,p; exact wall/cap velocity",
+  "particle_model": "One-way isolated-sphere Schiller-Naumann drag, sticking walls; no lift, gravity or particle interactions",
+  "time_independent_flow": true
+}
