@@ -1,0 +1,11 @@
+{
+  "input_audit": "passed",
+  "previous_baseline_reproduced": "7/7, zero numerical difference",
+  "figures_png": 6,
+  "figures_pdf": 6,
+  "analytic_metric_tests_passed": 5,
+  "comparison_code_sha256": {
+    "compare_trajectories.py": "4a36f134af26bdbdf4500763b381573097c4a9607df212872442a66281836f0a",
+    "particle_pinn/path_comparison.py": "37e4987b59925cd0518afeee9838967b69618e36cdae35f43f58e6d98bc3ab1f"
+  }
+}

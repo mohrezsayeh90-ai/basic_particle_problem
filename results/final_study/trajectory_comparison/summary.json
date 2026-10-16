@@ -1,0 +1,26 @@
+{
+  "pairs": 70,
+  "group_counts": {
+    "Full model": 49,
+    "Flow only": 7,
+    "Force only": 7,
+    "Fluid tracers": 7
+  },
+  "previous_metric_audit": {
+    "expected": 7,
+    "matched": 7,
+    "maximum_absolute_difference": 0.0
+  },
+  "width": 0.3,
+  "numerical_trajectories_modified": false,
+  "maximum_metric_quadrature_change_width_percent": 9.152231871904319e-05,
+  "comparison_time_samples": 1001,
+  "quadrature_check_samples": 2001,
+  "geometric_samples_per_direction": 501,
+  "source_sha256": {
+    "config.json": "c6d29f647121768dd8ffdfdfe7edc71f889f4a5dda4a602af820ef040e4f7c88",
+    "metrics.json": "6b04484c89e7c6b2e3ba4cdb8ec46cd2dbff8a1c2418993da3a86392370303dc",
+    "data/trajectories.csv": "8660fd76b2829a4967f337d0bcd6bf6de264543bbb4ee7582dcf3f1e243675b2",
+    "data/trajectory_summary.json": "e9628584b5f7405b7f94e2beec9c08f191e644efbd652743b5e4518d5fc4081f"
+  }
+}

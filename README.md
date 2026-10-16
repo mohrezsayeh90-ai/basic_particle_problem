@@ -13,6 +13,22 @@
 
 نتایج اجرای نهایی برای بازبینی در مخزن نگهداری شده‌اند. خروجی اجراهای تازه زیر `results/` به‌طور پیش‌فرض وارد Git نمی‌شود. محدودیت دقت مسیر ذرات و فشار آزمون سه‌بعدی در گزارش‌ها ثبت شده است.
 
+## مقایسهٔ اختصاصی مسیر ذرات
+
+- [گزارش فارسی خطای مسیرها](results/final_study/trajectory_comparison/REPORT_FA.md)
+- [جدول کامل ۷۰ مقایسه](results/final_study/trajectory_comparison/data/pairs.csv)
+- [نمودار خطای زمانی](results/final_study/trajectory_comparison/figures/24_error_history.png)
+- [تفکیک خطای زمانی و هندسی](results/final_study/trajectory_comparison/figures/25_error_components.png)
+- [بستهٔ نمودارها و جدول‌ها](downloads/trajectory_comparison.zip)
+
+خطاهای قبلی هر ۷ مسیر پایه از CSV خام دقیقاً بازتولید شده‌اند. تحلیل تکمیلی شامل ۴۹ جفت مسیر ذره در حالت‌های مختلف، ۷ مقایسهٔ تفکیک خطای جریان، ۷ مقایسهٔ تفکیک شبکهٔ نیرو و ۷ جفت مسیر سیال است. خطای هم‌زمان، شکل مسیر، زمان پایان، پوشش بازهٔ مشترک و توافق خروج/چسبیدن جدا گزارش می‌شوند. نتیجهٔ بعضی مسیرها هنوز با مرجع متفاوت است؛ نمودار نزدیک به‌تنهایی تأیید دقت نیست.
+
+برای محاسبه از داده‌های ذخیره‌شده، بدون آموزش یا حل دوبارهٔ مسیر، از پوشهٔ خروجی تازه استفاده کنید:
+
+```bash
+python compare_trajectories.py --run results/final_study --out results/path_comparison_new
+```
+
 ## پروپوزال لاتک و PDF
 
 - [PDF پروپوزال انگلیسی](proposal/Particle_PINN_Proposal.pdf)
