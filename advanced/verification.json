@@ -20,9 +20,23 @@
     "torch_rng_identical": true
   },
   "gif_frames": 40,
-  "production_gpu_run_started": false,
-  "github_actions_live_sync_verified": false,
-  "remaining_prerequisite": "Repository Actions secret KAGGLE_API_TOKEN and workflow dispatch",
-  "unit_tests_passed": 34,
-  "source_fingerprint": "516fdfed766381d98def24a8bc11425850bcef62d3c623d551e3eb9c474a3f0c"
+  "production_gpu_run_started": true,
+  "github_actions_live_sync_verified": true,
+  "unit_tests_passed": 38,
+  "source_fingerprint": "81397b2baf58d4d9d30659e68d2b76ac5406e03607fb92e72511701051f7a5cd",
+  "continuous_gpu": {
+    "kernel": "mohrezsayeh/particle-parametric-20261016-183934",
+    "version": 8,
+    "resume_step": 7000,
+    "target_steps": 60000,
+    "device": "Tesla T4",
+    "preflight_unit_tests": 0,
+    "async_cpu_exports": true,
+    "live_snapshot_verified_step": 8000,
+    "live_dataset_version": 2,
+    "kernel_status_during_collection": "RUNNING",
+    "github_actions_run": 38954657919,
+    "snapshot_export_errors": 0,
+    "checkpoint_optimizer_step_verified": 8000
+  }
 }

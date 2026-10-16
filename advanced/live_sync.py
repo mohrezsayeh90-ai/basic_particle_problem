@@ -79,6 +79,9 @@ def collect_live(api,repo,state,temp,write_state):
             for name in ['checkpoint.pt','config.json','source_manifest.json','chunk_complete.json','failures.json']:
                 shutil.copy2(root/name,output/name)
             state['completed_steps']=step
+            progress=json.loads((root/'chunk_complete.json').read_text())
+            if progress.get('timestamp_utc'): state['updated_utc']=progress['timestamp_utc']
+            if progress.get('gpu'): state['gpu']=progress['gpu']
             if manifest['training_complete']: state['status']='complete'
             print('LIVE_SNAPSHOT_COLLECTED step='+str(step))
         state['dataset_version']=version
