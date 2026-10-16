@@ -1,0 +1,34 @@
+{
+  "figure_width_mm": 178,
+  "raster_dpi": 600,
+  "figure_count": 7,
+  "figures": [
+    "Fig01_trajectory_comparison",
+    "Fig02_position_parity",
+    "Fig03_error_bars",
+    "Fig04_timing_and_coverage",
+    "Fig05_paired_paths",
+    "Fig06_case_heatmaps",
+    "Fig07_error_history"
+  ],
+  "plotted_baseline_paths": 7,
+  "parity_point_pairs": 7007,
+  "unique_particle_pairs": 42,
+  "omitted_duplicate_controls": 7,
+  "mismatched_baseline_endpoints": 1,
+  "input_sha256": {
+    "trajectory_comparison/data/pairs.csv": "44469b1a79f373ebb3a6fb640badf2c3289aafe61e3340e12802e5020d8263f3",
+    "trajectory_comparison/data/time_errors.csv": "98da5cfb27e974cf246a04b52345778c3e762a0cf9f54070d65ff5871ae8904f",
+    "data/trajectories.csv": "8660fd76b2829a4967f337d0bcd6bf6de264543bbb4ee7582dcf3f1e243675b2",
+    "config.json": "c6d29f647121768dd8ffdfdfe7edc71f889f4a5dda4a602af820ef040e4f7c88"
+  },
+  "numerical_data_modified": false,
+  "parity_metrics": {
+    "x": {
+      "coordinate_rmse_over_width_percent": 12.717101681901449
+    },
+    "y": {
+      "coordinate_rmse_over_width_percent": 7.746188300618448
+    }
+  }
+}

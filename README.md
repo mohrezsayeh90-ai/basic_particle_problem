@@ -29,6 +29,21 @@
 python compare_trajectories.py --run results/final_study --out results/path_comparison_new
 ```
 
+## نمودارهای مقایسه برای مقاله
+
+- [شکل اصلی چهارپنلی](results/final_study/trajectory_comparison/paper_figures/Fig01_trajectory_comparison.png)
+- [مجموعهٔ هفت شکل، PDF برداری](results/final_study/trajectory_comparison/paper_figures/Particle_Trajectory_Figures.pdf)
+- [همهٔ قالب‌ها، داده‌ها و کپشن‌ها](downloads/particle_trajectory_paper_figures.zip)
+- [کپشن‌های انگلیسی](results/final_study/trajectory_comparison/paper_figures/CAPTIONS.md) و [کد درج در لاتک](results/final_study/trajectory_comparison/paper_figures/article_figure.tex)
+
+نمودار نقطه‌ای موقعیت PINN در برابر FEM، میله‌های خطای زمانی و هندسی، مسیرهای جفت‌شده، زمان پایان، پوشش زمانی و نقشهٔ خطای حالت‌های مختلف با عرض ۱۷۸ میلی‌متر آماده شده‌اند. هر شکل PDF/SVG برداری و PNG/TIFF با ۶۰۰ dpi دارد. داده‌های عددی تغییر نکرده‌اند؛ هاش ورودی‌ها و داده‌های رسم‌شده همراه شکل‌ها هستند.
+
+برای بازتولید، بدون آموزش مجدد:
+
+```bash
+python make_publication_figures.py --out results/paper_figures_new
+```
+
 ## پروپوزال لاتک و PDF
 
 - [PDF پروپوزال انگلیسی](proposal/Particle_PINN_Proposal.pdf)
