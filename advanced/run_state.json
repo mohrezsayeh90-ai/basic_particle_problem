@@ -1,0 +1,4 @@
+{
+  "status": "idle",
+  "note": "No advanced run has been started. Add the repository Actions secret KAGGLE_API_TOKEN, then dispatch the workflow with start_new=true."
+}

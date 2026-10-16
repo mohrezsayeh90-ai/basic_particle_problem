@@ -1,0 +1,28 @@
+{
+  "scope": "Local infrastructure and physics checks, not scientific accuracy certification",
+  "cpu_smoke": {
+    "total_steps": 2,
+    "width": 16,
+    "depth": 2,
+    "samples": 32,
+    "particles": 2,
+    "reference_mesh": [
+      18,
+      6
+    ],
+    "export_errors": 0
+  },
+  "resume_check": {
+    "maximum_weight_difference": 0.0,
+    "history_identical": true,
+    "scheduler_identical": true,
+    "numpy_rng_identical": true,
+    "torch_rng_identical": true
+  },
+  "gif_frames": 40,
+  "production_gpu_run_started": false,
+  "github_actions_live_sync_verified": false,
+  "remaining_prerequisite": "Repository Actions secret KAGGLE_API_TOKEN and workflow dispatch",
+  "unit_tests_passed": 34,
+  "source_fingerprint": "516fdfed766381d98def24a8bc11425850bcef62d3c623d551e3eb9c474a3f0c"
+}

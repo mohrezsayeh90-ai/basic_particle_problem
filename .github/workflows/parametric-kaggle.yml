@@ -1,0 +1,64 @@
+name: Parametric Kaggle training
+on:
+  workflow_dispatch:
+    inputs:
+      start_new:
+        description: Start a new study (otherwise collect or resume the active study)
+        type: boolean
+        default: false
+  schedule:
+    - cron: '*/10 * * * *'
+permissions:
+  contents: write
+concurrency:
+  group: particle-parametric-kaggle
+  cancel-in-progress: false
+jobs:
+  advance:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check whether a study is active
+        id: active
+        env:
+          START_NEW: ${{ inputs.start_new }}
+        run: |
+          python - <<'PY'
+          import json, os
+          state=json.load(open('advanced/run_state.json'))
+          active=state['status'] in ['running','ready'] or os.environ.get('START_NEW')=='true'
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('run='+str(active).lower()+'\n')
+          PY
+      - name: Install Kaggle controller
+        if: steps.active.outputs.run == 'true'
+        run: python -m pip install 'kaggle==2.2.4'
+      - name: Collect completed chunk and submit its continuation
+        if: steps.active.outputs.run == 'true'
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+          START_NEW: ${{ inputs.start_new }}
+        run: |
+          if [ "$START_NEW" = "true" ]; then
+            python advanced/controller.py --start
+          else
+            python advanced/controller.py
+          fi
+      - name: Save progress and snapshots to this repository
+        if: always() && steps.active.outputs.run == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add advanced/run_state.json advanced_runs/
+          if ! git diff --cached --quiet; then
+            git commit -m 'Save parametric Kaggle training progress'
+            for attempt in 1 2 3; do
+              if git push; then exit 0; fi
+              git pull --rebase origin main
+            done
+            exit 1
+          fi

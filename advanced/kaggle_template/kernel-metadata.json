@@ -1,0 +1,14 @@
+{
+  "id": "mohrezsayeh/particle-parametric-advanced",
+  "title": "particle parametric advanced",
+  "code_file": "advanced.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "dataset_sources": [],
+  "competition_sources": [],
+  "kernel_sources": [],
+  "model_sources": []
+}
