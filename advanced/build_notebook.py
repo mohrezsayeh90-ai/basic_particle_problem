@@ -76,7 +76,8 @@ if checkpoint_url:
     args=[]
     for key in ['total_steps','chunk_steps','snapshot_every','samples','width','depth','curriculum_steps','particles','reference_ns','reference_nn','seed']:
         args.extend(['--'+key.replace('_','-'),str(settings[key])])
-    if live_dataset: args+=['--async-exports','--live-dataset',live_dataset]
+    args+=['--async-exports']
+    if live_dataset: args+=['--live-dataset',live_dataset]
     run=f'''RUN=pathlib.Path('/kaggle/working/advanced_output')
 command=[sys.executable,'-u','run_parametric_pinn.py','--device','cuda','--out',str(RUN)]+{args!r}
 if RESUME: command+=['--resume',str(RESUME)]

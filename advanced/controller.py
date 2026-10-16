@@ -16,7 +16,7 @@ import subprocess
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from build_notebook import build,source_payload
-from live_sync import collect_live
+from live_sync import collect_live,ensure_dataset
 
 
 def write_state(file,state):
@@ -106,6 +106,7 @@ def main():
         write_state(file,state)
     if args.collect_only: return
     if state['status']=='ready':
+        if state.get('live_dataset'): ensure_dataset(api,state['live_dataset'],temp)
         folder=temp/('submit_'+str(state['completed_steps']));folder.mkdir(exist_ok=True)
         resume=output/'checkpoint.pt' if state['completed_steps'] else None
         url=None

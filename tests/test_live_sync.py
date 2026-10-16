@@ -28,6 +28,9 @@ class LiveSyncTests(unittest.TestCase):
             state={'run_id':'study','live_dataset':'owner/dataset','source_fingerprint':'known',
                    'completed_steps':0,'status':'running','kernel':'owner/kernel','settings':{'total_steps':3000}}
             versions=[]
+            bootstrap=io.BytesIO()
+            with zipfile.ZipFile(bootstrap,'w') as z: z.writestr('bootstrap.txt','Private output transport')
+            versions.append(bootstrap.getvalue())
             for step in [1000,2000]:
                 stream=io.BytesIO()
                 with zipfile.ZipFile(stream,'w') as z:
@@ -41,13 +44,13 @@ class LiveSyncTests(unittest.TestCase):
                         source_fingerprint='known',training_complete=False)))
                 versions.append(outer.getvalue())
             class API:
-                def dataset_status(self,*a,**k): return '{"status":"ready","current_version_number":2}'
+                def dataset_status(self,*a,**k): return '{"status":"ready","current_version_number":3}'
                 def dataset_download_files(self,dataset,path,**kwargs):
                     number=int(dataset.split('/')[-1]);(Path(path)/'dataset.zip').write_bytes(versions[number-1])
                 def kernels_status(self,*a): return types.SimpleNamespace(status='RUNNING')
             def save(path,value): path.write_text(json.dumps(value))
             live.collect_live(API(),root,state,temp,save)
-            self.assertEqual(state['completed_steps'],2000);self.assertEqual(state['dataset_version'],2)
+            self.assertEqual(state['completed_steps'],2000);self.assertEqual(state['dataset_version'],3)
             self.assertEqual(state['status'],'running')
             self.assertEqual((root/'advanced_runs/study/checkpoint.pt').read_text(),'2000')
             self.assertEqual(len(list((root/'advanced_runs/study/snapshots').glob('step_*'))),2)

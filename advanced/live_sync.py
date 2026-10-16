@@ -7,6 +7,21 @@ import zipfile
 from datetime import datetime,timezone
 
 
+def ensure_dataset(api,dataset,temp):
+    """Create the private transport before GPU submission, using Actions credentials."""
+    try:
+        api.dataset_status(dataset)
+        return
+    except Exception as error:
+        if getattr(getattr(error,'response',None),'status_code',None) not in [403,404]: raise
+    folder=Path(temp)/'live_dataset_bootstrap';folder.mkdir(parents=True,exist_ok=True)
+    (folder/'dataset-metadata.json').write_text(json.dumps(dict(id=dataset,
+        title=dataset.split('/')[1].replace('-',' '),licenses=[{'name':'CC0-1.0'}])))
+    (folder/'bootstrap.txt').write_text('Private live output transport. Snapshot versions follow.\n')
+    result=api.dataset_create_new(str(folder),public=False,quiet=True,convert_to_csv=False)
+    if result.error: raise RuntimeError('Cannot initialize private live dataset: '+result.error)
+
+
 def check_remote(api,repo,state,write_state):
     remote=str(api.kernels_status(state['kernel']).status).split('.')[-1].upper()
     if remote in ['ERROR','CANCELLED','CANCELED']:
@@ -36,7 +51,7 @@ def collect_live(api,repo,state,temp,write_state):
     dataset=state['live_dataset']
     try: metadata=json.loads(api.dataset_status(dataset,format='json'))
     except Exception as error:
-        if getattr(getattr(error,'response',None),'status_code',None)==404:
+        if getattr(getattr(error,'response',None),'status_code',None) in [403,404]:
             check_remote(api,repo,state,write_state)
             print('Waiting for the first live snapshot.');return
         raise
@@ -48,6 +63,9 @@ def collect_live(api,repo,state,temp,write_state):
         api.dataset_download_files(dataset+'/'+str(version),path=str(folder),quiet=True,force=True)
         archive=folder/(dataset.split('/')[1]+'.zip');unpacked=folder/'dataset'
         safe_extract(archive,unpacked)
+        if not (unpacked/'publication.json').exists() and (unpacked/'bootstrap.txt').exists():
+            state['dataset_version']=version;write_state(repo/'advanced/run_state.json',state)
+            continue
         manifest=json.loads((unpacked/'publication.json').read_text());bundle=unpacked/'snapshot.bin'
         if hashlib.sha256(bundle.read_bytes()).hexdigest()!=manifest['bundle_sha256']: raise RuntimeError('Live snapshot checksum mismatch')
         if manifest['source_fingerprint']!=state['source_fingerprint']: raise RuntimeError('Live training source mismatch')
