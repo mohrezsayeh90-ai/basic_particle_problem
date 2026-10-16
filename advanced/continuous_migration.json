@@ -1,0 +1,29 @@
+{
+  "timestamp_utc": "2026-10-16T19:20:19.998220+00:00",
+  "resume_step": 7000,
+  "checkpoint_sha256": "62be1dfe38d1a675b1525bea5454754a14f76afe887f3500372bf98af8723891",
+  "previous_fingerprint": "0df186e9539f4240e00481d32c176097550caef0d0678dc5b02160ea1d274cdd",
+  "new_fingerprint": "81397b2baf58d4d9d30659e68d2b76ac5406e03607fb92e72511701051f7a5cd",
+  "previous_code_commit": "a5bff24296943d7e95c1da63756dcab69fe88aef",
+  "changes": "I/O orchestration only: continuous GPU, CPU snapshot process, private Kaggle dataset publication",
+  "algorithm_guard": "AST-identical batch, objective, model, optimizer, scheduler and training updates; unchanged physics dependencies",
+  "verification": {
+    "unit_tests_passed": 38,
+    "async_smoke_steps": [
+      1,
+      2
+    ],
+    "bitwise_identical": [
+      "model",
+      "optimizer",
+      "scheduler",
+      "numpy_rng",
+      "torch_rng",
+      "python_rng",
+      "history"
+    ],
+    "runtime_private_publication_verified": true,
+    "binary_packet_preserved_in_dataset": true
+  },
+  "production_preflight_tests": 0
+}

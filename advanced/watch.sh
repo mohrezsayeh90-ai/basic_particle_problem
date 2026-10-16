@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Keep the coordinator alive so completed GPU chunks continue promptly.
+# Collect live dataset versions while the continuous GPU session stays active.
 set -euo pipefail
 cd "$(dirname "$0")/.."
 particle_deadline=$((SECONDS + ${PARTICLE_WATCH_SECONDS:-19800}))

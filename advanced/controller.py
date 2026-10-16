@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Advance one private Kaggle run, or collect its finished 1,000-step chunk.
+"""Run a continuous private Kaggle study and collect live snapshots.
 
 Run by GitHub Actions. Kaggle's token stays in GitHub Actions; GITHUB_TOKEN
 is used by actions/checkout and git, and is never sent into Kaggle.
@@ -16,6 +16,7 @@ import subprocess
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
 from build_notebook import build,source_payload
+from live_sync import collect_live
 
 
 def write_state(file,state):
@@ -60,10 +61,14 @@ def main():
         if state['status'] in ['running','ready']: raise RuntimeError('An active run exists; collect it before starting another.')
         timestamp=datetime.now(timezone.utc).strftime('%Y%m%d-%H%M%S')
         state=dict(status='ready',run_id='parametric-'+timestamp,kernel=owner+'/particle-parametric-'+timestamp,
-                   settings=json.loads((repo/'advanced/settings.json').read_text()),completed_steps=0)
+                   settings=json.loads((repo/'advanced/settings.json').read_text()),completed_steps=0,
+                   mode='continuous',live_dataset=owner+'/particle-live-'+timestamp,dataset_version=0)
         write_state(file,state)
     if state['kernel'].split('/')[0]!=owner: raise RuntimeError('Authenticated Kaggle owner does not match run state.')
     output=repo/'advanced_runs'/state['run_id'];output.mkdir(parents=True,exist_ok=True)
+    if state['status']=='running' and state.get('mode')=='continuous':
+        collect_live(api,repo,state,temp,write_state)
+        return
     if state['status']=='running':
         result=api.kernels_status(state['kernel']);status=str(result.status).split('.')[-1].upper()
         print('Kaggle status:',status)
@@ -106,13 +111,13 @@ def main():
         url=None
         if resume:
             migrate_source_guard(repo,output,state,file);url=checkpoint_url(repo,resume)
-        fingerprint=build(repo,folder,owner,state['kernel'].split('/')[1],state['settings'],resume,state.get('source_fingerprint'),resume_url=url)
-        result=api.kernels_push(str(folder),timeout=7200,acc='NvidiaTeslaT4')
+        fingerprint=build(repo,folder,owner,state['kernel'].split('/')[1],state['settings'],resume,state.get('source_fingerprint'),resume_url=url,live_dataset=state.get('live_dataset'))
+        result=api.kernels_push(str(folder),timeout=43200 if state.get('mode')=='continuous' else 7200,acc='NvidiaTeslaT4')
         if result is None or result.error: raise RuntimeError('Kaggle rejected the chunk submission')
         state.update(status='running',source_fingerprint=fingerprint,kaggle_version=result.versionNumber,
                      submitted_utc=datetime.now(timezone.utc).isoformat(),url=result.url)
         write_state(file,state)
-        print('Submitted private GPU chunk:',state['kernel'],'starting at step',state['completed_steps'])
+        print('Submitted private GPU session:',state['kernel'],'starting at step',state['completed_steps'])
     print('State:',state['status'],'completed steps:',state['completed_steps'])
 
 

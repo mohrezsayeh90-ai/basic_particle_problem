@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build a private, credential-free Kaggle notebook for one resumable chunk."""
+"""Build a private Kaggle notebook with continuous training and live exports."""
 import argparse
 import base64
 import hashlib
@@ -23,7 +23,7 @@ def source_payload(repo):
     return blob.getvalue(),fingerprint,hashes
 
 
-def build(repo,out,owner,slug,settings,resume=None,expected_source=None,resume_url=None):
+def build(repo,out,owner,slug,settings,resume=None,expected_source=None,resume_url=None,live_dataset=None):
     out=Path(out);out.mkdir(parents=True,exist_ok=True)
     payload,fingerprint,hashes=source_payload(repo)
     if expected_source and fingerprint!=expected_source: raise RuntimeError('Training source changed; start a new run instead of silently changing a resumed study.')
@@ -49,7 +49,22 @@ os.environ['XDG_CACHE_HOME']='/tmp/particle_cache'
 import torch
 if not torch.cuda.is_available(): raise RuntimeError('GPU unavailable; CPU fallback disabled')
 print('GPU:',torch.cuda.get_device_name(0),'CUDA:',torch.version.cuda,flush=True)
-subprocess.run([sys.executable,'-m','pip','install','-r',str(ROOT/'requirements.txt')],check=True)
+import importlib.metadata,importlib.util
+from packaging.requirements import Requirement
+missing=[]
+for spec in (ROOT/'requirements.txt').read_text().splitlines():
+    if not spec.strip() or spec.startswith('#'): continue
+    req=Requirement(spec)
+    try: compatible=importlib.metadata.version(req.name) in req.specifier
+    except importlib.metadata.PackageNotFoundError: compatible=False
+    if not compatible:
+        if req.name=='torch': raise RuntimeError('CUDA PyTorch version does not meet project requirements')
+        missing.append(spec)
+if {bool(live_dataset)!r} and importlib.util.find_spec('kaggle') is None: missing.append('kaggle==2.2.4')
+if missing: subprocess.run([sys.executable,'-m','pip','install','-q',*missing],check=True)
+source_manifest=pathlib.Path('/tmp/particle_source_manifest.json')
+source_manifest.write_text(json.dumps({{'fingerprint':{fingerprint!r},'files':{hashes!r}}}))
+os.environ['PARTICLE_SOURCE_MANIFEST']=str(source_manifest)
 RESUME=None
 checkpoint_url={resume_url!r}
 if checkpoint_url:
@@ -61,12 +76,10 @@ if checkpoint_url:
     args=[]
     for key in ['total_steps','chunk_steps','snapshot_every','samples','width','depth','curriculum_steps','particles','reference_ns','reference_nn','seed']:
         args.extend(['--'+key.replace('_','-'),str(settings[key])])
+    if live_dataset: args+=['--async-exports','--live-dataset',live_dataset]
     run=f'''RUN=pathlib.Path('/kaggle/working/advanced_output')
 command=[sys.executable,'-u','run_parametric_pinn.py','--device','cuda','--out',str(RUN)]+{args!r}
 if RESUME: command+=['--resume',str(RESUME)]
-print('Preflight: numerical physics tests; main training follows.',flush=True)
-for pattern in ['test_parametric.py']:
-    subprocess.run([sys.executable,'-m','unittest','discover','-s','tests','-p',pattern,'-v'],cwd=ROOT,check=True)
 log=pathlib.Path('/kaggle/working/advanced_training.log')
 print('MAIN TRAINING:', ' '.join(command),flush=True)
 with log.open('w') as stream:

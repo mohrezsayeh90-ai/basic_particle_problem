@@ -1,6 +1,6 @@
 {
   "total_steps": 60000,
-  "chunk_steps": 1000,
+  "chunk_steps": 60000,
   "snapshot_every": 1000,
   "samples": 1024,
   "width": 128,

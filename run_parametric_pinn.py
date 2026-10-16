@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Train one global parametric PINN; resumable chunks with periodic three-case exports."""
+"""Train a global parametric PINN with resumable state and periodic three-case exports."""
 import argparse
 from datetime import datetime,timezone
 import json
@@ -7,6 +7,9 @@ import math
 import os
 from pathlib import Path
 import random
+import shutil
+import subprocess
+import sys
 import time
 import traceback
 os.environ.setdefault('MPLCONFIGDIR','/tmp/parametric-matplotlib')
@@ -53,7 +56,7 @@ def main():
     parser.add_argument('--out',type=Path,required=True)
     parser.add_argument('--resume',type=Path)
     parser.add_argument('--total-steps',type=int,default=60000)
-    parser.add_argument('--chunk-steps',type=int,default=1000)
+    parser.add_argument('--chunk-steps',type=int,default=60000)
     parser.add_argument('--snapshot-every',type=int,default=1000)
     parser.add_argument('--samples',type=int,default=1024)
     parser.add_argument('--width',type=int,default=128)
@@ -65,7 +68,10 @@ def main():
     parser.add_argument('--seed',type=int,default=42)
     parser.add_argument('--device',choices=['cpu','cuda','auto'],default='auto')
     parser.add_argument('--no-animation',action='store_true')
+    parser.add_argument('--async-exports',action='store_true')
+    parser.add_argument('--live-dataset')
     args=parser.parse_args()
+    if args.live_dataset and not args.async_exports: parser.error('--live-dataset requires --async-exports')
     for k in ['total_steps','chunk_steps','snapshot_every','samples','width','depth','particles']:
         if getattr(args,k)<1: parser.error(k+' must be positive')
     if args.samples<4: parser.error('samples must be >=4')
@@ -96,13 +102,32 @@ def main():
         particle_model='One-way isolated-sphere Schiller-Naumann drag, sticking walls; no lift, gravity or particle interactions',
         time_independent_flow=True)
     write_json(args.out/'config.json',config)
-    started=time.time();exporter=PeriodicExporter(args.out,args.seed,args.particles,args.reference_ns,args.reference_nn,not args.no_animation)
+    source=os.environ.get('PARTICLE_SOURCE_MANIFEST')
+    if source: shutil.copy2(source,args.out/'source_manifest.json')
+    write_json(args.out/'runtime.json',dict(start_step=start,gpu=torch.cuda.get_device_name(0) if args.device=='cuda' else None))
+    started=time.time();worker=None;exporter=None
+    if args.async_exports:
+        queue=args.out/'.export_queue';queue.mkdir()
+        command=[sys.executable,'-u','-m','particle_pinn.live_exports','--out',str(args.out)]
+        if args.live_dataset: command+=['--dataset',args.live_dataset]
+        environment=os.environ.copy();environment.update(CUDA_VISIBLE_DEVICES='',OMP_NUM_THREADS='1',OPENBLAS_NUM_THREADS='1')
+        worker=subprocess.Popen(command,env=environment)
+    else:
+        exporter=PeriodicExporter(args.out,args.seed,args.particles,args.reference_ns,args.reference_nn,not args.no_animation)
     end=min(args.total_steps,start+args.chunk_steps);last=start
     def save(step):
         atomic_save(dict(scope='parametric-s-channel-v1',step=step,model=model.state_dict(),optimizer=opt.state_dict(),
             scheduler=scheduler.state_dict(),numpy_rng=rng.bit_generator.state,torch_rng=torch.get_rng_state(),
             cuda_rng=torch.cuda.get_rng_state_all() if args.device=='cuda' else None,python_rng=random.getstate(),
             config=config,history=history),args.out/'checkpoint.pt')
+    def export(step):
+        if worker is None:
+            model.eval();exporter.export(model,step,history)
+        else:
+            if worker.poll() is not None: raise RuntimeError('Snapshot worker stopped; immutable checkpoint retained')
+            target=queue/f'step_{step:06d}.pt'
+            temp=target.with_suffix('.tmp');shutil.copy2(args.out/'checkpoint.pt',temp);temp.replace(target)
+            print(f'SNAPSHOT_QUEUED step={step}; GPU training continues',flush=True)
     try:
         for step in range(start+1,end+1):
             model.train();xy,p,cases=batch(rng,args.samples,step,args.curriculum_steps,args.device)
@@ -115,16 +140,20 @@ def main():
                 record=dict(step=step,total=float(loss.detach()),physics=float(physics.detach()),flux=float(flux.detach()),lr=scheduler.get_last_lr()[0])
                 history.append(record);print(json.dumps(record),flush=True)
             if step%args.snapshot_every==0 or step==end:
-                save(step);model.eval()
-                try: exporter.export(model,step,history)
+                save(step)
+                try: export(step)
                 except Exception as e: failures.append(dict(stage='export',step=step,error=str(e),traceback=traceback.format_exc()))
     except Exception as error:
         failures.append(dict(stage='training',step=last,error=str(error),traceback=traceback.format_exc()))
         save(last)
         try:
             folder=args.out/'snapshots'/f'step_{last:06d}'
-            if not folder.exists(): model.eval();exporter.export(model,last,history)
+            if not folder.exists(): export(last)
         except Exception as e: failures.append(dict(stage='final_export',error=str(e)))
+    if worker is not None:
+        write_json(queue/'done.json',dict(last_step=last))
+        status=worker.wait()
+        if status: failures.append(dict(stage='export_worker',returncode=status))
     write_json(args.out/'failures.json',failures)
     write_json(args.out/'chunk_complete.json',dict(start_step=start,step=last,target_steps=args.total_steps,
         reached_chunk_target=last==end,training_complete=last==args.total_steps,execution_failures=len(failures),
