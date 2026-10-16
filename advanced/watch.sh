@@ -23,9 +23,22 @@ if [ "${START_NEW:-false}" = "true" ]; then
 fi
 while [ "$SECONDS" -lt "$particle_deadline" ]; do
   # The public checkpoint must be committed before its immutable URL is used.
-  python advanced/controller.py --collect-only
+  if ! python advanced/controller.py --collect-only; then
+    # Transient API/download failures must not kill the live collector.
+    publish_progress
+    particle_status=$(python -c "import json; print(json.load(open('advanced/run_state.json'))['status'])")
+    if [ "$particle_status" = 'running' ] || [ "$particle_status" = 'ready' ]; then
+      sleep 30
+      continue
+    fi
+    break
+  fi
   publish_progress
-  python advanced/controller.py
+  if ! python advanced/controller.py; then
+    publish_progress
+    sleep 30
+    continue
+  fi
   publish_progress
   particle_status=$(python -c "import json; print(json.load(open('advanced/run_state.json'))['status'])")
   if [ "$particle_status" != 'running' ] && [ "$particle_status" != 'ready' ]; then
