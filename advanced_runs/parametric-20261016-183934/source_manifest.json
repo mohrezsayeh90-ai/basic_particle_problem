@@ -1,8 +1,8 @@
 {
-  "fingerprint": "516fdfed766381d98def24a8bc11425850bcef62d3c623d551e3eb9c474a3f0c",
+  "fingerprint": "0df186e9539f4240e00481d32c176097550caef0d0678dc5b02160ea1d274cdd",
   "files": {
-    "advanced/build_notebook.py": "f7110eba7da39b7d26ed78e176fd9e6e882a1785cbe42f983006971f3b48c3a1",
-    "advanced/controller.py": "8af39a64b2a2ba162bddf1faaf2b82752ef7b228f2c42d32202237fdccbdaad9",
+    "advanced/build_notebook.py": "11c28e5ed937e911d47a9802be2f846543e65a468874a22b37c533531882a0e1",
+    "advanced/controller.py": "5043ace630884889a3858092dd695dabe1db572ebb54f7315b7cd6bec5b5b6c4",
     "assess_results.py": "3ac42973c004800629acc9306b13aeb98cd9d46be23a3d28fe84d4740a104770",
     "compare_trajectories.py": "4a36f134af26bdbdf4500763b381573097c4a9607df212872442a66281836f0a",
     "make_publication_figures.py": "2499e323cfb8eb4c836d84d482227b3ba5ab8b5a735b04113d7fffbce0c2b4b7",
@@ -23,7 +23,8 @@
     "run_parametric_pinn.py": "6e9343e2b8882cf3b776caa25f4b9cf32b7a25be21b3a0f1bf052ea370520b53",
     "run_particle_pinn.py": "bbacf28e7f3cda7fce501202a2a5b38df2dffe3c5304d12a5cac7aded7e1ca71",
     "run_suite.py": "6d2d43ba23fb3a4786b47adffb33978238ab3ca056b82dea09d522dbeed25b8d",
-    "tests/test_advanced_controller.py": "4c5bcefc3dc8cc35866b6e5624c43e26823b5597a9742f32749df949737418d3",
+    "tests/test_advanced_controller.py": "7e964628a710b71fc8411b15be0d40e57e1a605583bed4724d729e1a72cae1bc",
+    "tests/test_checkpoint_transport.py": "46240f6f6316ce3c96f622c7cc1577d0412dcbe73b61ad3a80c5c29a48266ce7",
     "tests/test_parametric.py": "4ede0f45233b92f3914d3a5c9736c7b62672cb97b922979862c73d06d03e3f4b",
     "tests/test_path_comparison.py": "bf872db9b86f78c6e8cad992748bc607d35e1a7e8cad98fa8677f9983ea81658",
     "tests/test_physics.py": "534bf38218a8d7fe91439fcbe22d32027b57f02d0f96c6be3e4779ca531af21e",

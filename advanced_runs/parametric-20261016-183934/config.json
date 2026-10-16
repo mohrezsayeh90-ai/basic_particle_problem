@@ -1,6 +1,6 @@
 {
   "out": "/kaggle/working/advanced_output",
-  "resume": null,
+  "resume": "/tmp/previous_checkpoint.pt",
   "total_steps": 60000,
   "chunk_steps": 1000,
   "snapshot_every": 1000,
