@@ -31,6 +31,7 @@ python compare_trajectories.py --run results/final_study --out results/path_comp
 
 ## نمودارهای مقایسه برای مقاله
 
+- [Validation total: شکل ترکیبی میدان و چهار مسیر منتخب](results/final_study/trajectory_comparison/validation_total/validation_total.png)، [PDF برداری](results/final_study/trajectory_comparison/validation_total/validation_total.pdf) و [کپشن و دامنهٔ انتخاب](results/final_study/trajectory_comparison/validation_total/CAPTION.md). سه مسیر با پوشش ۹۶٫۲، ۸۷٫۴ و ۷۳٫۶ درصد فقط از این شکل حذف شده‌اند؛ این شکل منتخب جایگزین ارزیابی کامل هفت مسیر نیست. بازتولید: `python make_validation_total.py --out results/validation_total_new`.
 - [شکل اصلی چهارپنلی](results/final_study/trajectory_comparison/paper_figures/Fig01_trajectory_comparison.png)
 - [مجموعهٔ هفت شکل، PDF برداری](results/final_study/trajectory_comparison/paper_figures/Particle_Trajectory_Figures.pdf)
 - [همهٔ قالب‌ها، داده‌ها و کپشن‌ها](downloads/particle_trajectory_paper_figures.zip)

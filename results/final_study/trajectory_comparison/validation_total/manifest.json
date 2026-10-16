@@ -1,0 +1,30 @@
+{
+  "title": "Validation total",
+  "trajectory_scope": "Four explicitly selected baseline seeds out of seven",
+  "selected_eta": [
+    -0.65,
+    -0.43333333333333335,
+    -0.21666666666666667,
+    0.0
+  ],
+  "excluded_eta": [
+    0.21666666666666667,
+    0.43333333333333346,
+    0.65
+  ],
+  "field_parity_samples": 1600,
+  "profile_samples": 300,
+  "raster_dpi": 600,
+  "source_sha256": {
+    "data/field_validation.csv": "30bd935ffa8dea804dcda9551181b83416806756260a710820bc3c604da2169f",
+    "data/fem_reference.npz": "04c200dc62783c3d36c5924b090fa452fa7b28530f39a97271f0647e08d3aec4",
+    "data/trajectories.csv": "8660fd76b2829a4967f337d0bcd6bf6de264543bbb4ee7582dcf3f1e243675b2",
+    "models/flow_seed_42.pt": "dc75f2a36e1aa89cdfab5fb3161a3d88ea7607193b70d96772241abd9fd4e813",
+    "config.json": "c6d29f647121768dd8ffdfdfe7edc71f889f4a5dda4a602af820ef040e4f7c88",
+    "trajectory_comparison/data/pairs.csv": "44469b1a79f373ebb3a6fb640badf2c3289aafe61e3340e12802e5020d8263f3"
+  },
+  "selection_is_not_full_trajectory_validation": true,
+  "pressure_gauge": "Separate mean subtraction",
+  "motion_markers": "Three equal-physical-time snapshots on each PINN path",
+  "numerical_simulations_modified": false
+}
