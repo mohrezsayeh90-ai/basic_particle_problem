@@ -15,16 +15,16 @@
     "reference_nn": 14,
     "seed": 42
   },
-  "completed_steps": 16000,
+  "completed_steps": 17000,
   "source_fingerprint": "81397b2baf58d4d9d30659e68d2b76ac5406e03607fb92e72511701051f7a5cd",
   "kaggle_version": 8,
   "submitted_utc": "2026-10-16T19:20:35.065993+00:00",
   "url": "https://www.kaggle.com/code/mohrezsayeh/particle-parametric-20261016-183934",
   "gpu": "Tesla T4",
-  "updated_utc": "2026-10-16T19:39:18.499009+00:00",
+  "updated_utc": "2026-10-16T19:41:13.256590+00:00",
   "legacy_source_fingerprint": "516fdfed766381d98def24a8bc11425850bcef62d3c623d551e3eb9c474a3f0c",
   "mode": "continuous",
   "live_dataset": "mohrezsayeh/particle-live-20261016-183934",
-  "dataset_version": 10,
+  "dataset_version": 11,
   "previous_source_fingerprint": "0df186e9539f4240e00481d32c176097550caef0d0678dc5b02160ea1d274cdd"
 }
