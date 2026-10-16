@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+# Keep the coordinator alive so completed GPU chunks continue promptly.
+set -euo pipefail
+cd "$(dirname "$0")/.."
+particle_deadline=$((SECONDS + ${PARTICLE_WATCH_SECONDS:-19800}))
+git config user.name 'github-actions[bot]'
+git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+publish_progress() {
+  git add advanced/run_state.json advanced_runs/
+  if ! git diff --cached --quiet; then
+    git commit -m 'Save parametric Kaggle training progress'
+    for attempt in 1 2 3; do
+      if git push origin HEAD:main; then return 0; fi
+      git pull --rebase origin main
+    done
+    return 1
+  fi
+}
+trap publish_progress EXIT
+if [ "${START_NEW:-false}" = "true" ]; then
+  python advanced/controller.py --start
+  publish_progress
+fi
+while [ "$SECONDS" -lt "$particle_deadline" ]; do
+  # The public checkpoint must be committed before its immutable URL is used.
+  python advanced/controller.py --collect-only
+  publish_progress
+  python advanced/controller.py
+  publish_progress
+  particle_status=$(python -c "import json; print(json.load(open('advanced/run_state.json'))['status'])")
+  if [ "$particle_status" != 'running' ] && [ "$particle_status" != 'ready' ]; then
+    break
+  fi
+  sleep 30
+done

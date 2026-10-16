@@ -12,9 +12,10 @@ import os
 from pathlib import Path
 import re
 import shutil
+import subprocess
 import sys
 sys.path.insert(0,str(Path(__file__).resolve().parent))
-from build_notebook import build
+from build_notebook import build,source_payload
 
 
 def write_state(file,state):
@@ -22,8 +23,30 @@ def write_state(file,state):
     temp=file.with_suffix('.tmp');temp.write_text(json.dumps(state,indent=2)+'\n');temp.replace(file)
 
 
+def checkpoint_url(repo,resume):
+    relative=str(resume.relative_to(repo))
+    if subprocess.check_output(['git','status','--porcelain','--',relative],cwd=repo,text=True).strip():
+        raise RuntimeError('Commit and push the collected checkpoint before submitting its continuation.')
+    commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=repo,text=True).strip()
+    subprocess.run(['git','cat-file','-e',commit+':'+relative],cwd=repo,check=True)
+    repository=os.environ.get('GITHUB_REPOSITORY','mohrezsayeh90-ai/basic_particle_problem')
+    return f'https://raw.githubusercontent.com/{repository}/{commit}/{relative}'
+
+
+def migrate_source_guard(repo,output,state,file):
+    _,current,files=source_payload(repo)
+    if state['source_fingerprint']==current: return
+    previous=json.loads((output/'source_manifest.json').read_text())
+    numerical=lambda values:{n:v for n,v in values.items() if not n.startswith(('advanced/','tests/'))}
+    if previous['fingerprint']!=state['source_fingerprint'] or numerical(previous['files'])!=numerical(files):
+        raise RuntimeError('Numerical training code changed; refusing an incompatible continuation.')
+    state['legacy_source_fingerprint']=state['source_fingerprint'];state['source_fingerprint']=current
+    write_state(file,state)
+
+
 def main():
-    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--start',action='store_true');args=parser.parse_args()
+    parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--start',action='store_true')
+    parser.add_argument('--collect-only',action='store_true');args=parser.parse_args()
     repo=Path(__file__).resolve().parents[1];file=repo/'advanced/run_state.json'
     state=json.loads(file.read_text()) if file.exists() else {'status':'idle'}
     if not args.start and state['status'] not in ['running','ready']:
@@ -76,10 +99,14 @@ def main():
         if (download/'advanced_training.log').exists(): shutil.copy2(download/'advanced_training.log',output/'latest_training.log')
         state.update(completed_steps=done['step'],status='complete' if done['training_complete'] else 'ready',gpu=done['gpu'],updated_utc=done['timestamp_utc'])
         write_state(file,state)
+    if args.collect_only: return
     if state['status']=='ready':
         folder=temp/('submit_'+str(state['completed_steps']));folder.mkdir(exist_ok=True)
         resume=output/'checkpoint.pt' if state['completed_steps'] else None
-        fingerprint=build(repo,folder,owner,state['kernel'].split('/')[1],state['settings'],resume,state.get('source_fingerprint'))
+        url=None
+        if resume:
+            migrate_source_guard(repo,output,state,file);url=checkpoint_url(repo,resume)
+        fingerprint=build(repo,folder,owner,state['kernel'].split('/')[1],state['settings'],resume,state.get('source_fingerprint'),resume_url=url)
         result=api.kernels_push(str(folder),timeout=7200,acc='NvidiaTeslaT4')
         if result is None or result.error: raise RuntimeError('Kaggle rejected the chunk submission')
         state.update(status='running',source_fingerprint=fingerprint,kaggle_version=result.versionNumber,

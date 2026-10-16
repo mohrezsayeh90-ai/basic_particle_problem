@@ -17,22 +17,24 @@ def source_payload(repo):
     with zipfile.ZipFile(blob,'w',zipfile.ZIP_DEFLATED) as z:
         for p in files:
             name=str(p.relative_to(repo));b=p.read_bytes();z.writestr(name,b);hashes[name]=hashlib.sha256(b).hexdigest()
-    fingerprint=hashlib.sha256(json.dumps(hashes,sort_keys=True).encode()).hexdigest()
+    # Transport/controller edits must not invalidate unchanged numerical weights.
+    training={n:v for n,v in hashes.items() if not n.startswith(('advanced/','tests/'))}
+    fingerprint=hashlib.sha256(json.dumps(training,sort_keys=True).encode()).hexdigest()
     return blob.getvalue(),fingerprint,hashes
 
 
-def build(repo,out,owner,slug,settings,resume=None,expected_source=None):
+def build(repo,out,owner,slug,settings,resume=None,expected_source=None,resume_url=None):
     out=Path(out);out.mkdir(parents=True,exist_ok=True)
     payload,fingerprint,hashes=source_payload(repo)
     if expected_source and fingerprint!=expected_source: raise RuntimeError('Training source changed; start a new run instead of silently changing a resumed study.')
     encoded=base64.b64encode(payload).decode();digest=hashlib.sha256(payload).hexdigest()
-    checkpoint=base64.b64encode(zlib.compress(resume.read_bytes())).decode() if resume else ''
+    if resume and not resume_url: raise RuntimeError('A committed checkpoint URL is required; embedding exceeds Kaggle source limits.')
     checkpoint_hash=hashlib.sha256(resume.read_bytes()).hexdigest() if resume else None
     def cell(kind,text,index):
         c=dict(cell_type=kind,id=f'advanced-{index}',metadata={},source=text.splitlines(True))
         if kind=='code': c.update(execution_count=None,outputs=[])
         return c
-    setup=f'''import base64,hashlib,io,json,os,pathlib,subprocess,sys,zipfile,zlib
+    setup=f'''import base64,hashlib,io,json,os,pathlib,subprocess,sys,urllib.request,zipfile
 ROOT=pathlib.Path('/tmp/particle_parametric_source')
 ROOT.mkdir(parents=True,exist_ok=True)
 payload=base64.b64decode({encoded!r})
@@ -49,9 +51,10 @@ if not torch.cuda.is_available(): raise RuntimeError('GPU unavailable; CPU fallb
 print('GPU:',torch.cuda.get_device_name(0),'CUDA:',torch.version.cuda,flush=True)
 subprocess.run([sys.executable,'-m','pip','install','-r',str(ROOT/'requirements.txt')],check=True)
 RESUME=None
-checkpoint={checkpoint!r}
-if checkpoint:
-    data=zlib.decompress(base64.b64decode(checkpoint))
+checkpoint_url={resume_url!r}
+if checkpoint_url:
+    with urllib.request.urlopen(checkpoint_url,timeout=120) as response:
+        data=response.read()
     assert hashlib.sha256(data).hexdigest()=={checkpoint_hash!r}
     RESUME=pathlib.Path('/tmp/previous_checkpoint.pt');RESUME.write_bytes(data)
 '''
@@ -74,7 +77,9 @@ if completed.returncode: raise RuntimeError('Pipeline failed; inspect output fil
 '''
     nb=dict(nbformat=4,nbformat_minor=5,metadata={'kernelspec':{'name':'python3','language':'python','display_name':'Python 3'}},
         cells=[cell('markdown','# Global parametric particle PINN\nOne continuous optimizer state, exported every 1,000 steps. All valid parameter combinations are sampled; three anchors are shown. No GitHub token is present in Kaggle.\n',0),cell('code',setup,1),cell('code',run,2)])
-    (out/'advanced.ipynb').write_text(json.dumps(nb,indent=1))
+    serialized=json.dumps(nb,indent=1)
+    if len(serialized.encode())>=950000: raise RuntimeError('Notebook exceeds the safe Kaggle source size budget.')
+    (out/'advanced.ipynb').write_text(serialized)
     meta=dict(id=owner+'/'+slug,title=slug.replace('-',' '),code_file='advanced.ipynb',language='python',kernel_type='notebook',is_private=True,enable_gpu=True,enable_internet=True,dataset_sources=[],competition_sources=[],kernel_sources=[],model_sources=[])
     (out/'kernel-metadata.json').write_text(json.dumps(meta,indent=2))
     return fingerprint

@@ -46,6 +46,8 @@ class ControllerTests(unittest.TestCase):
                                      'kaggle.api.kaggle_api_extended':fake}), \
              patch.object(controller,'__file__',str(root/'advanced/controller.py')), \
              patch.object(controller,'build',return_value='source') as builder, \
+             patch.object(controller,'migrate_source_guard'), \
+             patch.object(controller,'checkpoint_url',return_value='https://example.invalid/checkpoint.pt'), \
              patch.object(sys,'argv',['controller.py']), \
              patch.dict(os.environ,{'KAGGLE_API_TOKEN':'test-placeholder-not-a-real-secret','RUNNER_TEMP':str(root/'tmp')}):
             controller.main()
