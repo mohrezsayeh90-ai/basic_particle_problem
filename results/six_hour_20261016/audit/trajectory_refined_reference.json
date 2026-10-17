@@ -1,0 +1,134 @@
+{
+  "low": [
+    {
+      "particle": 0,
+      "eta": -0.5064490721996412,
+      "rms_over_width": 0.15007255804358596,
+      "common_time_coverage": 0.9604181449649805
+    },
+    {
+      "particle": 1,
+      "eta": -0.4476472331222931,
+      "rms_over_width": 0.11791921623845554,
+      "common_time_coverage": 0.9681547115329082
+    },
+    {
+      "particle": 2,
+      "eta": -0.4146732131551073,
+      "rms_over_width": 0.10549485739035444,
+      "common_time_coverage": 0.9709678374301174
+    },
+    {
+      "particle": 3,
+      "eta": -0.22093451180005452,
+      "rms_over_width": 0.04293892924611006,
+      "common_time_coverage": 0.9896505842006678
+    },
+    {
+      "particle": 4,
+      "eta": 0.018315315310545033,
+      "rms_over_width": 0.06780248762653436,
+      "common_time_coverage": 0.9919828828492651
+    },
+    {
+      "particle": 5,
+      "eta": 0.1039702069751155,
+      "rms_over_width": 0.0889008574487508,
+      "common_time_coverage": 0.9861503378557921
+    },
+    {
+      "particle": 6,
+      "eta": 0.5655124273706351,
+      "rms_over_width": 0.2671908091918527,
+      "common_time_coverage": 0.9425922551066472
+    }
+  ],
+  "base": [
+    {
+      "particle": 0,
+      "eta": -0.5064490721996412,
+      "rms_over_width": 0.027904710044848326,
+      "common_time_coverage": 0.9973009268175042
+    },
+    {
+      "particle": 1,
+      "eta": -0.4476472331222931,
+      "rms_over_width": 0.03992163921267543,
+      "common_time_coverage": 0.9979156222558658
+    },
+    {
+      "particle": 2,
+      "eta": -0.4146732131551073,
+      "rms_over_width": 0.04709184397383181,
+      "common_time_coverage": 0.995658220769211
+    },
+    {
+      "particle": 3,
+      "eta": -0.22093451180005452,
+      "rms_over_width": 0.08419595700655362,
+      "common_time_coverage": 0.9853504764471464
+    },
+    {
+      "particle": 4,
+      "eta": 0.018315315310545033,
+      "rms_over_width": 0.11905488407532784,
+      "common_time_coverage": 0.9769925553825409
+    },
+    {
+      "particle": 5,
+      "eta": 0.1039702069751155,
+      "rms_over_width": 0.13156825415214382,
+      "common_time_coverage": 0.9743512961354327
+    },
+    {
+      "particle": 6,
+      "eta": 0.5655124273706351,
+      "rms_over_width": 0.21854499256793086,
+      "common_time_coverage": 0.9599804366607009
+    }
+  ],
+  "high": [
+    {
+      "particle": 0,
+      "eta": -0.5064490721996412,
+      "rms_over_width": 0.0005739256350396144,
+      "common_time_coverage": 0.9990942621685013
+    },
+    {
+      "particle": 1,
+      "eta": -0.4476472331222931,
+      "rms_over_width": 0.0005348327602241558,
+      "common_time_coverage": 0.9991346393296024
+    },
+    {
+      "particle": 2,
+      "eta": -0.4146732131551073,
+      "rms_over_width": 0.00044969936596119035,
+      "common_time_coverage": 0.9992512547568778
+    },
+    {
+      "particle": 3,
+      "eta": -0.22093451180005452,
+      "rms_over_width": 0.0003931649915521373,
+      "common_time_coverage": 0.9992828987640772
+    },
+    {
+      "particle": 4,
+      "eta": 0.018315315310545033,
+      "rms_over_width": 0.0003428299402707784,
+      "common_time_coverage": 0.9992839360686655
+    },
+    {
+      "particle": 5,
+      "eta": 0.1039702069751155,
+      "rms_over_width": 0.00021855932867162342,
+      "common_time_coverage": 0.9994698780588215
+    },
+    {
+      "particle": 6,
+      "eta": 0.5655124273706351,
+      "rms_over_width": 0.00014936711236491348,
+      "common_time_coverage": 0.9993495014599163
+    }
+  ]
+}

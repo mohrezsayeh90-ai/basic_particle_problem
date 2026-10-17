@@ -1,0 +1,191 @@
+[
+  {
+    "case": "low",
+    "particle": 0,
+    "geometric_rms_over_width": 0.01728078552000897,
+    "rms_position_at_same_time_over_width": 0.15007255804358596,
+    "common_time_coverage": 0.9604181449649805,
+    "relative_termination_time_difference": 0.03958185503501957,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "low",
+    "particle": 1,
+    "geometric_rms_over_width": 0.017290429057327153,
+    "rms_position_at_same_time_over_width": 0.11791921623845554,
+    "common_time_coverage": 0.9681547115329082,
+    "relative_termination_time_difference": 0.03184528846709178,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "low",
+    "particle": 2,
+    "geometric_rms_over_width": 0.017796894770623913,
+    "rms_position_at_same_time_over_width": 0.10549485739035444,
+    "common_time_coverage": 0.9709678374301174,
+    "relative_termination_time_difference": 0.029032162569882603,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "low",
+    "particle": 3,
+    "geometric_rms_over_width": 0.018032868676557474,
+    "rms_position_at_same_time_over_width": 0.04293892924611006,
+    "common_time_coverage": 0.9896505842006678,
+    "relative_termination_time_difference": 0.010349415799332193,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "low",
+    "particle": 4,
+    "geometric_rms_over_width": 0.01770150273314384,
+    "rms_position_at_same_time_over_width": 0.06780248762653436,
+    "common_time_coverage": 0.9919828828492651,
+    "relative_termination_time_difference": 0.008081910776229757,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "low",
+    "particle": 5,
+    "geometric_rms_over_width": 0.017593469811155275,
+    "rms_position_at_same_time_over_width": 0.0889008574487508,
+    "common_time_coverage": 0.9861503378557921,
+    "relative_termination_time_difference": 0.01404416914191959,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "low",
+    "particle": 6,
+    "geometric_rms_over_width": 0.01626267596727249,
+    "rms_position_at_same_time_over_width": 0.2671908091918527,
+    "common_time_coverage": 0.9425922551066472,
+    "relative_termination_time_difference": 0.06090411265564404,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "base",
+    "particle": 0,
+    "geometric_rms_over_width": 0.015580445017562469,
+    "rms_position_at_same_time_over_width": 0.027904710044848326,
+    "common_time_coverage": 0.9973009268175042,
+    "relative_termination_time_difference": 0.002699073182495874,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "base",
+    "particle": 1,
+    "geometric_rms_over_width": 0.014936921585371396,
+    "rms_position_at_same_time_over_width": 0.03992163921267543,
+    "common_time_coverage": 0.9979156222558658,
+    "relative_termination_time_difference": 0.002088731449480947,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "base",
+    "particle": 2,
+    "geometric_rms_over_width": 0.014643684485818154,
+    "rms_position_at_same_time_over_width": 0.04709184397383181,
+    "common_time_coverage": 0.995658220769211,
+    "relative_termination_time_difference": 0.004360712481673386,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "base",
+    "particle": 3,
+    "geometric_rms_over_width": 0.013039250395254281,
+    "rms_position_at_same_time_over_width": 0.08419595700655362,
+    "common_time_coverage": 0.9853504764471464,
+    "relative_termination_time_difference": 0.014867322747612733,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "base",
+    "particle": 4,
+    "geometric_rms_over_width": 0.011538108026871942,
+    "rms_position_at_same_time_over_width": 0.11905488407532784,
+    "common_time_coverage": 0.9769925553825409,
+    "relative_termination_time_difference": 0.023549252745790353,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "base",
+    "particle": 5,
+    "geometric_rms_over_width": 0.011108750949386167,
+    "rms_position_at_same_time_over_width": 0.13156825415214382,
+    "common_time_coverage": 0.9743512961354327,
+    "relative_termination_time_difference": 0.026323877195317206,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "base",
+    "particle": 6,
+    "geometric_rms_over_width": 0.008660646204569472,
+    "rms_position_at_same_time_over_width": 0.21854499256793086,
+    "common_time_coverage": 0.9599804366607009,
+    "relative_termination_time_difference": 0.041687894680966016,
+    "reference_outcome": "exited"
+  },
+  {
+    "case": "high",
+    "particle": 0,
+    "geometric_rms_over_width": 0.0002728355656945898,
+    "rms_position_at_same_time_over_width": 0.0005739256350396144,
+    "common_time_coverage": 0.9990942621685013,
+    "relative_termination_time_difference": 0.0009057378314986904,
+    "reference_outcome": "stuck"
+  },
+  {
+    "case": "high",
+    "particle": 1,
+    "geometric_rms_over_width": 0.00023857814718645725,
+    "rms_position_at_same_time_over_width": 0.0005348327602241558,
+    "common_time_coverage": 0.9991346393296024,
+    "relative_termination_time_difference": 0.0008653606703975924,
+    "reference_outcome": "stuck"
+  },
+  {
+    "case": "high",
+    "particle": 2,
+    "geometric_rms_over_width": 0.00022739632585120956,
+    "rms_position_at_same_time_over_width": 0.00044969936596119035,
+    "common_time_coverage": 0.9992512547568778,
+    "relative_termination_time_difference": 0.0007487452431222193,
+    "reference_outcome": "stuck"
+  },
+  {
+    "case": "high",
+    "particle": 3,
+    "geometric_rms_over_width": 0.0001657768368698877,
+    "rms_position_at_same_time_over_width": 0.0003931649915521373,
+    "common_time_coverage": 0.9992828987640772,
+    "relative_termination_time_difference": 0.0007171012359227802,
+    "reference_outcome": "stuck"
+  },
+  {
+    "case": "high",
+    "particle": 4,
+    "geometric_rms_over_width": 0.0001246173590535573,
+    "rms_position_at_same_time_over_width": 0.0003428299402707784,
+    "common_time_coverage": 0.9992839360686655,
+    "relative_termination_time_difference": 0.0007160639313345429,
+    "reference_outcome": "stuck"
+  },
+  {
+    "case": "high",
+    "particle": 5,
+    "geometric_rms_over_width": 0.00011276203685585537,
+    "rms_position_at_same_time_over_width": 0.00021855932867162342,
+    "common_time_coverage": 0.9994698780588215,
+    "relative_termination_time_difference": 0.0005301219411785018,
+    "reference_outcome": "stuck"
+  },
+  {
+    "case": "high",
+    "particle": 6,
+    "geometric_rms_over_width": 6.407924218342636e-05,
+    "rms_position_at_same_time_over_width": 0.00014936711236491348,
+    "common_time_coverage": 0.9993495014599163,
+    "relative_termination_time_difference": 0.0006504985400836941,
+    "reference_outcome": "stuck"
+  }
+]

@@ -1,0 +1,41 @@
+{
+  "out": "/kaggle/working/advanced_output",
+  "hours": 6.0,
+  "device": "cuda",
+  "samples": 2048,
+  "width": 128,
+  "depth": 6,
+  "seed": 42,
+  "continuity_weight": 20.0,
+  "reference_ns": 64,
+  "reference_nn": 14,
+  "particles": 7,
+  "no_animation": false,
+  "parameters": {
+    "rin": 0.2,
+    "rout": 0.5,
+    "re": 1.0,
+    "diameter": 0.025,
+    "density_ratio": 1000.0
+  },
+  "parameter_factors": [
+    0.1,
+    10
+  ],
+  "start_from": "random initialization",
+  "sampling": "Full valid log-uniform domain from the first update; no curriculum",
+  "independent_flow_inputs": [
+    "x",
+    "y",
+    "rin",
+    "rout",
+    "re"
+  ],
+  "particle_inputs": [
+    "diameter",
+    "density_ratio"
+  ],
+  "coupling": "One-way Schiller-Naumann drag; diameter and density do not condition the fluid network",
+  "optimizer": "AdamW; wall-time cosine 5e-4 to 1e-5; 5-minute warmup",
+  "exports": "Final only; no dataset publication"
+}

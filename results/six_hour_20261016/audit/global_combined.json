@@ -1,0 +1,50 @@
+[
+  {
+    "index": 0,
+    "velocity_error": 0.012525216203099047,
+    "pressure_error": 0.00774960080008136,
+    "reference": "Spline 80x18"
+  },
+  {
+    "index": 1,
+    "velocity_error": 0.008607535364591256,
+    "pressure_error": 0.008039455121881386,
+    "reference": "Spline 80x18"
+  },
+  {
+    "index": 2,
+    "velocity_error": 0.026232528437371765,
+    "pressure_error": 0.01550665369931226,
+    "reference": "Spline 80x18"
+  },
+  {
+    "index": 3,
+    "velocity_error": 0.10921651627155418,
+    "pressure_error": 0.1322069817076825,
+    "reference": "Exact circle 128x30"
+  },
+  {
+    "index": 4,
+    "velocity_error": 0.03314513177190468,
+    "pressure_error": 0.02034863669557453,
+    "reference": "Spline 80x18"
+  },
+  {
+    "index": 5,
+    "velocity_error": 0.04356307488552502,
+    "pressure_error": 0.030485301555701377,
+    "reference": "Spline 80x18"
+  },
+  {
+    "index": 6,
+    "velocity_error": 0.07812291653808437,
+    "pressure_error": 0.08279221102789722,
+    "reference": "Exact circle 128x30"
+  },
+  {
+    "index": 7,
+    "velocity_error": 0.010713110759086942,
+    "pressure_error": 0.006504906854876824,
+    "reference": "Spline 80x18"
+  }
+]

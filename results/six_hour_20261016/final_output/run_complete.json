@@ -1,0 +1,11 @@
+{
+  "step": 202777,
+  "selected_step": 192000,
+  "training_seconds": 21600.001992651,
+  "requested_training_seconds": 21600.0,
+  "total_seconds": 21676.300100378,
+  "failures": 0,
+  "gpu": "Tesla T4",
+  "stop_reason": "time_budget",
+  "exports": "Final only"
+}

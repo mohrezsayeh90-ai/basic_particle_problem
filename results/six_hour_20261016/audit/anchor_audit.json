@@ -1,0 +1,95 @@
+[
+  {
+    "case": "low",
+    "parameters": {
+      "rin": 0.020000000000000004,
+      "rout": 0.05,
+      "re": 0.1,
+      "diameter": 0.0025000000000000005,
+      "density_ratio": 100.0
+    },
+    "coarse_solver_ok": true,
+    "fine_solver_ok": true,
+    "velocity_error_coarse": 0.022119403946377986,
+    "velocity_error_fine": 0.021625832486905444,
+    "pressure_error_fine": 0.008286051783755776,
+    "fem_mesh_change_velocity": 0.0015699017823100154,
+    "fem_mesh_change_pressure": 0.0011588396264129623,
+    "continuity_scaled_rms": 0.01839524134993553,
+    "momentum_scaled_rms": [
+      0.08470920473337173,
+      0.11649136990308762
+    ],
+    "section_flux_ratio": [
+      0.9807164708327036,
+      1.0019580585794756,
+      1.0047602212289348,
+      1.0054132426012075,
+      0.976951832533814
+    ],
+    "stokes_response_time": 3.4722222222222237e-06,
+    "stokes_number_radius": 9.920634920634923e-05
+  },
+  {
+    "case": "base",
+    "parameters": {
+      "rin": 0.2,
+      "rout": 0.5,
+      "re": 1.0,
+      "diameter": 0.025,
+      "density_ratio": 1000.0
+    },
+    "coarse_solver_ok": true,
+    "fine_solver_ok": true,
+    "velocity_error_coarse": 0.024305096691278803,
+    "velocity_error_fine": 0.023771747413457354,
+    "pressure_error_fine": 0.010024646732323013,
+    "fem_mesh_change_velocity": 0.001772723561694823,
+    "fem_mesh_change_pressure": 0.0011410163416439374,
+    "continuity_scaled_rms": 0.021749768406152725,
+    "momentum_scaled_rms": [
+      0.06533900648355484,
+      0.10067359358072281
+    ],
+    "section_flux_ratio": [
+      0.9803988726634998,
+      1.001143027242506,
+      1.0033038205874618,
+      0.9998924418759998,
+      0.976842023403151
+    ],
+    "stokes_response_time": 0.03472222222222223,
+    "stokes_number_radius": 0.09920634920634923
+  },
+  {
+    "case": "high",
+    "parameters": {
+      "rin": 2.0,
+      "rout": 5.0,
+      "re": 10.0,
+      "diameter": 0.25,
+      "density_ratio": 10000.0
+    },
+    "coarse_solver_ok": true,
+    "fine_solver_ok": true,
+    "velocity_error_coarse": 0.02667168109820034,
+    "velocity_error_fine": 0.026192353503191265,
+    "pressure_error_fine": 0.02604807307692197,
+    "fem_mesh_change_velocity": 0.0015647712560987873,
+    "fem_mesh_change_pressure": 0.0014354613167677644,
+    "continuity_scaled_rms": 0.02213812619447708,
+    "momentum_scaled_rms": [
+      0.11459938436746597,
+      0.1352226734161377
+    ],
+    "section_flux_ratio": [
+      0.9768036256427877,
+      0.994743675677455,
+      1.0035932043974753,
+      1.0208791312325047,
+      0.980209504821687
+    ],
+    "stokes_response_time": 347.22222222222223,
+    "stokes_number_radius": 99.2063492063492
+  }
+]

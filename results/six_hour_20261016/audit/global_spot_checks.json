@@ -1,0 +1,116 @@
+[
+  {
+    "index": 0,
+    "parameters": {
+      "rin": 1.8055173203946016,
+      "rout": 2.202665357802452,
+      "re": 0.5588779799894665,
+      "diameter": 0.01506710915082084,
+      "density_ratio": 526.7965948039973
+    },
+    "h_over_R": 0.0990843155847613,
+    "re_times_radius": 1.1200425193097696,
+    "reference_ok": true,
+    "velocity_error": 0.012525216203099047,
+    "pressure_error": 0.00774960080008136
+  },
+  {
+    "index": 1,
+    "parameters": {
+      "rin": 0.0467156634151868,
+      "rout": 0.07083508944893974,
+      "re": 0.32087821276773393,
+      "diameter": 0.009542496118044013,
+      "density_ratio": 2603.8327593363197
+    },
+    "h_over_R": 0.20518308429408252,
+    "re_times_radius": 0.01885973774427125,
+    "reference_ok": true,
+    "velocity_error": 0.008607535364591256,
+    "pressure_error": 0.008039455121881386
+  },
+  {
+    "index": 2,
+    "parameters": {
+      "rin": 0.04448588501625022,
+      "rout": 0.1406815259334555,
+      "re": 0.21088914031642905,
+      "diameter": 0.019370763162186916,
+      "density_ratio": 991.2077441089457
+    },
+    "h_over_R": 0.5195063236226458,
+    "re_times_radius": 0.019524898054901187,
+    "reference_ok": true,
+    "velocity_error": 0.026232528437371765,
+    "pressure_error": 0.01550665369931226
+  },
+  {
+    "index": 3,
+    "parameters": {
+      "rin": 0.08164609509267902,
+      "rout": 0.9400088366933229,
+      "re": 1.2268847750890832,
+      "diameter": 0.005766771479497229,
+      "density_ratio": 127.42254364091077
+    },
+    "error": "ValueError",
+    "message": "Channel is too wide for this centerline curvature; reduce width."
+  },
+  {
+    "index": 4,
+    "parameters": {
+      "rin": 0.22093946471798792,
+      "rout": 0.7451154622053983,
+      "re": 1.1240294063854288,
+      "diameter": 0.003570038062001141,
+      "density_ratio": 128.45409627238018
+    },
+    "h_over_R": 0.5425944041885524,
+    "re_times_radius": 0.5429370730227063,
+    "reference_ok": true,
+    "velocity_error": 0.03314513177190468,
+    "pressure_error": 0.02034863669557453
+  },
+  {
+    "index": 5,
+    "parameters": {
+      "rin": 0.9513478015055651,
+      "rout": 4.221647379464824,
+      "re": 1.6940305246134124,
+      "diameter": 0.10013058641151658,
+      "density_ratio": 224.6384404774541
+    },
+    "h_over_R": 0.6321868595566315,
+    "re_times_radius": 4.3816058701209615,
+    "reference_ok": true,
+    "velocity_error": 0.04356307488552502,
+    "pressure_error": 0.030485301555701377
+  },
+  {
+    "index": 6,
+    "parameters": {
+      "rin": 0.23801166434297186,
+      "rout": 1.8797687095693676,
+      "re": 2.265933615471954,
+      "diameter": 0.00458155663451749,
+      "density_ratio": 127.25942113884916
+    },
+    "error": "ValueError",
+    "message": "Channel is too wide for this centerline curvature; reduce width."
+  },
+  {
+    "index": 7,
+    "parameters": {
+      "rin": 1.5709526546488661,
+      "rout": 2.78917052732592,
+      "re": 4.112007267956446,
+      "diameter": 0.03277855016322117,
+      "density_ratio": 6886.679483217137
+    },
+    "h_over_R": 0.2793998751487794,
+    "re_times_radius": 8.964429106732853,
+    "reference_ok": true,
+    "velocity_error": 0.010713110759086942,
+    "pressure_error": 0.006504906854876824
+  }
+]

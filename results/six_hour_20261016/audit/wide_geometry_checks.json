@@ -1,0 +1,36 @@
+[
+  {
+    "index": 3,
+    "parameters": {
+      "rin": 0.08164609509267902,
+      "rout": 0.9400088366933229,
+      "re": 1.2268847750890832,
+      "diameter": 0.005766771479497229,
+      "density_ratio": 127.42254364091077
+    },
+    "reference_geometry": "Exact piecewise-circular S channel; no spline curvature overshoot",
+    "coarse_ok": true,
+    "fine_ok": true,
+    "velocity_error": 0.10921651627155418,
+    "pressure_error": 0.1322069817076825,
+    "fem_mesh_change_velocity": 0.0004729096848328536,
+    "fem_mesh_change_pressure": 0.001939974850556682
+  },
+  {
+    "index": 6,
+    "parameters": {
+      "rin": 0.23801166434297186,
+      "rout": 1.8797687095693676,
+      "re": 2.265933615471954,
+      "diameter": 0.00458155663451749,
+      "density_ratio": 127.25942113884916
+    },
+    "reference_geometry": "Exact piecewise-circular S channel; no spline curvature overshoot",
+    "coarse_ok": true,
+    "fine_ok": true,
+    "velocity_error": 0.07812291653808437,
+    "pressure_error": 0.08279221102789722,
+    "fem_mesh_change_velocity": 0.0003512234480659055,
+    "fem_mesh_change_pressure": 0.0010082497561274637
+  }
+]

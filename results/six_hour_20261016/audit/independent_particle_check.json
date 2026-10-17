@@ -1,0 +1,86 @@
+[
+  {
+    "particle": 0,
+    "solver_success": true,
+    "contact_detected": true,
+    "independent_end_time": 5.438938797825536,
+    "saved_end_time": 5.438938825689621,
+    "relative_end_time_difference": 5.123073874720201e-09,
+    "max_path_difference_over_width": 2.8532376602197544e-07,
+    "horizontal_displacement_over_width": 0.005684685256752364,
+    "ballistic_contact_time": 5.422567951027428,
+    "ballistic_relative_time_error": 0.0030099339975387116
+  },
+  {
+    "particle": 1,
+    "solver_success": true,
+    "contact_detected": true,
+    "independent_end_time": 4.979769660104483,
+    "saved_end_time": 4.979769674746004,
+    "relative_end_time_difference": 2.9402004277217786e-09,
+    "max_path_difference_over_width": 2.375300513508614e-07,
+    "horizontal_displacement_over_width": 0.00464664884653417,
+    "ballistic_contact_time": 4.965339287570066,
+    "ballistic_relative_time_error": 0.002897799199434198
+  },
+  {
+    "particle": 2,
+    "solver_success": true,
+    "contact_detected": true,
+    "independent_end_time": 4.76521798015423,
+    "saved_end_time": 4.765217997616014,
+    "relative_end_time_difference": 3.664425025562011e-09,
+    "max_path_difference_over_width": 2.28655926226013e-07,
+    "horizontal_displacement_over_width": 0.00418687164747263,
+    "ballistic_contact_time": 4.751713048929805,
+    "ballistic_relative_time_error": 0.0028340636841103686
+  },
+  {
+    "particle": 3,
+    "solver_success": true,
+    "contact_detected": true,
+    "independent_end_time": 3.904479882804613,
+    "saved_end_time": 3.904479871250733,
+    "relative_end_time_difference": 2.9591341171185367e-09,
+    "max_path_difference_over_width": 1.8336350009467736e-07,
+    "horizontal_displacement_over_width": 0.00248074443019027,
+    "ballistic_contact_time": 3.894719314247603,
+    "ballistic_relative_time_error": 0.0024998383523489507
+  },
+  {
+    "particle": 4,
+    "solver_success": true,
+    "contact_detected": true,
+    "independent_end_time": 3.3732747753266974,
+    "saved_end_time": 3.3732747873162996,
+    "relative_end_time_difference": 3.554291600447943e-09,
+    "max_path_difference_over_width": 1.3548545859465812e-07,
+    "horizontal_displacement_over_width": 0.0014627612683991754,
+    "ballistic_contact_time": 3.365808554044246,
+    "ballistic_relative_time_error": 0.002213345125947634
+  },
+  {
+    "particle": 5,
+    "solver_success": true,
+    "contact_detected": true,
+    "independent_end_time": 3.266848332285236,
+    "saved_end_time": 3.266848330280994,
+    "relative_end_time_difference": 6.135093832811075e-10,
+    "max_path_difference_over_width": 1.2825102504851105e-07,
+    "horizontal_displacement_over_width": 0.0012278618973954973,
+    "ballistic_contact_time": 3.2598521369123916,
+    "ballistic_relative_time_error": 0.0021415733640595953
+  },
+  {
+    "particle": 6,
+    "solver_success": true,
+    "contact_detected": true,
+    "independent_end_time": 3.2464382075527864,
+    "saved_end_time": 3.246438209546066,
+    "relative_end_time_difference": 6.139897438462706e-10,
+    "max_path_difference_over_width": 7.159869074298818e-08,
+    "horizontal_displacement_over_width": 0.00043458884949928073,
+    "ballistic_contact_time": 3.2400317535841654,
+    "ballistic_relative_time_error": 0.001973379303421374
+  }
+]

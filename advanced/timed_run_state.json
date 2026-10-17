@@ -1,5 +1,5 @@
 {
-  "status": "running",
+  "status": "complete",
   "kernel": "mohrezsayeh/particle-six-hour-20261016-194911",
   "url": "https://www.kaggle.com/code/mohrezsayeh/particle-six-hour-20261016-194911",
   "hours": 6,
@@ -19,5 +19,11 @@
   "submission_folder": "/workspace/kaggle_particle/particle-six-hour-20261016-194911",
   "gpu_timeout_seconds": 25200,
   "version": 1,
-  "submitted_utc": "2026-10-16T19:49:14.088207+00:00"
+  "submitted_utc": "2026-10-16T19:49:14.088207+00:00",
+  "final_steps": 202777,
+  "selected_step": 192000,
+  "training_seconds": 21600.001992651,
+  "execution_failures": 0,
+  "results_directory": "results/six_hour_20261016",
+  "audit_directory": "results/six_hour_20261016/audit"
 }
